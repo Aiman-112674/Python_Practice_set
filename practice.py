@@ -847,4 +847,78 @@ student = {
 #     choice = input("Do you want to calculate the Salary of another employee: (yes,no)  ")
 #     if choice == "no":
 #         break
+#++++++++++++
+# While loop Practice
+#++++++++++++
 
+#Infinite loop 
+# while True:
+#     print("Hello World")
+
+# This is called an Infinite Loop 
+
+# Practice
+#print number from 1 to 100
+# i = 1
+# while i<=100:
+#     print(i)
+#     i+=1
+
+#print number from 100 to 1
+
+# i = 100 
+# while i>=1:
+#     print(i)
+#     i-=1
+# Traverse a list 
+# nums =  [1,2,3,4,14,17,23,28,81]
+# i = 0 
+# while i < len(nums):
+#     print(nums[i])
+#     print(nums)
+#     i+=1
+
+# Search an element in list 
+
+# nums = [1,4,9,34,45,88,67,44]
+# x =44
+# i=0
+# while i <len(nums):
+#     if(nums[i]==x):
+#         print("Found at index" , i)
+#     i+=1
+
+# Break Statement 
+# Break immediately stops the loop 
+
+# i = 1
+# while i<=10:
+#     if(i==4):
+#         break
+#     print(i)
+#     i+=1
+
+# Break example for searching 
+# nums = [1,2,3,4,5,6,7,8]
+
+# x = 5
+# i = 0
+# while i < len(nums):
+#     if(nums[i]==x):
+#         print("Found")
+#         break
+#     i+=1
+    
+# Continue Statement 
+
+#continue statement skips the current iteration
+#and move to the next one 
+#example 
+
+i = 1
+while i<=10:
+    if (i==3):
+        i+=1
+        continue
+    print(i)
+    i+=1
