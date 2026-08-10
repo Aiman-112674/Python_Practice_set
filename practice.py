@@ -789,7 +789,6 @@ student = {
 # year = 1900
 # leap_years = []
 # while year <= 2026:
-
 #     if year% 4 ==0 and year%100==0:
 #         if year% 400 ==0:
 #             print(f"{year} is a leap year")
@@ -805,7 +804,7 @@ student = {
 #         print(f"{year} is not a leap year.")
 #     year+=1
 # print(leap_years)
-
+# Task -- bonus can be decide on the salary base too.
 # employee salary system 
 
 # Employee Salary System (with Bonus , Tax )
@@ -923,14 +922,6 @@ student = {
 #     print(i)
 #     i+=1
 
-#Task 
-# Leap year 
-# year = int(input("Enter the year: "))
-# while year%4==0:
-#     print(f" {year} is Leap year")
-
-
-
 #++++++++++++++++++
 #Function -- is a block of code 
 #that perform a specific task .
@@ -980,30 +971,30 @@ add(5,10,15)
 
 # Example 
 #one way of calling the function with arguments
-# def school(name , city , age):
-#     print(name)
-#     print(city)
-#     print(age)
+def school(name , city , age):
+    print(name)
+    print(city)
+    print(age)
 
-# school("aiman","fsd",22)
-# # 2nd way of calling the fucntion with arguments 
-# def school(name , city , age):
-#     print(name)
-#     print(city)
-#     print(age)
-# fname = "Aiman"
-# fcity = "Fsd"
-# fage = "22"
-# school(fname , fcity,fage)
-# # 3rd way of calling the function with arguments 
-# def school(name , city , age):
-#     print(name)
-#     print(city)
-#     print(age)
-# fname = input("Enter your name : ")
-# fcity= input("Enter your city: ")
-# fage = input("Enter your age: ")
-# school(fname,fcity ,fage)
+school("aiman","fsd",22)
+# 2nd way of calling the fucntion with arguments 
+def school(name , city , age):
+    print(name)
+    print(city)
+    print(age)
+fname = "Aiman"
+fcity = "Fsd"
+fage = "22"
+school(fname , fcity,fage)
+# 3rd way of calling the function with arguments 
+def school(name , city , age):
+    print(name)
+    print(city)
+    print(age)
+fname = input("Enter your name : ")
+fcity= input("Enter your city: ")
+fage = input("Enter your age: ")
+school(fname,fcity ,fage)
 # + example
 def sum(x,y):
     x+=5
@@ -1019,8 +1010,9 @@ sum(2,3)
 def sum(a,b):
     z=a+b 
     return z 
-result = sum(5,10)
-print(sum(5,10))
+
+result = sum(2,10)
+print(sum(2,10))
 print(result)
 # we can call the function by its name calling or the object calling 
 # result here is the object or we can say a variable 
@@ -1060,3 +1052,80 @@ greet()
 ########
 # Functions practice 
 #######
+
+# example 1 
+# simple menu 
+def show_menu():
+    print("1. Add Dishes")
+    print("2. View All")
+    print("3.Exit")
+show_menu()
+
+# example 2
+# simple calculation with no input 
+
+def show_pi():
+    pi = 3.14159
+    print(f"The Value of pi is {pi}")
+show_pi()
+
+# Example 3 
+# Greeet a Specific person 
+
+def greet(name):
+    print(f"Hello , {name} ! Welcome to Python. ")
+greet("Fatima")
+greet("azka")
+
+# example 4
+# Add two numbers 
+def add_num(a,v):
+    total = a+v
+    print(f"The sum of {a} and {v} is {total}")
+add_num(3,4)
+add_num(6,7)
+#example 5 
+# chech the function odd or even 
+
+def check_even_odd(num):
+    if num%2==0:
+        print(f"{num} is Even")
+    else:
+        print(f"{num} is Odd")
+check_even_odd(9)
+check_even_odd(98)
+check_even_odd(79)
+check_even_odd(56)
+
+# example 6 
+# multiple parameters -- mini version of grading logic define above 
+
+def calculate_percenatge(obtained, total):
+    percentage = (obtained/total)*100
+    print(f"Percentage: {percentage}%")
+
+calculate_percenatge(450,500)
+calculate_percenatge(381,500)
+
+#++++++++++++++++++++++++
+# Key difference to notice
+# Without parameters |	With parameters
+# def greet():       |	def greet(name):
+# Always does the    |
+# exact same thing   |	Behavior changes based on what you pass in
+# Called like       |
+# greet()	        |        Called like greet("Aiman")
+#+++++++++++++++++++++++
+# Return value conceptual understanding 
+def sum(x, y):
+    x += 5
+    y += 9
+    z = x + y
+    print(z)
+
+result = sum(2, 3)
+print("Now checking result:", result)
+
+#Running the function (always happens when called, regardless of return)
+#Displaying something (print() — one-time visual output, not reusable)
+#Returning something (return — hands the value back so it can be stored/reused/built upon)
