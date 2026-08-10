@@ -806,9 +806,9 @@ student = {
 #     year+=1
 # print(leap_years)
 
-# # employee salary system 
+# employee salary system 
 
-# # Employee Salary System (with Bonus , Tax )
+# Employee Salary System (with Bonus , Tax )
 # while True:
 #     emp_name = input("Enter your Name: ")
 #     emp_salary = int(input("Enter your Salary: "))
@@ -915,10 +915,148 @@ student = {
 #and move to the next one 
 #example 
 
-i = 1
-while i<=10:
-    if (i==3):
-        i+=1
-        continue
-    print(i)
-    i+=1
+# i = 1
+# while i<=10:
+#     if (i==3):
+#         i+=1
+#         continue
+#     print(i)
+#     i+=1
+
+#Task 
+# Leap year 
+# year = int(input("Enter the year: "))
+# while year%4==0:
+#     print(f" {year} is Leap year")
+
+
+
+#++++++++++++++++++
+#Function -- is a block of code 
+#that perform a specific task .
+#It helps us avoid writing the same code again and again .
+#+++++++++++++
+
+#function syntax
+
+# def funcion_name (parameters):
+#     Code
+#     return value 
+# # function call 
+# function_name(arguments)
+
+#example
+
+def hello():  #function declaration 
+    print("Hello Everyone") #code
+#function calling by its name
+hello()
+#if i wanna print hello evveryone 5 times i just simply call that function 5 times 
+
+hello()
+hello()
+hello()
+hello()
+hello()
+
+def greetings():
+    print("Hey Nice to meet you!")
+greetings()
+
+# Function with Parameters 
+# parameters : are variables , written while creating a function , they can be 2,3,4,5,100..
+
+#example
+
+def add(a,b,c):  # Function declaration with parameters 
+    sum=a+b+c    # save the values of a ,b and c in sum variable
+    print(sum)
+# call the function with the values or can say arguments of the varaible declare in the creation of function -- 5 is the value of a , 10 --b , 15--c.
+add(5,10,15)
+#arugments -- are actual values passed while calling .
+
+# a ,b , c --- parameters
+# 5,10,15 --- Arguments 
+
+# Example 
+#one way of calling the function with arguments
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
+
+# school("aiman","fsd",22)
+# # 2nd way of calling the fucntion with arguments 
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
+# fname = "Aiman"
+# fcity = "Fsd"
+# fage = "22"
+# school(fname , fcity,fage)
+# # 3rd way of calling the function with arguments 
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
+# fname = input("Enter your name : ")
+# fcity= input("Enter your city: ")
+# fage = input("Enter your age: ")
+# school(fname,fcity ,fage)
+# + example
+def sum(x,y):
+    x+=5
+    y+=9
+    z = x+y
+    print(z)
+sum(2,3)
+
+
+# Fucntion with Return Value 
+# Return Value -- sends a value back from the function 
+
+def sum(a,b):
+    z=a+b 
+    return z 
+result = sum(5,10)
+print(sum(5,10))
+print(result)
+# we can call the function by its name calling or the object calling 
+# result here is the object or we can say a variable 
+
+
+#++++++++++++++++++++
+# Built-in Functions --python already provide many  built-in functions 
+#+++++++++++++++++++
+#example 
+print("hello")  #display the output 
+
+len(list) #return the length 
+
+type(name_0)  # return the datatype 
+
+range(0)  #Generate Sequence of numbers.
+
+# example
+
+name ="saim"
+print(name)
+print(len(name))
+print(type(name))
+
+
+#+++++++++++++++++++
+# User Defined Functions -- functions created by the programmer , are called user defined functions
+#+++++++++++++++++++
+
+#example 
+
+def greet():
+    print("Welcome")
+greet()
+
+
+########
+# Functions practice 
+#######
