@@ -1292,6 +1292,42 @@ student = {
 # Functions more practice 
 #+++++++++++
 
+# Square a number 
 
+# def number(n):
+#     square = n*n
+#     return square
+# print(number(3))
 
+# Even or Odd checker 
 
+# def even_odd(n):
+#     if n%2==0:
+#         return(f"{n} is a even number")
+#     else :
+#         return(f"{n} is not a even numebr")
+
+# print(even_odd(88))
+# find the largest number among the 3 numbers 
+
+# def largest_num(x,y,z):
+#     if x>y and x>z:
+#         return(f"{x} is the largest number")
+#     elif y>x and y>z:
+#         return(f"{y} is the largest number")
+#     else:
+#         return(f"{z} is the largest number")
+# print(largest_num(77,66,88))
+
+#Convert  celsius to Fahrenheit 
+
+# def temp_converter(celsius):
+#     fahrenheit = (celsius*9/5)+32
+#     return fahrenheit
+# print(temp_converter(99.2))
+
+# # Calculate simple Intereset
+# def intereset(principal,rate ,time):
+#     simple_intereset = (principal*rate*time)/100
+#     return simple_intereset
+# print(intereset(1000,5,2))
