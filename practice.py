@@ -1161,25 +1161,137 @@ student = {
 
 
 #practice 1 : print list elements 
-nums = [1,2,3,4,5,6]
-def numbers(list):
-    for item in list :
-        print(item)
-numbers(nums)
+# nums = [1,2,3,4,5,6]
+# def numbers(list):
+#     for item in list :
+#         print(item)
+# numbers(nums)
 
-# practice 2
-#find the length of list
+# # practice 2
+# #find the length of list
 
-list_0 = [9,8,7,6,5,4,3,2,1]
-def length(list):
-    print(len(list_0))
-length(list_0)
+# list_0 = [9,8,7,6,5,4,3,2,1]
+# def length(list):
+#     print(len(list_0))
+# length(list_0)
 
-#practice 3 
-#USD to INR converter 
+# #practice 3 
+# #USD to INR converter 
 
-def converter(usd):
-    inr = usd*83
-    print(inr)
-converter(10)
+# def converter(usd):
+#     inr = usd*83
+#     print(inr)
+# converter(10)
+
+
+
+
+#+++++++++++++++++++
+# Recursion -- means a function calling itself again and again . Every Recursive function must have a base case . Base case is the condition of recursive function 
+# with base case recursive function become infinite 
+#+++++++++++++++++++
+
+# print n to 1
+
+# def numbers(n):
+#     if n>5:
+#         return
+#     print(n)
+#     numbers(n+1)
+# numbers(1)
+
+# def numbers_0(n):
+#     if n>100:
+#         print("Number is Greater then 100.")
+#         return
+#     print(n)
+#     numbers_0(n+1)
+# fn = int(input("Enter your number: "))
+# num = fn 
+# numbers_0(fn)
+
+#print a list using recursion
+
+# number = [1,2,3,4,5,6,7,9,10]
+# def print_list(list , index):
+#     if (index==len(list)):
+#         return 
+#     print(list[index])
+#     print_list(list,index+1)
+# print_list(number,0)
+
+# ============================================
+# Difference Between Loop & Recursion
+# ============================================
+
+# Loop
+# Uses for or while.
+
+# Faster.
+
+# Uses less memory.
+
+# Easy for repeated work.
+
+
+# Recursion
+# Function calls itself.
+
+# Easier for tree and divide-and-conquer problems.
+
+# Uses more memory due to function calls.
+
+# ============================================
+# Quick Revision
+# ============================================
+
+# def
+# Used to create a function.
+
+# Function
+# Reusable block of code.
+
+# Parameter
+# Variable in function definition.
+
+# Argument
+# Actual value passed to function.
+
+# return
+# Sends value back.
+
+# Built-in Function
+# Already provided by Python.
+
+# User Defined Function
+# Created by programmer.
+
+# Default Parameter
+# Parameter with default value.
+
+# Recursion
+# Function calling itself.
+
+# Base Case
+# Stops recursion.
+
+# len()
+# Returns length.
+
+# range()
+# Generates sequence.
+
+# print()
+# Displays output.
+
+# type()
+# Returns data type.
+
+
+#+++++++++++ 
+# Functions more practice 
+#+++++++++++
+
+
+
 
