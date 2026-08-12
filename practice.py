@@ -805,6 +805,7 @@ student = {
 #     year+=1
 # print(leap_years)
 # Task -- bonus can be decide on the salary base too.
+
 # employee salary system 
 
 # Employee Salary System (with Bonus , Tax )
@@ -938,194 +939,247 @@ student = {
 
 #example
 
-def hello():  #function declaration 
-    print("Hello Everyone") #code
-#function calling by its name
-hello()
-#if i wanna print hello evveryone 5 times i just simply call that function 5 times 
+# def hello():  #function declaration 
+#     print("Hello Everyone") #code
+# #function calling by its name
+# hello()
+# #if i wanna print hello evveryone 5 times i just simply call that function 5 times 
 
-hello()
-hello()
-hello()
-hello()
-hello()
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
 
-def greetings():
-    print("Hey Nice to meet you!")
-greetings()
+# def greetings():
+#     print("Hey Nice to meet you!")
+# greetings()
 
-# Function with Parameters 
-# parameters : are variables , written while creating a function , they can be 2,3,4,5,100..
+# # Function with Parameters 
+# # parameters : are variables , written while creating a function , they can be 2,3,4,5,100..
 
-#example
+# #example
 
-def add(a,b,c):  # Function declaration with parameters 
-    sum=a+b+c    # save the values of a ,b and c in sum variable
-    print(sum)
-# call the function with the values or can say arguments of the varaible declare in the creation of function -- 5 is the value of a , 10 --b , 15--c.
-add(5,10,15)
-#arugments -- are actual values passed while calling .
+# def add(a,b,c):  # Function declaration with parameters 
+#     sum=a+b+c    # save the values of a ,b and c in sum variable
+#     print(sum)
+# # call the function with the values or can say arguments of the varaible declare in the creation of function -- 5 is the value of a , 10 --b , 15--c.
+# add(5,10,15)
+# #arugments -- are actual values passed while calling .
 
-# a ,b , c --- parameters
-# 5,10,15 --- Arguments 
+# # a ,b , c --- parameters
+# # 5,10,15 --- Arguments 
 
-# Example 
-#one way of calling the function with arguments
-def school(name , city , age):
-    print(name)
-    print(city)
-    print(age)
+# # Example 
+# #one way of calling the function with arguments
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
 
-school("aiman","fsd",22)
-# 2nd way of calling the fucntion with arguments 
-def school(name , city , age):
-    print(name)
-    print(city)
-    print(age)
-fname = "Aiman"
-fcity = "Fsd"
-fage = "22"
-school(fname , fcity,fage)
-# 3rd way of calling the function with arguments 
-def school(name , city , age):
-    print(name)
-    print(city)
-    print(age)
-fname = input("Enter your name : ")
-fcity= input("Enter your city: ")
-fage = input("Enter your age: ")
-school(fname,fcity ,fage)
-# + example
-def sum(x,y):
-    x+=5
-    y+=9
-    z = x+y
-    print(z)
-sum(2,3)
-
-
-# Fucntion with Return Value 
-# Return Value -- sends a value back from the function 
-
-def sum(a,b):
-    z=a+b 
-    return z 
-
-result = sum(2,10)
-print(sum(2,10))
-print(result)
-# we can call the function by its name calling or the object calling 
-# result here is the object or we can say a variable 
+# school("aiman","fsd",22)
+# # 2nd way of calling the fucntion with arguments 
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
+# fname = "Aiman"
+# fcity = "Fsd"
+# fage = "22"
+# school(fname , fcity,fage)
+# # 3rd way of calling the function with arguments 
+# def school(name , city , age):
+#     print(name)
+#     print(city)
+#     print(age)
+# fname = input("Enter your name : ")
+# fcity= input("Enter your city: ")
+# fage = input("Enter your age: ")
+# school(fname,fcity ,fage)
+# # + example
+# def sum(x,y):
+#     x+=5
+#     y+=9
+#     z = x+y
+#     print(z)
+# sum(2,3)
 
 
-#++++++++++++++++++++
-# Built-in Functions --python already provide many  built-in functions 
-#+++++++++++++++++++
-#example 
-print("hello")  #display the output 
+# # Fucntion with Return Value 
+# # Return Value -- sends a value back from the function 
 
-len(list) #return the length 
+# def sum(a,b):
+#     z=a+b 
+#     return z 
 
-type(name_0)  # return the datatype 
-
-range(0)  #Generate Sequence of numbers.
-
-# example
-
-name ="saim"
-print(name)
-print(len(name))
-print(type(name))
+# result = sum(2,10)
+# print(sum(2,10))
+# print(result)
+# # we can call the function by its name calling or the object calling 
+# # result here is the object or we can say a variable 
 
 
-#+++++++++++++++++++
-# User Defined Functions -- functions created by the programmer , are called user defined functions
-#+++++++++++++++++++
+# #++++++++++++++++++++
+# # Built-in Functions --python already provide many  built-in functions 
+# #+++++++++++++++++++
+# #example 
+# print("hello")  #display the output 
 
-#example 
+# len(list) #return the length 
 
-def greet():
-    print("Welcome")
-greet()
+# type(name_0)  # return the datatype 
+
+# range(0)  #Generate Sequence of numbers.
+
+# # example
+
+# name ="saim"
+# print(name)
+# print(len(name))
+# print(type(name))
 
 
-########
-# Functions practice 
-#######
+# #+++++++++++++++++++
+# # User Defined Functions -- functions created by the programmer , are called user defined functions
+# #+++++++++++++++++++
 
-# example 1 
-# simple menu 
-def show_menu():
-    print("1. Add Dishes")
-    print("2. View All")
-    print("3.Exit")
-show_menu()
+# #example 
 
-# example 2
-# simple calculation with no input 
+# def greet():
+#     print("Welcome")
+# greet()
 
-def show_pi():
-    pi = 3.14159
-    print(f"The Value of pi is {pi}")
-show_pi()
 
-# Example 3 
-# Greeet a Specific person 
+# ########
+# # Functions practice 
+# #######
 
-def greet(name):
-    print(f"Hello , {name} ! Welcome to Python. ")
-greet("Fatima")
-greet("azka")
+# # example 1 
+# # simple menu 
+# def show_menu():
+#     print("1. Add Dishes")
+#     print("2. View All")
+#     print("3.Exit")
+# show_menu()
 
-# example 4
-# Add two numbers 
-def add_num(a,v):
-    total = a+v
-    print(f"The sum of {a} and {v} is {total}")
-add_num(3,4)
-add_num(6,7)
-#example 5 
-# chech the function odd or even 
+# # example 2
+# # simple calculation with no input 
 
-def check_even_odd(num):
-    if num%2==0:
-        print(f"{num} is Even")
-    else:
-        print(f"{num} is Odd")
-check_even_odd(9)
-check_even_odd(98)
-check_even_odd(79)
-check_even_odd(56)
+# def show_pi():
+#     pi = 3.14159
+#     print(f"The Value of pi is {pi}")
+# show_pi()
 
-# example 6 
-# multiple parameters -- mini version of grading logic define above 
+# # Example 3 
+# # Greeet a Specific person 
 
-def calculate_percenatge(obtained, total):
-    percentage = (obtained/total)*100
-    print(f"Percentage: {percentage}%")
+# def greet(name):
+#     print(f"Hello , {name} ! Welcome to Python. ")
+# greet("Fatima")
+# greet("azka")
 
-calculate_percenatge(450,500)
-calculate_percenatge(381,500)
+# # example 4
+# # Add two numbers 
+# def add_num(a,v):
+#     total = a+v
+#     print(f"The sum of {a} and {v} is {total}")
+# add_num(3,4)
+# add_num(6,7)
+# #example 5 
+# # chech the function odd or even 
 
-#++++++++++++++++++++++++
-# Key difference to notice
-# Without parameters |	With parameters
-# def greet():       |	def greet(name):
-# Always does the    |
-# exact same thing   |	Behavior changes based on what you pass in
-# Called like       |
-# greet()	        |        Called like greet("Aiman")
-#+++++++++++++++++++++++
-# Return value conceptual understanding 
-def sum(x, y):
-    x += 5
-    y += 9
-    z = x + y
-    print(z)
+# def check_even_odd(num):
+#     if num%2==0:
+#         print(f"{num} is Even")
+#     else:
+#         print(f"{num} is Odd")
+# check_even_odd(9)
+# check_even_odd(98)
+# check_even_odd(79)
+# check_even_odd(56)
 
-result = sum(2, 3)
-print("Now checking result:", result)
+# # example 6 
+# # multiple parameters -- mini version of grading logic define above 
+
+# def calculate_percenatge(obtained, total):
+#     percentage = (obtained/total)*100
+#     print(f"Percentage: {percentage}%")
+
+# calculate_percenatge(450,500)
+# calculate_percenatge(381,500)
+
+# #++++++++++++++++++++++++
+# # Key difference to notice
+# # Without parameters |	With parameters
+# # def greet():       |	def greet(name):
+# # Always does the    |
+# # exact same thing   |	Behavior changes based on what you pass in
+# # Called like       |
+# # greet()	        |        Called like greet("Aiman")
+# #+++++++++++++++++++++++
+# # Return value conceptual understanding 
+# def sum(x, y):
+#     x += 5
+#     y += 9
+#     z = x + y
+#     print(z)
+
+# result = sum(2, 3)
+# print("Now checking result:", result)
 
 #Running the function (always happens when called, regardless of return)
 #Displaying something (print() — one-time visual output, not reusable)
 #Returning something (return — hands the value back so it can be stored/reused/built upon)
+
+
+# Task Bill system 
+
+# def bill_estimation(consumed_units):
+    
+#     if fconsumed_units<=100 :
+#         bill = fconsumed_units*10
+#         print(f"Your bill with 100 units are {bill}")
+#     elif fconsumed_units>=200 or fconsumed_units >=300:
+#          bill = (fconsumed_units*10) + ((fconsumed_units-100)*15)
+#          print(f"Your bill with units 200 or 300 are {bill}")
+
+
+#          return bill
+# fconsumed_units = int(input("Enter your used units: "))
+# net_bill = fconsumed_units
+# bill_estimation(fconsumed_units)
+# print(net_bill)
+
+# Default parameters
+#default parameter have a default value 
+#if no argument is given, 
+#the default value is used.
+# def student(name="aiman"):
+#     print(name)
+# student()   #use default parameter that is declare in function define 
+# student("Ali")  #argument given and its override
+
+
+#practice 1 : print list elements 
+nums = [1,2,3,4,5,6]
+def numbers(list):
+    for item in list :
+        print(item)
+numbers(nums)
+
+# practice 2
+#find the length of list
+
+list_0 = [9,8,7,6,5,4,3,2,1]
+def length(list):
+    print(len(list_0))
+length(list_0)
+
+#practice 3 
+#USD to INR converter 
+
+def converter(usd):
+    inr = usd*83
+    print(inr)
+converter(10)
+
