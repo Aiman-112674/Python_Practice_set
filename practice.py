@@ -1331,3 +1331,294 @@ student = {
 #     simple_intereset = (principal*rate*time)/100
 #     return simple_intereset
 # print(intereset(1000,5,2))
+
+
+#______________________
+# File Handling in python (File I/O)
+# File  I/O means -- input and output operations on files 
+#Python allow us to 
+# #read data from the file 
+# write data into files 
+#Types of files 
+
+#1. Text File 
+# stor data in readable text format 
+# example 
+#.txt 
+#.docs
+#.log
+#.csv 
+#2. Binary Files 
+# store data in binary format 
+# example
+# .png 
+#.jpg
+#.jpeg
+#.mov
+#.pdf
+
+# File operations 
+# Openning a file 
+# syntax 
+
+# f = open("filename " , "mode")
+
+# methods to access the files through path 
+# 1st to aceess the file from the same folder
+ 
+# f = open("./text.txt" , "r")
+
+# 2nd to access the file from the different folder but main folder is the same 
+
+# f = open("./practice/aiman.txt","r")
+
+# 3rd to access the file from the nested folders 
+
+# f = open("./practice/main/smallest.txt" , "r")
+
+# 4th  to access the files from outside the main folder 
+# f = open("../outer.filename" , "mode")
+
+# example 
+f = open("./text.txt" , "r")
+
+# File Modes 
+
+# "r"
+# Read mode
+# Opens existing file.
+
+# "w"
+# Write mode
+# Creates new file if it doesn't exist.
+# Overwrites existing file.
+
+# "a"
+# Append mode
+# Adds data at the end.
+# Creates file if it doesn't exist.
+
+# "x"
+# Create mode
+# Creates a new file.
+# Gives error if file already exists.
+
+# "r+"
+# Read and Write.
+
+# "w+"
+# Write and Read.
+
+# "a+"
+# Append and Read.
+
+
+# Reading a file 
+
+# example 
+
+# f = open("./text.txt" , "r")
+# data =f.read()
+# print(data)
+# f.close  #closing the file is optional  because it close automaticly 
+
+# Read Specific characters 
+
+# f = open("./text.txt","r")
+# data = f.read(3)
+# # data = f.tell()
+# f.seek(4)
+# print(data)
+# f.close()
+
+# ReadLine()
+# reads one line at a time 
+
+# f = open("text.txt","r")
+
+# line1 = f.readline()
+# print(line1)
+# line2 = f.readline()
+# print(line2)
+# f.close()
+
+# Closing the file 
+
+# Always close the file after using it .
+# f.close()
+
+# Wrting a file 
+
+# write()
+
+# f = open("text.txt" , "r+")
+# data = f.read()
+# print("old data" , data)
+# f.write("\tSoftware House")
+# #read updated content
+# f.seek(0)  # move the cursor to the start of the file 
+# data = f.read()
+# print("New Data" , data)
+# f.close()
+
+# Append Mode 
+
+# f = open("text.txt" , "a")
+# f.write("\n institute")
+# f.close()
+
+
+# With Statement 
+
+# with automatically closes the file .
+# No need to call close().
+
+# with open("text.txt" , "r") as f:
+#     data =f.read()
+#     print(data)
+# #file close automatically
+
+
+# Creating a new file 
+
+# example
+
+# f = open("practice.txt","x")
+# f.write("Hello")
+# f.close()
+#creates file if it does not exist .
+
+# Deleting a file 
+#python use os module 
+# import os 
+# os.remove("./practice/aiman.txt")
+
+# Module
+# ============================================
+
+# A Module is a file
+# written by another programmer.
+
+# It contains useful functions.
+
+# Example
+
+# import os
+
+# import math
+
+# import random
+
+
+
+# Practice set of Files 
+
+# Create and write a file
+
+# f = open("demo.txt","w")
+# f.write("Hi everyone\n")
+# f.write("We are learning File I/O\n")
+# f.write("Using Python\n")
+# f.write("I like Programming in python")
+# f.close()
+
+# Practice 2 
+# Replace Java with Python 
+
+# with open("demo.txt","r") as f:
+#     data = f.read()
+# new_data = data.replace("Python" , "python")
+# new_data = data.replace("Java" , "Python")
+# with open("demo.txt","w") as f:
+#     f.write(new_data)
+
+# Practice 3
+#Search word
+
+# word = "python"
+
+# with open("demo.txt","r") as f:
+#     data = f.read()
+#     if(word in data):
+#         print("Found")
+#     else:
+#         print("Word Not Found")
+
+# Practice 4
+# Find Line Number 
+
+# word = "python"
+# line_no =1
+# with open("demo.txt" , "r") as f:
+#     for line in f:
+#         if(word in line):
+#             print("Found at line ", line_no)
+#             break
+#         line_no+=1
+#     else:
+#         print(-1)
+# Practice 5
+#count event numbers 
+#suppose file contains
+# 1,2,3,4,5,6,7,8
+# with open("numbers.txt","r") as f:
+#     data = f.read()
+# nums = data.split(",")
+# count = 0
+# for num in nums:
+#     if(int(num)%2==0):
+#         count+=1
+# print(count)
+
+# Quick Revision 
+
+# open()
+# Opens a file.
+
+# close()
+# Closes a file.
+
+# read()
+# Reads complete file.
+
+# read(n)
+# Reads first n characters.
+
+# readline()
+# Reads one line.
+
+# write()
+# Writes data.
+
+# append()
+# Adds data at end using "a" mode.
+
+# with
+# Automatically closes file.
+
+# import
+# Imports module.
+
+# os.remove()
+# Deletes a file.
+
+# replace()
+# Replaces old text with new text.
+
+# split()
+# Splits string into list.
+
+# in
+# Checks whether a word exists.
+
+# "r"
+# Read Mode.
+
+# "w"
+# Write Mode.
+
+# "a"
+# Append Mode.
+
+# "x"
+# Create New File.
