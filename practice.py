@@ -1511,6 +1511,7 @@ f = open("./text.txt" , "r")
 
 
 
+
 # Practice set of Files 
 
 # Create and write a file
@@ -1550,24 +1551,24 @@ f = open("./text.txt" , "r")
 # word = "python"
 # line_no =1
 # with open("demo.txt" , "r") as f:
-#     for line in f:
-#         if(word in line):
-#             print("Found at line ", line_no)
-#             break
-#         line_no+=1
-#     else:
-#         print(-1)
+    # for line in f:
+        # if(word in line):
+            # print("Found at line ", line_no)
+            # break
+        # line_no+=1
+    # else:
+        # print(-1)
 # Practice 5
 #count event numbers 
 #suppose file contains
 # 1,2,3,4,5,6,7,8
 # with open("numbers.txt","r") as f:
-#     data = f.read()
+    # data = f.read()
 # nums = data.split(",")
 # count = 0
 # for num in nums:
-#     if(int(num)%2==0):
-#         count+=1
+    # if(int(num)%2==0):
+        # count+=1
 # print(count)
 
 # Quick Revision 
@@ -1622,3 +1623,94 @@ f = open("./text.txt" , "r")
 
 # "x"
 # Create New File.
+
+
+# Practice of Files 
+#example 1 -- simple read and print 
+
+# f = open("./text.txt" , "r")
+# data = f.read()
+# print(data)
+# f.close()
+
+# # example 2 -- count lines 
+# count =0
+# f = open("./text.txt" , "r")
+# for line in f :
+#     count+=1
+  
+# print(count)
+
+# example 3 -- count the words 
+
+# f = open("./text.txt","r")
+# data = f.read()
+# words = data.split()
+# count_words = 0
+# for word in words:
+#     count_words+=1
+# print(count_words)
+
+# example 4 -- print only non - empty lines 
+# with open("./text.txt" ,"r") as f:
+#     for line in f:
+#         if line.strip() != "":
+#             print(line)
+
+# Example 5 -- writing the name or age to the file
+# with open("./text.txt" , "w+") as f:
+#     username=input("Enter your name: ")
+#     age = (input("Enter your age: "))
+#     f.write(username)
+#     f.write(age)
+#     f.seek(0)
+#     data = f.read()
+#     print(data)
+# Example 6 --    append to a file 
+# with open("./text.txt" , "a") as f:
+#     username=input("Enter your name:\n")
+    
+#     age = (input("Enter your age:\n "))
+#     f.write(username +  "\n" + age)
+#     # f.write(username)
+#     # f.write(age)
+
+# Example 7-- count vowels
+# with open("./text.txt" , "r") as f:
+#     vowels = "aeiou"
+#     count =0
+#     data = f.read()
+#     for i in data:
+#         if i in vowels:
+#             count+=1
+            
+
+#     print(count)
+
+# Example 8-- replacing the existing word in file with other words
+
+# with open("./text.txt", "r+") as f:
+#     data = f.read()
+#     data = data.replace("aiman" ,"fatima")
+#     f.seek(0)
+#     f.write(data)
+#     print(f)
+
+
+# example 9--  copy the content of one file into another file
+
+# with open("./text.txt","r") as f1 ,  open("demo.txt" , "w") as f2:
+#     data = f1.read()
+#     f2.write(data)
+
+# example 10-- count how many times a specific word appears
+
+# with open("./demo.txt" , "r") as f:
+#     data = f.read()
+#     target = "fatima"
+#     count = 0
+#     words = data.split()
+#     for word in words:
+#         if word == target:
+#             count+=1
+# print(count)
