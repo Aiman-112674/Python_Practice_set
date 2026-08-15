@@ -1,6 +1,5 @@
+#Practice 
 # print("Hello World")
-
-
 # name="Aiman" ;
 # name1 = "Software Engineer"
 # print(name , name1)
