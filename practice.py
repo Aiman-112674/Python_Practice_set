@@ -1,4 +1,6 @@
-#Practice 
+# ++++++++++++++++++++++++++++++++
+#Python Practice 
+
 # print("Hello World")
 # name="Aiman" ;
 # name1 = "Software Engineer"
@@ -9,6 +11,9 @@
 # class1 = "BSSE"
 
 # print(class1)
+
+# ++++++++++++++++++ Operators 
+
 
 # Arithematic Operator (+,-,/,*,**,%)
 
@@ -23,13 +28,13 @@
 # print(x==y)
 # print(x>=y)
 
-# #Assignment operator  (x+=y,-=,/=,*=,**=,%=,=)
+# Assignment operator  (x+=y,-=,/=,*=,**=,%=,=)
 # x = 5
 # y = 18 
 # x-=y
 # print(x)
 
-# #Logical Operator 
+# Logical Operator 
 
 # x = True 
 # y = False
@@ -55,8 +60,9 @@
 # print(type(y))
 
 
+# Input Function --- use to take input from user . it only take inputs in the form of strings , to take it  as number its important to convert it into int 
 
-
+# Task 1  --- Marks system 
 # input function
 # name = input("Enter your  first name  : " )
 # name1 = input("Enter your  last name  : "  )
@@ -74,8 +80,7 @@
 # print(f"Percentage_of_marks : {percentage_of_marks}")
 
 
-
-# Calculator 
+# Task 2 --- Calculator
 
 
 # try:
@@ -112,6 +117,7 @@
 
 
 # practice
+
 # if-elif-else 
 # example 1
 # age=12
@@ -153,7 +159,7 @@
 # else:
 #     print("Your Garde is F.")
   
-# Strings & its  Functions 
+#+++++++++++++++++++++++++ Strings & its  Functions 
 
 # Strings ("",'',''')
 # string is immutable / not update / cannot change after declaration 
@@ -183,7 +189,7 @@
 
 # print(len(age))
 
-name = "we are muslims"
+# name = "we are muslims"
 # print(name.upper())
 # print(name.lower())
 
@@ -234,7 +240,7 @@ name = "we are muslims"
 # print(name[-14:-14])
 
 # new example for slicing 
-self = "aiman zafar "
+# self = "aiman zafar "
 # print(self)
 
 # a i m a n _ z a f a r _  --string
@@ -292,8 +298,8 @@ self = "aiman zafar "
 # print(self.split(' '))
 
 #Strip --- remove the white spaces 
-name_0 = "      sania zafar      "
-self_0 = "      aiman zafar Iqbal     "
+# name_0 = "      sania      "
+# self_0 = "      aiman     "
 # print(self_0.strip())
 # print(name_0.strip())
 
@@ -312,8 +318,7 @@ self_0 = "      aiman zafar Iqbal     "
 # print(self.find("m"))
 # print(name.find("i"))
 
-
-# ATM Machine 
+#Task 3 ++++++++++++++ ATM Machine 
 
 # balance = 10000
 # choice = input("Enter the Operation you want to perform : deposit / withdraw /check  " )
@@ -336,7 +341,7 @@ self_0 = "      aiman zafar Iqbal     "
 # print("Transaction done ")
  
 
-# # Even - odd checker 
+# Task 4 ++++++++++++++++ Even - odd checker 
 
 # # number = int(input("Enter the Number(you want to check: )"))
 # # if (number%2==0 ):
@@ -364,6 +369,7 @@ self_0 = "      aiman zafar Iqbal     "
 # marks[4] = "Faiqa"
 # print(marks)
 
+#  Difference between 
 # # Strings vs Lists 
 
 # # Strings are Immutable 
@@ -389,7 +395,7 @@ self_0 = "      aiman zafar Iqbal     "
 
 # List Slicing 
 
-list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
+# list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
 
 # Positive slicing 
 
@@ -402,7 +408,7 @@ list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
 # Negative Slicing 
 
 
-list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
+# list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
 
 # print(list[-3:-1])
 # print(list[-4:-1])
@@ -416,7 +422,7 @@ list = ['ali' , 'raza' , 89 , 76.8 , 33 , 33.2]
 
 # List Methods 
 
-list_1 = [4,3,2,1,6,7,8]
+# list_1 = [4,3,2,1,6,7,8]
 
 #append() -- for adding a new value at the end of list 
 
@@ -431,7 +437,7 @@ list_1 = [4,3,2,1,6,7,8]
 
 # sort() 
 # sort list in ascending order by default
-list_2 = [5,2,1,8,9,10]
+# list_2 = [5,2,1,8,9,10]
 # list_2.sort()
 # print(list_2)
 
@@ -465,8 +471,7 @@ list_2 = [5,2,1,8,9,10]
 # print(list_2)
 # it remove the index 2 which stores the value 8 . 
 
-
-# Grading Task 
+#Task 5+++++++++++ Grading Task 
 
 # input function
 # name = input("Enter your  first name  : " )
@@ -498,7 +503,7 @@ list_2 = [5,2,1,8,9,10]
 #     print("Your Obtained Grade is F")
 
 
-#=========
+#+++++++++++++ Tuple 
 #Tuple are Immutable , means they cannot modified and changed 
 # once created , they cannot be changed 
 # ()
@@ -548,7 +553,7 @@ list_2 = [5,2,1,8,9,10]
 
 # print(tup.count(1))
 
-#======
+#++++++++++++++++++ Dictionary
 # Dictionary --in Python is a built-in data type that stores data as key-value pairs 
 # {}
 # Dict is mutable --it means we can change the data after creation 
@@ -590,11 +595,11 @@ list_2 = [5,2,1,8,9,10]
 #return the value of the key 
 # if the key does not exist , it adds the key 
 # with the given default value 
-student = {
-    "name" : "Aiman" , 
-    "Age" : 22 , 
-    "city" : "Faisalabad"
-}
+# student = {
+    # "name" : "Aiman" , 
+    # "Age" : 22 , 
+    # "city" : "Faisalabad"
+# }
 
 
 # print(student.setdefault("Subject" , "Software Enginnering"))
@@ -614,6 +619,9 @@ student = {
 # values = ("Aiman" , "22")
 # new_dict_0 = dict(zip(keys_0 , values ))
 # print(new_dict_0)
+
+#Practice
+#  ++++++++++++++++++++ Student Report Card
 
 
 # Student Report Card
@@ -783,7 +791,7 @@ student = {
 #         print("Invalid Choice , try again")
 
 
-#Task 
+#Task 6 ++++++++++++++++++ Leap Year 
 # Leap year 
 # year = 1900
 # leap_years = []
@@ -805,7 +813,7 @@ student = {
 # print(leap_years)
 # Task -- bonus can be decide on the salary base too.
 
-# employee salary system 
+#Task 7++++++++++++++++++++ employee salary system 
 
 # Employee Salary System (with Bonus , Tax )
 # while True:
@@ -1107,8 +1115,7 @@ student = {
 # calculate_percenatge(450,500)
 # calculate_percenatge(381,500)
 
-# #++++++++++++++++++++++++
-# # Key difference to notice
+#++++++++++++++++++++++++ Key difference to notice
 # # Without parameters |	With parameters
 # # def greet():       |	def greet(name):
 # # Always does the    |
@@ -1131,7 +1138,7 @@ student = {
 #Returning something (return — hands the value back so it can be stored/reused/built upon)
 
 
-# Task Bill system 
+# Task 7++++++++++++++++++++Bill system 
 
 # def bill_estimation(consumed_units):
     
@@ -1149,6 +1156,8 @@ student = {
 # bill_estimation(fconsumed_units)
 # print(net_bill)
 
+
+#+++++++++++++++++++
 # Default parameters
 #default parameter have a default value 
 #if no argument is given, 
@@ -1291,6 +1300,7 @@ student = {
 # Functions more practice 
 #+++++++++++
 
+# Basic Practice Set
 # Square a number 
 
 # def number(n):
@@ -1379,7 +1389,7 @@ student = {
 # f = open("../outer.filename" , "mode")
 
 # example 
-f = open("./text.txt" , "r")
+# f = open("./text.txt" , "r")
 
 # File Modes 
 
