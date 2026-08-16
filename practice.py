@@ -1723,3 +1723,101 @@
 #         if word == target:
 #             count+=1
 # print(count)
+
+
+#+++++++++++++++++++++
+# Functions Simple Examples
+
+# Restaurant Bill Splitter 
+# In short: it takes 4 fixed food item prices → adds a weekend service charge → splits the total between however many people you enter → adds a 10% tip per person → prints how much each person owes, rounded to cents
+# noodles = 12.50
+# coca_cola = 8.75
+# white_sauce_pasta = 22.00
+# cheese_rolls = 15.25
+# items_sum = noodles + coca_cola + white_sauce_pasta + cheese_rolls
+# service_charges = 0
+# is_weekend= True
+# if is_weekend == True:
+#     sub_total=items_sum + (items_sum*15/100)
+# else:
+#     sub_total = items_sum + (items_sum * 10/100)
+# def split_bill(num):
+#    amount_to_pay_per_person =sub_total/num
+#    return amount_to_pay_per_person
+# fnum = int(input("Enter how many persons are: "))
+# per_person =split_bill(fnum)
+# print(per_person)
+
+# def tip_per_person(pay):
+#     tip = pay + (pay*10/100)
+#     return tip 
+# final_amount = tip_per_person(per_person)
+# print(final_amount)
+
+# print(f"{final_amount: .2f} amount each person needs to pay")
+
+# Movie Ticket Pricing 
+
+
+# def ticket_price(age):
+#     if age<12:
+#         ticket_cost = 5
+#     elif age>=60:
+#         ticket_cost = 8 
+#     else:
+#         ticket_cost = 12
+#     return ticket_cost
+
+# def total_cost(ages):
+#     total = 0 
+#     for age in ages:
+#         total = total + ticket_price(age)
+#     return total
+# fages = [8,34,65,17,70]
+# cost = total_cost(fages)
+# print(cost)
+
+
+# Simple Grading System 
+
+# def get_grade(marks):
+    
+#     if marks>=90:
+        
+#          return"A" 
+#     elif marks>=80 and marks<=89:
+         
+#          return "B"
+#     elif marks>=70 and marks<=79:
+          
+#           return "C"
+#     elif marks>=60 and marks<=69:
+          
+#           return "D"
+#     else :
+#           return "F"
+    
+# fmarks=int(input("Enter your marks : "))
+# Grade = get_grade(fmarks)
+# print(f"{fmarks} your grade is {Grade}")
+
+# Password Strength Checker 
+
+# password = input("Enter a password: ")
+
+# length_ok = False 
+# has_number = False 
+# has_capital = False
+
+# if len(password) >=8:
+#      length_ok = True
+# for letter in password:
+#      if letter>= "0" and letter <="9":
+#           has_number = True 
+#      if letter >= "A" and letter <= "Z":
+#           has_capital = True
+# if length_ok == True and has_number == True and has_capital == True:
+#      print("Strong Password!")
+# else:
+#      print("Weak Password")
+
