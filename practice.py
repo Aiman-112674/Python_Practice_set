@@ -1821,3 +1821,30 @@
 # else:
 #      print("Weak Password")
 
+#++++++++++++++++++++++++++++
+# File Handling More Practical Examples 
+
+# Todo List saver 
+#1st adding tasks to the todo list 
+def add_task(task):
+    with open("./todo.txt" , "a") as f:
+        f.write(task + "\n")
+
+# 2nd reading the content of the file and printing it 
+def show_tasks():
+    with open("./todo.txt" , "r") as f:
+        data = f.read()
+        print(data)
+
+while True:
+    choice = input("Type 'add' to add a task , 'show' to view tasks , or exit to quit: ")
+    if choice == "add":
+        user_task = input("Enter your tasks: ")
+        add_task(user_task)
+    elif choice =="show":
+        show_tasks()
+    elif choice == "exit":
+        break 
+    else:
+        print("Invalid Choice , try again.")
+
