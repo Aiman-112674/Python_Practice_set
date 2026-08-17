@@ -1911,8 +1911,28 @@
 #     if not found:
 #         print("Contact not Found")
 
+# def delete_contact(name_to_delete):
+#     with open("./contacts.txt" , "r") as f:
+#         lines = f.readlines()
+#     remaining_contacts = []
+#     found = False
+#     for line in lines :
+#         parts = line.split(" - ")
+#         if len(parts)==2:
+#             contact_name = parts[0].strip()
+#             if contact_name== name_to_delete:
+#                 found= True
+#             else:
+#                 remaining_contacts.append(line)
+#     with open("./contacts.txt" , "w") as f:
+#         f.writelines(remaining_contacts)
+#     if found:
+#         print("Contact Delete Successfully")
+#     else:
+#         print("Contact not Found.")
+
 # while True:
-#     choice = input("Enter your choice Type Add to add a Contact , show to view all contacts , find to search a contact ,  exit to quit: ")
+#     choice = input("Enter your choice Type Add to add a Contact , show to view all contacts , find to search a contact , delete to remove a contact ,  exit to quit: ")
 #     if choice == "Add":
 #         name = input("Enter your name: ")
 #         contact = input("Enter your contact: ")
@@ -1922,6 +1942,9 @@
 #     elif choice == "find":
 #         search_name= input("Enter your name to search the contact: ")
 #         find_contact(search_name)
+#     elif choice == "delete":
+#         name_to_delete = input("Enter the name to delete: ")
+#         delete_contact(name_to_delete)
 #     elif choice=="exit":
 #         break
 #     else :
@@ -1974,7 +1997,7 @@
 # # accessing the object data 
 
 # print(obj.name)
-# print(obj_1.name)   # it print name 2 times due to overriding of name variable
+# print(obj_1.name)   # it print name 2 times due to overwriting of name variable
 
 
 # 3. Constructor 
@@ -2048,11 +2071,46 @@
 
 
 
+#++++ Class , Objects , Self examples 
+# Practice 1:
+# class book:
+    # def __init__(self , title , author , pages):
+        # self.title = title
+        # self.author = author 
+        # self.pages = pages 
 
 
+    # def show_details(self):
+        # print(f'"{self.title}" by {self.author} , {self.pages} pages')
 
+# book1 = book("Harry Potter" , "J.K. Rowling" , 500)
+# book2 = book("Mr Chips" , "WIlliam " , 799)
+# book1.show_details()
+# book2.show_details()
+# Practice 2:
+# class BankAccount:
+    # def __init__(self , owner_name , balance):
+        # self.owner_name = owner_name
+        # self.balance = balance
 
+    # def deposit(self,amount):
+        
+        # self.balance = amount+self.balance
+    # def withdraw(self , amount):
+         
+        # if amount> self.balance:
+            # print("Insufficinet Balance")
+        # else :
+            # self.balance = self.balance-amount
+    # def show_balance(self):
+        # print(f"{self.balance} is your current balance")
 
+# id_1 = BankAccount("Ali" , 34000)
+# id_1.show_balance()
+# id_1.deposit(1000)
+# id_1.show_balance()
+# id_1.withdraw(500)
+# id_1.show_balance()
 
 # Task Clacualtor using class and objects 
 
