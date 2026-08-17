@@ -1,0 +1,6 @@
+coffee - 340
+coffeee - 123
+uber - 2300
+coffee  -  123
+Grocery  - 145
+Cleaning  - 455

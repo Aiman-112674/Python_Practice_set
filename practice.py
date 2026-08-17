@@ -1826,25 +1826,276 @@
 
 # Todo List saver 
 #1st adding tasks to the todo list 
-def add_task(task):
-    with open("./todo.txt" , "a") as f:
-        f.write(task + "\n")
+# def add_task(task):
+#     with open("./todo.txt" , "a") as f:
+#         f.write(task + "\n")
 
-# 2nd reading the content of the file and printing it 
-def show_tasks():
-    with open("./todo.txt" , "r") as f:
-        data = f.read()
-        print(data)
+# # 2nd reading the content of the file and printing it 
+# def show_tasks():
+#     with open("./todo.txt" , "r") as f:
+#         data = f.read()
+#         print(data)
 
-while True:
-    choice = input("Type 'add' to add a task , 'show' to view tasks , or exit to quit: ")
-    if choice == "add":
-        user_task = input("Enter your tasks: ")
-        add_task(user_task)
-    elif choice =="show":
-        show_tasks()
-    elif choice == "exit":
-        break 
-    else:
-        print("Invalid Choice , try again.")
+# while True:
+#     choice = input("Type 'add' to add a task , 'show' to view tasks , or exit to quit: ")
+#     if choice == "add":
+#         user_task = input("Enter your tasks: ")
+#         add_task(user_task)
+#     elif choice =="show":
+#         show_tasks()
+#     elif choice == "exit":
+#         break 
+#     else:
+#         print("Invalid Choice , try again.")
 
+
+#Expense Tracker 
+# def add_expense(item , amount):
+#     with open ("./expense.txt" , "a" ) as f:
+#         f.write(item + " - " + amount + "\n")
+# def show_expenses():
+#     with open("./expense.txt" , "r") as f:
+#         data = f.read()
+#         print(data)
+# def total_expense():
+#     total=0
+#     with open("./expense.txt" , "r") as f:
+#         for line in f:
+#             parts = line.split(" - ")
+#             amount_text = parts[1].strip()
+#             amount_number = int(amount_text)
+#             total = total + amount_number
+#         return total 
+
+# while True :
+#     choice = input("Enter your choice : Type 'add' to log an expense, 'show' to view all expenses, 'total' to see total spent, or 'exit' to quit")
+#     if choice == "add":
+#         item = input("enter your stuff: ")
+#         amount = input("Enter the price : ")
+#         if amount.isdigit():
+#             add_expense(item, amount)
+#         else:
+#             print("Invalid amount, please enter numbers only.")
+#     elif choice == "show":
+#         show_expenses()
+#     elif choice == "total":
+#         net_total =total_expense()
+#         print(f"Your Total is: {net_total}")
+#     elif choice=="exit":
+#         break
+#     else:
+#         print("Invalid Choice . Try again")
+
+
+# Simple Contact Book 
+
+# def add_contact(name , number ):
+#     with open("./contacts.txt" , "a") as f:
+#         f.write(name + " - "  + number  +  "\n" )
+
+# def show_contacts():
+#     with open("./contacts.txt" , "r") as f:
+#         data = f.read()
+#         print(data)
+
+# def find_contact(search_name):
+#     with open("./contacts.txt" , "r") as f:
+#         found = False
+#         for line in f:
+#             parts = line.split(" - ")
+#             if len(parts)==2:
+#                 contact_name= parts[0].strip()
+#                 if search_name == contact_name:
+#                     print("Found! Number:" , parts[1].strip())
+#                     found= True 
+#     if not found:
+#         print("Contact not Found")
+
+# while True:
+#     choice = input("Enter your choice Type Add to add a Contact , show to view all contacts , find to search a contact ,  exit to quit: ")
+#     if choice == "Add":
+#         name = input("Enter your name: ")
+#         contact = input("Enter your contact: ")
+#         add_contact(name , contact)
+#     elif choice == "show":
+#         show_contacts()
+#     elif choice == "find":
+#         search_name= input("Enter your name to search the contact: ")
+#         find_contact(search_name)
+#     elif choice=="exit":
+#         break
+#     else :
+#         print("Enter a valid choice.Try Again.")
+
+#+++++++++++++++++++++++++++++++++
+# OOP - Object Oriented Programming
+
+# OOP (Object-Oriented Programming) is a programming paradigm
+# that organizes code into Classes and Objects.
+#
+# Real-Life Example:
+# Think about a School.
+# - Student = Object
+# - School Blueprint = Class
+
+# 1. CLASS
+
+# Definition : 
+# A Class is a blueprint (template) used to create objects.
+
+# Real-Life Example:
+# A house map is a blueprint.
+# Many houses can be built using the same blueprint.
+
+# class Class:
+#     # Class Variable 
+#     brand = "Toyota"
+#     color = "White"
+# # Accessing the class variables  using class name
+# obj = Class()
+# print(obj.brand)
+# print(obj.color)
+
+# 2. OBJECT 
+
+# Definition :
+# An Object is an instance of a class.
+
+# Real-Life Example:
+# Car = Blueprint
+# Toyota, Corolla = Object
+
+# class student:
+#     name = "Ahsan"
+#     name="ali"
+# # Creating Objects 
+# obj= student()
+# obj_1 = student()
+# # accessing the object data 
+
+# print(obj.name)
+# print(obj_1.name)   # it print name 2 times due to overriding of name variable
+
+
+# 3. Constructor 
+# Definition :
+# Constructor runs automatically whenever an object is created
+# It is mainly used to intialize object data 
+
+# class student :
+#     # Constructor 
+#     def __init__(self, name , age):
+#         #Instance Variables
+#         self.name1 = name 
+#         self.age1 = age 
+# #Creating object 
+# obj = student("ALi", 22)
+# print(obj.name1)
+# print(obj.age1)
+
+# 4 . Self Keyword 
+
+#Definition :
+# Self refers to the current object.
+# It allows us to access object variables and methods
+# Real Life Example 
+# "My Name is Ali."
+# Here "My" means the current person.
+
+# class demo:
+#     def set_name(self , name):
+#         # store value in current object 
+#         self.name1 = name
+#     def show(self):
+#         pass
+#     def d(self):
+#         print("Student Name: ", self.name1)
+# obj = demo()
+# obj.set_name("Ahsan")
+# obj.d()
+
+#5 . Instance Variables 
+# Definition:
+# Variables created using self are called Instance Variables.
+# Every object has its own copy.
+
+# class student:
+#     def __init__(self,name):
+#         self.name = name 
+
+# obj1= student("Ali")
+# obj2= student("Ahmed")
+# print(obj1.name)
+# print(obj2.name)
+
+
+#6. Methods 
+# Definition :
+# Methods are Functions written inside a class 
+
+# Real _life Example :
+
+# Calculator methods 
+# Add
+# Subtract 
+# Multiply 
+
+# class student():
+#     def greet(self):
+#         print("Welcome to Python OOP")
+# obj = student()
+# obj.greet()
+
+
+
+
+
+
+
+
+
+# Task Clacualtor using class and objects 
+
+# class Calculator:
+
+#     def sum (self,x,y):
+#         sum = x+y
+#         return sum 
+#     def subtract(self ,x,y):
+#         subtract = x-y
+#         return subtract 
+#     def multiply(self , x,y):
+#         multiply = x*y
+#         return multiply
+#     def divide (self,x,y):
+#         divide = x/y
+#         return divide
+# obj = Calculator()
+# while True :
+#     choice = input ("Enter your operation : enter sum for add , subtract for minus , multiply for multiplication , divide for division , exit for quit ")
+#     if choice=="exit":
+#                 print("")
+#                 break 
+#     x = int(input("Enter the 1st number: "))
+#     y = int(input("Enter the  2nd number: "))
+    
+#     if choice == "sum" :
+#         result =obj.sum(x,y)
+#         print(result)
+#     elif choice == "subtract":
+#         result = obj.subtract(x,y)
+#         print(result)
+#     elif choice == "multiply":
+#         result = obj.multiply(x,y)
+#         print(result)
+#     elif choice == "divide":
+#         result = obj.divide(x,y)
+#         print(result)
+
+#     else :
+#         print("Invalid choice")
+
+
+
+
+    
