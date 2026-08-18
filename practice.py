@@ -2089,21 +2089,21 @@
 # book2.show_details()
 # Practice 2:
 # class BankAccount:
-    # def __init__(self , owner_name , balance):
-        # self.owner_name = owner_name
-        # self.balance = balance
+#     def __init__(self , owner_name , balance):
+#         self.owner_name = owner_name
+#         self.balance = balance
 
-    # def deposit(self,amount):
+#     def deposit(self,amount):
         
-        # self.balance = amount+self.balance
-    # def withdraw(self , amount):
+#         self.balance = amount+self.balance
+#     def withdraw(self , amount):
          
-        # if amount> self.balance:
-            # print("Insufficinet Balance")
-        # else :
-            # self.balance = self.balance-amount
-    # def show_balance(self):
-        # print(f"{self.balance} is your current balance")
+#         if amount> self.balance:
+#             print("Insufficinet Balance")
+#         else :
+#             self.balance = self.balance-amount
+#     def show_balance(self):
+#         print(f"{self.balance} is your current balance")
 
 # id_1 = BankAccount("Ali" , 34000)
 # id_1.show_balance()
@@ -2111,6 +2111,43 @@
 # id_1.show_balance()
 # id_1.withdraw(500)
 # id_1.show_balance()
+
+
+# # Employee class 
+
+class Employee():
+    def __init__(self,name,salary):
+        self.emp_name = name
+        self.emp_salary = salary
+
+emp_1 = Employee("Aiman" , 30000)
+print(emp_1.emp_name  )   
+print(emp_1.emp_salary)   
+emp_2 = Employee("Faiqa" , 30000)
+print(emp_2.emp_salary)
+print(emp_2.emp_name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Task Clacualtor using class and objects 
 
