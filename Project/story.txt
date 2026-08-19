@@ -15,7 +15,7 @@ NEXT:1->SECTION_4|2->ENDING_1
 [SECTION_3]
 It's pitch black. You trip and fall into a deep pit.
 GAME OVER
-NEXT:->ENDING_2
+NEXT:1->ENDING_2
 
 [SECTION_4]
 You found 2 rusty keys! One is gold, one is silver. The door has 2 keyholes.
