@@ -930,6 +930,90 @@
 #     print(i)
 #     i+=1
 
+#++++++++++++++++++++++++++++++++++++
+# For Loop
+#________________________
+# Definition: 
+#A for loop lets you go through each item in a collection, one at a time, automatically — running the same block of code once for every item, without you manually writing a repeat condition like you do with while
+#syntax 
+# for item in collection:
+# for is loop 
+# item : a variable name you choose — it holds one element at a time, automatically updated each pass
+# collection : anything you can loop over (list, tuple, string, dictionary, set, file, etc.)
+# No manual counter, no manual condition, no manual increment — Python does all of that internally
+
+# simple example :
+fruits = ['apple' , 'banana' , 'cherry']
+for fruit in fruits:
+    print(fruit)
+
+# Using For loop with different  data types 
+# with list 
+number = [10,20,30,40,50]
+for num in number:
+    print(num)
+#with tuple
+coordinates = (4,5,6)
+for i in coordinates:
+    print(i)
+#with a string 
+name = "Aiman"
+for char in name:
+    print(char)
+# with a dictionary 
+
+student = {"name" : "Aiman" , "age" : "22"}
+for key in student:
+    print(key)
+for key , value in student.items():
+    print(key, ":" , value)
+
+# with set 
+
+unique_numbers = {1,2,3,2,1}
+for num in unique_numbers:
+    print(num)
+
+# common methods / functions  paired with for lopps 
+
+# range() -- generates a sequence of numbers to loop through, useful when you want to repeat something a specific number of times without looping over an actual collection:
+# range(start, stop, step) → this is a separate function that generates numbers, which you then loop over using the for syntax above.
+for i in range(5):
+    print(i)
+
+# enumerate() — gives you both the index and the item at once, useful when you need to know the position too:
+
+fruits = ['apple', 'banana' , 'cherry']
+for index , fruit in enumerate(fruits):
+    print(index,fruit)
+
+#++++++++++++++++++++++++
+# For Loop Practice 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #++++++++++++++++++
 #Function -- is a block of code 
 #that perform a specific task .
@@ -2115,17 +2199,17 @@
 
 # # Employee class 
 
-class Employee():
-    def __init__(self,name,salary):
-        self.emp_name = name
-        self.emp_salary = salary
+# class Employee():
+#     def __init__(self,name,salary):
+#         self.emp_name = name
+#         self.emp_salary = salary
 
-emp_1 = Employee("Aiman" , 30000)
-print(emp_1.emp_name  )   
-print(emp_1.emp_salary)   
-emp_2 = Employee("Faiqa" , 30000)
-print(emp_2.emp_salary)
-print(emp_2.emp_name)
+# emp_1 = Employee("Aiman" , 30000)
+# print(emp_1.emp_name  )   
+# print(emp_1.emp_salary)   
+# emp_2 = Employee("Faiqa" , 30000)
+# print(emp_2.emp_salary)
+# print(emp_2.emp_name)
 
 
 
