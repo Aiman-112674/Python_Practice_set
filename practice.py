@@ -989,10 +989,34 @@ for index , fruit in enumerate(fruits):
 
 #++++++++++++++++++++++++
 # For Loop Practice 
+# 1st Practice  
+# Print numbers from 1 to 10 using range() -- 
+for i in range(1,11):
+    print(i)
 
+# 2nd Practice
+# Print each character of your name — loop through a string.
+name = "Aiman"
+for char in name:
+    print(char)
 
+# 3rd practice
+# Sum all numbers in a list
+list_0 = [4,8,12,16,20,24,28,32,36,40]
+total =0
+for l in list_0:
+    total += l
+print(total)
 
-
+# 4th Practice 
+# Print only even numbers from a list
+list_1 = [2,3,6,9,11,24,33,44]
+for num in list_1:
+    if num%2==0:
+        print(num)
+    else:
+        continue
+# 5th Practice 
 
 
 
