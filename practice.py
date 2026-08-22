@@ -943,142 +943,142 @@
 # No manual counter, no manual condition, no manual increment — Python does all of that internally
 
 # simple example :
-fruits = ['apple' , 'banana' , 'cherry']
-for fruit in fruits:
-    print(fruit)
+# fruits = ['apple' , 'banana' , 'cherry']
+# for fruit in fruits:
+#     print(fruit)
 
-# Using For loop with different  data types 
-# with list 
-number = [10,20,30,40,50]
-for num in number:
-    print(num)
-#with tuple
-coordinates = (4,5,6)
-for i in coordinates:
-    print(i)
-#with a string 
-name = "Aiman"
-for char in name:
-    print(char)
-# with a dictionary 
+# # Using For loop with different  data types 
+# # with list 
+# number = [10,20,30,40,50]
+# for num in number:
+#     print(num)
+# #with tuple
+# coordinates = (4,5,6)
+# for i in coordinates:
+#     print(i)
+# #with a string 
+# name = "Aiman"
+# for char in name:
+#     print(char)
+# # with a dictionary 
 
-student = {"name" : "Aiman" , "age" : "22"}
-for key in student:
-    print(key)
-for key , value in student.items():
-    print(key, ":" , value)
+# student = {"name" : "Aiman" , "age" : "22"}
+# for key in student:
+#     print(key)
+# for key , value in student.items():
+#     print(key, ":" , value)
 
-# with set 
+# # with set 
 
-unique_numbers = {1,2,3,2,1}
-for num in unique_numbers:
-    print(num)
+# unique_numbers = {1,2,3,2,1}
+# for num in unique_numbers:
+#     print(num)
 
 # common methods / functions  paired with for lopps 
 
 # range() -- generates a sequence of numbers to loop through, useful when you want to repeat something a specific number of times without looping over an actual collection:
 # range(start, stop, step) → this is a separate function that generates numbers, which you then loop over using the for syntax above.
-for i in range(5):
-    print(i)
-
-# enumerate() — gives you both the index and the item at once, useful when you need to know the position too:
-
-fruits = ['apple', 'banana' , 'cherry']
-for index , fruit in enumerate(fruits):
-    print(index,fruit)
-
-#++++++++++++++++++++++++
-# For Loop Practice 
-# 1st Practice  
-# Print numbers from 1 to 10 using range() -- 
-# for i in range(1,11):
+# for i in range(5):
 #     print(i)
 
-# 2nd Practice
-# Print each character of your name — loop through a string.
-# name = "Aiman"
-# for char in name:
-#     print(char)
+# # enumerate() — gives you both the index and the item at once, useful when you need to know the position too:
 
-# 3rd practice
-# Sum all numbers in a list
-# list_0 = [4,8,12,16,20,24,28,32,36,40]
-# total =0
-# for l in list_0:
-#     total += l
-# print(total)
+# fruits = ['apple', 'banana' , 'cherry']
+# for index , fruit in enumerate(fruits):
+#     print(index,fruit)
 
-# 4th Practice 
-# Print only even numbers from a list
-# list_1 = [2,3,6,9,11,24,33,44]
-# for num in list_1:
-#     if num%2==0:
-#         print(num)
-#     else:
-#         continue
-# 5th Practice 
-# fruits = ["apple" , "banana" , "cherry" , "mango"]
-# for fruit in enumerate(fruits):
-#     print(index, fruit)
+# #++++++++++++++++++++++++
+# # For Loop Practice 
+# # 1st Practice  
+# # Print numbers from 1 to 10 using range() -- 
+# # for i in range(1,11):
+# #     print(i)
+
+# # 2nd Practice
+# # Print each character of your name — loop through a string.
+# # name = "Aiman"
+# # for char in name:
+# #     print(char)
+
+# # 3rd practice
+# # Sum all numbers in a list
+# # list_0 = [4,8,12,16,20,24,28,32,36,40]
+# # total =0
+# # for l in list_0:
+# #     total += l
+# # print(total)
+
+# # 4th Practice 
+# # Print only even numbers from a list
+# # list_1 = [2,3,6,9,11,24,33,44]
+# # for num in list_1:
+# #     if num%2==0:
+# #         print(num)
+# #     else:
+# #         continue
+# # 5th Practice 
+# # fruits = ["apple" , "banana" , "cherry" , "mango"]
+# # for fruit in enumerate(fruits):
+# #     print(index, fruit)
 
 
-#6th practice 
-student = {
-    "name" : "Aiman",
-    "age" : 21,
-    "city": "Faisalabad",
-}
-for key , value in student.items():
-    print(key , value)
-#7th practice
-marks = {
-    "Grade": "A",
-    "Marks" : 90 ,
-    "Status" : "Pass",
+# #6th practice 
+# student = {
+#     "name" : "Aiman",
+#     "age" : 21,
+#     "city": "Faisalabad",
+# }
+# for key , value in student.items():
+#     print(key , value)
+# #7th practice
+# marks = {
+#     "Grade": "A",
+#     "Marks" : 90 ,
+#     "Status" : "Pass",
 
-}
-for key , value in marks.items():
-    print(key,value)
+# }
+# for key , value in marks.items():
+#     print(key,value)
 
-# 7th practice 
-subjects = ("Math" , "Physics" , "Urdu" ) 
-for subject in subjects:
-    print(subject)
+# # 7th practice 
+# subjects = ("Math" , "Physics" , "Urdu" ) 
+# for subject in subjects:
+#     print(subject)
 
-# 8th practice 
+# # 8th practice 
 
-set_ex = {1,2,2,4,3,3,4,5,3,2}
-for num in set_ex:
-    print(num)
+# set_ex = {1,2,2,4,3,3,4,5,3,2}
+# for num in set_ex:
+#     print(num)
 
-#9 Leap Year Practice 
-list_0 =[]
-for year in range(1950,2027):
-    if year%4==0 and year%100==0:
-        if year%400==0:
-            print(f"{year} is a leap year")
-            list_0.append(year)
-        else :
-            print(f"{year} is not a leap year")
-    elif year%4==0 and year%100 !=0:
-        print(f"{year} is a leap year")
-        list_0.append(year)
-    else :
-        print(f"{year} is not a Leap year")
+# #9 Leap Year Practice 
+# list_0 =[]
+# for year in range(1950,2027):
+#     if year%4==0 and year%100==0:
+#         if year%400==0:
+#             print(f"{year} is a leap year")
+#             list_0.append(year)
+#         else :
+#             print(f"{year} is not a leap year")
+#     elif year%4==0 and year%100 !=0:
+#         print(f"{year} is a leap year")
+#         list_0.append(year)
+#     else :
+#         print(f"{year} is not a Leap year")
         
-print(list_0)
+# print(list_0)
 
-# 10 Vowels 
-vowels = ["a" ,  "e","i" , "o","u"]
-word = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-vowel_list = []
-for letter in word:
-    if letter in vowels:
-        print(f"{letter} is a vowel")
-        vowel_list.append(letter)
-    else :
-        print(f"{letter} is a consonant")
-print(vowel_list)
+# # 10 Vowels 
+# vowels = ["a" ,  "e","i" , "o","u"]
+# word = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+# vowel_list = []
+# for letter in word:
+#     if letter in vowels:
+#         print(f"{letter} is a vowel")
+#         vowel_list.append(letter)
+#     else :
+#         print(f"{letter} is a consonant")
+# print(vowel_list)
 
 #++++++++++++++++++
 #Function -- is a block of code 
@@ -2099,6 +2099,123 @@ print(vowel_list)
 #         break
 #     else :
 #         print("Enter a valid choice.Try Again.")
+
+
+#++++++++++++++++++++++++++++++++++
+#SET in Python 
+# Definition :A set is a collection of items, just like a list — but with one key rule: every item must be unique.
+
+#syntax 
+# my_set = {1,2,3,4,4,2}  #now when i will print myset then it just print the unique items ignore the repeated items 
+# No duplicates , Unordered , set is mutable but the items itself immutable
+# print(my_set)
+#is not a set , its a dictionary 
+# set = {}   #No Set
+#to create empty set 
+# empty_set = set() #yes Set
+
+#conversion of data types to set is possible 
+# my_list = [1,2,3,3,3,3,2]
+# my_set_0=set(my_list)
+# print(my_set_0)
+
+ #common set methods 
+
+# fruits = {"apple" , "banana" , "cherry"}
+# fruits.add("mango")     # adds one item
+# fruits.remove("banana")   # removes an item (errors if not found)
+# fruits.discard("grape")   # removes if present, no error if missing
+# fruits.clear()   # empties the entire set
+# print(fruits)  # it will print a empty set
+
+# Math Style operation with set 
+
+# a = {1,4,8,9,13,17,15,18}
+# b = {2,4,3,1,6,7,17,13,8,10}
+
+# print(a.union(b))   #— combines both, no duplicate
+# print(b.union(a))
+# print(a.intersection(b))  #— only items in BOTH sets
+# print(b.intersection(a))
+# print(a.difference(b))   #— items in 'a' but NOT in 'b'
+# print(b.difference(a))
+# print(a.symmetric_difference(b))   #  — items in either, but NOT in both
+
+# #same operation with symbols
+# print(a|b)  #union
+# print(a&b)  #intersection
+# print(a-b)  #difference
+# print(a^b)  #symmteric difference
+
+#practice 1
+# Create a set with duplicates to see if it remove or not 
+
+# list_0 = [1,2,2,3,4,4,5,2]
+# my_set = set(list_0)
+# print(my_set)
+
+# # practice 2
+# # Create a empty set
+
+# empty_set = set()
+# empty_set.add(1)
+# empty_set.add(2)
+# empty_set.add(3)
+# empty_set.add(4)
+# print(empty_set)
+
+# # practice 3
+
+# vehicals = {"bicycle","motor bike" , "car" , "truck"}
+# vehicals.add("bus")
+# print(vehicals)
+# vehicals.remove("car")
+# print(vehicals)
+
+# #practice 4 
+
+# vehicals = {"bicycle","motor bike"  , "truck"}
+# vehicals.add("bus")
+# print(vehicals)
+# vehicals.remove("car")
+# print(vehicals)
+# vehicals.discard("car")
+# print(vehicals)
+
+# #practice 5
+# #performing math styles 
+# a = {90,89,84,23,45}
+# b = {45,55,66,77,83,90}
+# union_0 = a|b
+# print(f"{union_0} is the union between a and b")
+# intersection_0 = a&b 
+# print(f"{intersection_0} is the intersection  between a and b")
+# difference_0 = b-a
+# print(f"{difference_0} is the difference between a and b")
+# symmetric_difference_0 = a^b 
+# print(f"{symmetric_difference_0} is the symmetric difference between a and b")
+
+# # practice 6 
+# # finding common students between 2 classes
+
+# class_a = {"Ali" , "Sara" , "Ahmed" , "Zara"}
+# class_b = {"Sara" , "Zara" , "Bilal"}
+# common_students = class_a&class_b
+# print(common_students)
+
+# # practice 7 
+# # Remove duplicates from list
+# list_0 = {"aiman" , "faiqa" , "fatima" , "azka" , "fatima"}
+# my_set = set(list_0)
+# print(my_set)
+# my_list = list(my_set)
+# print(my_list)
+
+# # practice 8 
+# # Check membership quickly 
+# number = {2,6,8,9,12,15,18,19,23,26,27,29,31,33,36,44,47,49,51,55,59}
+# if 29 in number :
+#     print("Found")
 
 #+++++++++++++++++++++++++++++++++
 # OOP - Object Oriented Programming
