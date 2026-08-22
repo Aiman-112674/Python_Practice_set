@@ -991,52 +991,94 @@ for index , fruit in enumerate(fruits):
 # For Loop Practice 
 # 1st Practice  
 # Print numbers from 1 to 10 using range() -- 
-for i in range(1,11):
-    print(i)
+# for i in range(1,11):
+#     print(i)
 
 # 2nd Practice
 # Print each character of your name — loop through a string.
-name = "Aiman"
-for char in name:
-    print(char)
+# name = "Aiman"
+# for char in name:
+#     print(char)
 
 # 3rd practice
 # Sum all numbers in a list
-list_0 = [4,8,12,16,20,24,28,32,36,40]
-total =0
-for l in list_0:
-    total += l
-print(total)
+# list_0 = [4,8,12,16,20,24,28,32,36,40]
+# total =0
+# for l in list_0:
+#     total += l
+# print(total)
 
 # 4th Practice 
 # Print only even numbers from a list
-list_1 = [2,3,6,9,11,24,33,44]
-for num in list_1:
-    if num%2==0:
-        print(num)
-    else:
-        continue
+# list_1 = [2,3,6,9,11,24,33,44]
+# for num in list_1:
+#     if num%2==0:
+#         print(num)
+#     else:
+#         continue
 # 5th Practice 
+# fruits = ["apple" , "banana" , "cherry" , "mango"]
+# for fruit in enumerate(fruits):
+#     print(index, fruit)
 
 
+#6th practice 
+student = {
+    "name" : "Aiman",
+    "age" : 21,
+    "city": "Faisalabad",
+}
+for key , value in student.items():
+    print(key , value)
+#7th practice
+marks = {
+    "Grade": "A",
+    "Marks" : 90 ,
+    "Status" : "Pass",
 
+}
+for key , value in marks.items():
+    print(key,value)
 
+# 7th practice 
+subjects = ("Math" , "Physics" , "Urdu" ) 
+for subject in subjects:
+    print(subject)
 
+# 8th practice 
 
+set_ex = {1,2,2,4,3,3,4,5,3,2}
+for num in set_ex:
+    print(num)
 
+#9 Leap Year Practice 
+list_0 =[]
+for year in range(1950,2027):
+    if year%4==0 and year%100==0:
+        if year%400==0:
+            print(f"{year} is a leap year")
+            list_0.append(year)
+        else :
+            print(f"{year} is not a leap year")
+    elif year%4==0 and year%100 !=0:
+        print(f"{year} is a leap year")
+        list_0.append(year)
+    else :
+        print(f"{year} is not a Leap year")
+        
+print(list_0)
 
-
-
-
-
-
-
-
-
-
-
-
-
+# 10 Vowels 
+vowels = ["a" ,  "e","i" , "o","u"]
+word = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+vowel_list = []
+for letter in word:
+    if letter in vowels:
+        print(f"{letter} is a vowel")
+        vowel_list.append(letter)
+    else :
+        print(f"{letter} is a consonant")
+print(vowel_list)
 
 #++++++++++++++++++
 #Function -- is a block of code 
