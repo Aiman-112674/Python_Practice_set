@@ -2471,55 +2471,176 @@
 
 # syntax
 # example too
-class Person:
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age 
-    def show_info(self):
-        print(f"Name : {self.name} , Age : {self.age}")
+# class Person:
+#     def __init__(self,name,age):
+#         self.name = name
+#         self.age = age 
+#     def show_info(self):
+#         print(f"Name : {self.name} , Age : {self.age}")
 
-class Student(Person):    # Inheritence occurs , student class inherit the person class method or variables 
-        def __init__(self, name, age , roll_number):
-             super().__init__(name,age)
-             self.roll_number = roll_number 
-        def show_student_info(self):
-             print(f"Roll Number:  {self.roll_number}")
+# class Student(Person):    # Inheritence occurs , student class inherit the person class method or variables 
+#         def __init__(self, name, age , roll_number):
+#              super().__init__(name,age)
+#              self.roll_number = roll_number 
+#         def show_student_info(self):
+#              print(f"Roll Number:  {self.roll_number}")
 
-# Objects Creation 
+# # Objects Creation 
 
-s1 =Student("AIman" , 22 , 15)
-s1.show_info()
-s1.show_student_info()
-s2 = Student("Fatima" , 22, 16)
-s2.show_student_info()
+# s1 =Student("AIman" , 22 , 15)
+# s1.show_info()
+# s1.show_student_info()
+# s2 = Student("Fatima" , 22, 16)
+# s2.show_student_info()
 
-# practice set  Build a 3-level class hierarchy 
+# # practice set  Build a 3-level class hierarchy 
 
-class Animal:   #Grand Parent
-     def __init__(self, name):
-          self.name = name 
-     def show_name(self):
-          print(f"Name : {self.name}")
+# class Animal:   #Grand Parent
+#      def __init__(self, name):
+#           self.name = name 
+#      def show_name(self):
+#           print(f"Name : {self.name}")
 
-class Mammal(Animal): #1st child  Parent
-     def __init__(self, name,legs):
-          super().__init__(name)
-          self.legs = legs 
-     def show_legs(self):
-          print(f"Legs the mammal have : {self.legs}")
-class Dogs(Mammal): #2nd child class  Child
-     def __init__(self,name,legs,breed):
-          super().__init__(name,legs)
-          self.breed =  breed
-     def show_breed(self):
-          print(f"The breed of the dog is {self.breed}")
-# Object Creation 
-dog_1 = Dogs("Petr" , 4 ,"pet")
-dog_1.show_name()
-dog_1.show_legs()
-dog_1.show_breed()
+# class Mammal(Animal): #1st child  Parent
+#      def __init__(self, name,legs):
+#           super().__init__(name)
+#           self.legs = legs 
+#      def show_legs(self):
+#           print(f"Legs the mammal have : {self.legs}")
+# class Dogs(Mammal): #2nd child class  Child
+#      def __init__(self,name,legs,breed):
+#           super().__init__(name,legs)
+#           self.breed =  breed
+#      def show_breed(self):
+#           print(f"The breed of the dog is {self.breed}")
+# # Object Creation 
+# dog_1 = Dogs("Petr" , 4 ,"pet")
+# dog_1.show_name()
+# dog_1.show_legs()
+# dog_1.show_breed()
 
 
 #++++++++++++++++++++++++++
 # Encapsulation 
-#Definition :
+#Definition :Encapsulation means locking your object's data inside the class, and only allowing it to be changed through safe, controlled methods — instead of letting anyone reach in and change it directly however they want.
+
+# Encapsulation 3 types 
+# 1. Public -- 
+#syntax 
+# self.varaible_name    no underscore . 
+# fully open , anyone can change it , no protection at all 
+
+# example 
+# class Student:
+#      def __init__(self,name):
+#           self.name = name     # public
+
+# s1 = Student("AIman")
+# print(s1.name)  #works fine
+# s1.name = "Fatima "# also works — anyone can just overwrite it directly
+# print(s1.name)
+
+# 2. Protected --
+#syntax 
+# self._variable (single underscore) 
+#Meaning: "Please don't touch this from outside — it's meant for internal/class use only." But Python doesn't actually stop you — it's just a polite signal to other programmers.
+#example
+# class Student:
+#      def __init__(self,name):
+#           self._name = name   #Protected Variable 
+# s1 = Student("Faiqa")
+# print(s1._name)   # ⚠️ still works — Python allows it, but it's a signal "you shouldn't"
+# s1._name="Amaan"   # ⚠️ still works — no real protection, just a warning sign
+# print(s1._name)
+
+#3, Private -- 
+# syntax 
+# self.__variable() - (double underscore)
+# Actually restricted. Python renames it internally so you genuinely can't access it directly from outside — you're forced to use a method instead.
+
+# example
+# class student:
+#      def __init__(self, name):
+#           self.__name = name     # private (actually protected by Python)
+#      def get_name(self):
+#           return self.__name
+#      def set_name(self , new_name):
+#           if new_name != "":
+#                self.__name = new_name
+#           else:
+#                print("Name cannot be empty")
+# s1 = student("Aiman")
+# # way to print name using methods due to private variable
+# print(s1.get_name())
+# # print(s1.__name)  #show error
+# # reset the name to ALi 
+# s1.set_name("ALi")
+# print(s1.get_name())
+# # as in the above line there is no name so else condition will be run with name cannot be empty 
+# s1.set_name("")
+
+
+# The core lesson in one line
+
+# Public = no lock. Protected = lock with a sign saying "please don't open." Private = an actual lock that keeps people out unless they use the key (your methods)
+
+
+# practice 
+
+# class BankAccount:
+#      def __init__(self, owner_name , balance):
+#           self._owner_name = owner_name
+#           self.__balance = balance 
+#      def get_balance(self):
+#           return self.__balance 
+#      def set_balance(self, new_balance):
+          
+#           if new_balance >= 100:
+#                self.__balance = new_balance
+#                return new_balance
+#           else:
+#                print("You donot have enough balance")
+
+# #object creation
+
+# user_acc = BankAccount("Aiman" , 34000)
+# # print(user_acc.__balance)   # error
+# print(user_acc.get_balance())
+# print(user_acc.set_balance(34555))
+# print(user_acc.get_balance())
+
+
+#+++++++++++++++++++++++++
+# Polymorphism 
+# Definition: Polymorphism means "many forms" — it's when the same method name behaves differently depending on which object calls it.
+#Simple picture (no code yet)
+# Think about the word "make a sound." A dog makes a sound by barking. A cat makes a sound by meowing. A cow makes a sound by mooing. Same instruction — "make a sound" — but each animal does it differently, in its own way. That's the whole idea of polymorphism
+
+# syntax
+
+# class Animal:
+#     def make_sound(self):
+#         print("Some Genetric Animal sound")
+
+# class Dog(Animal):
+#     def make_sound(self):
+#         print("Bark!")
+# class Cat(Animal):
+#     def make_sound(self):
+#         print("Meow!")
+
+# dog = Dog()
+# cat = Cat()
+# dog.make_sound()
+cat.make_sound()
+
+# The real power — one loop, many behaviors
+# animals = [Dog(), Cat()]
+
+# for animal in animals:
+#     animal.make_sound()
+
+
+#One-line summary
+
+# Same method name, different behavior, depending on which object (class) is using it.
