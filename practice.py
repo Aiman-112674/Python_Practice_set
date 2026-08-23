@@ -2379,42 +2379,50 @@
 # id_1.withdraw(500)
 # id_1.show_balance()
 
+# Class Variablle or Instance Variable 
+# Instance Variable --every variable you've used inside a class (self.title, self.balance, etc.) has been an instance variable — data that belongs to one specific object, separate from every other object of the same class.
+# Class Variable -- is different — it's a single piece of data shared by every object created from that class. Instead of each object having its own copy, they all look at the same value.
 
-# # Employee class 
+# Picture this first (no code yet)
 
-# class Employee():
-#     def __init__(self,name,salary):
-#         self.emp_name = name
-#         self.emp_salary = salary
+# Imagine a school. Every student has their own individual name and roll number — those belong to just that one student. But there's also one shared school name — like "Falcon Public School" — that's the same for every single student in that school. It's not like each student has their own separate copy of the school name; they all point to the same, single school name.
 
-# emp_1 = Employee("Aiman" , 30000)
-# print(emp_1.emp_name  )   
-# print(emp_1.emp_salary)   
-# emp_2 = Employee("Faiqa" , 30000)
-# print(emp_2.emp_salary)
-# print(emp_2.emp_name)
+# "Own name and roll number" → this is like an instance variable. Belongs to one specific student, different for each one.
+# "Shared school name" → this is like a class variable. One single value, shared by everyone.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Practice set 
+# class book:
+#     total_books = 0   # This is a class variable
+#     def __init__(self,title , author , page):
+#         self.title=title
+#         self.author = author
+#         self.page = page 
+#         book.total_books+=1
+#         # title , author , page are instance varaibles bcz each book has a different author , page number or title 
+#         # now lets find class varaible shared by all objects mean books not by single total_books is class variable 
+#     def show_books(self):
+#         print(f"{self.title}  {self.author } {self.page}")
+# book_1 = book("Harry potter" , "AIman" , 233)
+# book_2 = book("Mr,chips" , "Aiman" , 333)
+# book_1.show_books()
+# book_2.show_books()
+# practice set 
+# class BankAccount:
+#     total_accounts = 0
+#     def __init__(self , owner_name , balance):
+#         self.owner_name = owner_name
+#         self.balance = balance
+#         BankAccount.total_accounts+=1
+#     def account_details(self):
+#         print(f"{self.owner_name} has a {self.balance} balance.")
+    
+# acc_1 = BankAccount("AIman" , 3500)
+# acc_2 = BankAccount("Fatima" , 5644)
+# acc_3 = BankAccount("Faiqa" , 4000)
+# acc_1.account_details()
+# acc_2.account_details()
+# acc_3.account_details()
+# print(BankAccount.total_accounts)
 
 # Task Clacualtor using class and objects 
 
@@ -2457,7 +2465,61 @@
 #     else :
 #         print("Invalid choice")
 
+#+++++++++++++++++ 
+# Inheritence 
+#definition : Inheritance lets one class reuse and build on another class's code, instead of rewriting everything from scratch. The class being built upon is called the parent class (or base class), and the new class is called the child class (or derived class) — the child automatically gets all the parent's attributes and methods, and can add its own extra ones t
+
+# syntax
+# example too
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age 
+    def show_info(self):
+        print(f"Name : {self.name} , Age : {self.age}")
+
+class Student(Person):    # Inheritence occurs , student class inherit the person class method or variables 
+        def __init__(self, name, age , roll_number):
+             super().__init__(name,age)
+             self.roll_number = roll_number 
+        def show_student_info(self):
+             print(f"Roll Number:  {self.roll_number}")
+
+# Objects Creation 
+
+s1 =Student("AIman" , 22 , 15)
+s1.show_info()
+s1.show_student_info()
+s2 = Student("Fatima" , 22, 16)
+s2.show_student_info()
+
+# practice set  Build a 3-level class hierarchy 
+
+class Animal:   #Grand Parent
+     def __init__(self, name):
+          self.name = name 
+     def show_name(self):
+          print(f"Name : {self.name}")
+
+class Mammal(Animal): #1st child  Parent
+     def __init__(self, name,legs):
+          super().__init__(name)
+          self.legs = legs 
+     def show_legs(self):
+          print(f"Legs the mammal have : {self.legs}")
+class Dogs(Mammal): #2nd child class  Child
+     def __init__(self,name,legs,breed):
+          super().__init__(name,legs)
+          self.breed =  breed
+     def show_breed(self):
+          print(f"The breed of the dog is {self.breed}")
+# Object Creation 
+dog_1 = Dogs("Petr" , 4 ,"pet")
+dog_1.show_name()
+dog_1.show_legs()
+dog_1.show_breed()
 
 
-
-    
+#++++++++++++++++++++++++++
+# Encapsulation 
+#Definition :
