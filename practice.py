@@ -2570,6 +2570,7 @@
 #           else:
 #                print("Name cannot be empty")
 # s1 = student("Aiman")
+# # print(s1.__name)
 # # way to print name using methods due to private variable
 # print(s1.get_name())
 # # print(s1.__name)  #show error
@@ -2623,16 +2624,17 @@
 #         print("Some Genetric Animal sound")
 
 # class Dog(Animal):
-#     def make_sound(self):
+#     # def make_sound(self):
 #         print("Bark!")
 # class Cat(Animal):
-#     def make_sound(self):
+#     # def make_sound(self):
 #         print("Meow!")
-
-# dog = Dog()
+# # anm = Animal()
+# # anm.make_sound()
+# # dog = Dog()
 # cat = Cat()
-# dog.make_sound()
-cat.make_sound()
+# # dog.make_sound()
+# cat.make_sound()
 
 # The real power — one loop, many behaviors
 # animals = [Dog(), Cat()]
@@ -2644,3 +2646,253 @@ cat.make_sound()
 #One-line summary
 
 # Same method name, different behavior, depending on which object (class) is using it.
+
+
+
+
+#++++++++++++++++++++++++
+# Starting OOP Practice 
+
+#1st example
+# class Car:
+#     #adding a class variable 
+#     wheels = 4
+#     def __init__(self , brand , color , fuel_level):
+#         self.brand = brand 
+#         self.color = color
+#         self.fuel_level = fuel_level
+        
+#      # Adding methods too
+#     def drive(self):
+#         print(f"The {self.color} , {self.brand} is now driving!")
+#     # how many wheels and fuel level method 
+#     def check_status(self):
+#         print(f"The Car has {self.wheels}  and its Current Fuel Level is {self.fuel_level}")
+#     #adding a generator function 
+#     def fuel_warning(self,Current_fuel_level):
+#         while Current_fuel_level>0:
+#             yield(f"Fuel Warning: Only {Current_fuel_level} % Left!")
+#             Current_fuel_level-=10
+    
+
+# my_car = Car("Toyota" , "Red" , 100)
+# my_car_1 = Car("Honda" , "Blue" , 50)
+# my_car.drive()
+# my_car.check_status()
+# my_car_1.drive()
+# my_car_1.check_status()
+# print(my_car_1.brand)
+# print(my_car_1.color)
+# print(my_car.brand)
+# print(my_car.color)
+# for warning in my_car.fuel_warning(30):
+#         print(warning)
+# for warning in my_car_1.fuel_warning(50):
+#     print(warning)
+# # Inheritence creating a electric car inherit from parent class car 
+
+# class ElectricCar(Car): #inherited 
+#     def __init__(self,brand,color,fuel_level,battery_size):
+#         super().__init__(brand,color,fuel_level)
+#         self.__battery_size = battery_size
+#     def check_status(self):
+#         print(f"This Electric Car has {self.wheels} , a fuel level of {self.fuel_level} , and a battery size of {self.__battery_size} kWh!")
+#     def charge(self):
+#         self.__battery_size = 100
+
+
+# my_electric_car = ElectricCar("Tesla" , "White" , 0 , 50)
+# my_electric_car.drive()
+# my_electric_car.check_status()
+# my_electric_car.charge()
+# my_electric_car.check_status()
+# print(my_electric_car.brand)
+# print(my_electric_car.color)
+# # print(my_electric_car.__battery_size)
+# print(my_electric_car.fuel_level)
+
+#++++++++++++++++
+# Multiple Inheritance 
+# Definition:Multiple Inheritance means a child class can inherit properties and methods from more than one parent class at the same time.
+#syntax 
+# class Parent1:
+#     pass
+# class Parent2:
+#     pass
+# # Child inherits from BOTH Parent1 and Parent2
+# class Child(Parent1, Parent2):
+#     pass
+#Why do we need it? 
+#Instead of rewriting code, you can combine features from different sources into one class. For example, a HybridCar needs features from both a GasCar and an ElectricCar.
+#Simple example :
+# class Flyable:
+
+#     def fly(self):
+#         print("Flying in the sky!")
+
+# class Swimmable:
+
+#     def swim(self):
+#         print("Swimming in water!")
+
+# # Duck gets BOTH abilities!
+# class Duck(Flyable, Swimmable):
+#     pass
+# donald = Duck()
+# donald.fly()  # Output: Flying in the sky!
+# donald.swim()  # Output: Swimming in water!
+
+#++++++++++++++++++++++
+# Iterators in python
+#Definition:A custom iterator allows you to make your own class work inside a standard for loop, giving you full control over how items are returned one by one.
+#syntax
+# class MyNumbers:
+
+#     def __init__(self):
+#         self.num = 1
+
+#     def __iter__(self):
+#         return self  # Tells Python: "I am the iterator"
+
+#     def __next__(self):
+#         if self.num > 3:
+#             raise StopIteration  # Tells the for-loop to STOP
+#         val = self.num
+#         self.num += 1
+#         return val
+#Why do we need it?
+#Standard for loops only work on default lists or strings. If you create a custom object (like a CarFleet or Playlist), defining __iter__ and __next__ lets anyone loop over your object easily.
+#simple Example
+# class Counter:
+
+#     def __init__(self, low, high):
+#         self.current = low
+#         self.high = high
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.current > self.high:
+#             raise StopIteration
+#         self.current += 1
+#         return self.current - 1
+
+
+# # Now we can use a for-loop directly on our object!
+# for number in Counter(1, 3):
+#     print(number)
+
+#++++++++++++++++++++
+# Generator Function
+#Definition:A generator is a special function that creates values one at a time using the yield keyword instead of return. It pauses its execution and picks up right where it left off when asked for the next item.
+#syntax
+# def my_generator():
+    # yield "First item"
+    # yield "Second item"
+#Why do we need it?
+#Regular functions calculate everything at once and save it in memory (like creating a list of 1,000,000 items). Generators calculate items one by one on demand, saving massive amounts of computer memory!
+#simpel Example:
+# def count_down(start):
+#     while start > 0:
+#         yield start
+#         start -= 1
+
+
+# # Loop gets values one by one without creating a list!
+# for number in count_down(3):
+#     print(number)
+#+++++++++++++++
+# Generator Expression:
+#Definition:A generator expression is a one-line shortcut to write a generator function. It looks almost identical to a list comprehension, but uses round parentheses () instead of square brackets [].
+#syntax
+# Round brackets = Generator Expression (Memory Efficient)
+# gen = (x * 2 for x in range(5))
+#Why do we need it?
+# It gives you the memory-saving superpower of generators in just one line of code without needing to write a full function with def and yield.
+# #simple Example :
+# numbers = [1, 2, 3, 4, 5]
+
+# # Generates doubled numbers on the fly, ONLY for numbers greater than 2
+# doubled_gen = (n * 2 for n in numbers if n > 2)
+
+# for val in doubled_gen:
+#     print(val)
+
+#+++++++++++++++++++++++
+#practice of Multiple Inheritance , Iterator , Generator , Generator Expression.
+# new example 0f iterator in python 
+
+# class CarFleet:
+#     def __init__(self,cars):
+#         self.cars = cars
+#         self.index = 0
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         if self.index>=len(self.cars):
+#             raise StopIteration
+#         car = self.cars[self.index]
+#         self.index+=1
+#         return car
+# fleet = CarFleet(["Toyota", "Honda" , "Tesla" , "Civic"])
+# for car in fleet:
+#     print(car)
+
+# new example of multiple inheritance
+# Parent or Base 1
+# class GasCar:
+
+#     def fill_gas(self):
+#         print("Gas tank filled up withgasoline!")
+# # Parent or Base 2
+# class ElectricCar:
+
+#     def charge_battery(self):
+#         print("Battery fully charge with electricity")
+# # creating a child class with 2 parents 
+# class HybridCar(GasCar,ElectricCar):
+#     def drive_hybrid(self):
+#         print("Driving Cleanly using both Gas & Battery Engines")
+# #object/instance creation
+# prius = HybridCar()
+# # instance function calling
+# prius.fill_gas()
+# prius.charge_battery()
+# prius.drive_hybrid()
+# #How does Python know which parent to check first?
+# print(HybridCar.__mro__)
+
+# new example for Generator Expression 
+# fuel_levels = [10,80,5,90,14]
+
+# low_fuel_generator = (
+#     f"Low Fuel alert: {f}%!" for f in fuel_levels if f<20
+# )
+# for alert in low_fuel_generator:
+#     print(alert)
+
+# new example with Multiple Inheritence
+# class Car:
+#     def fuel(self):
+#         print("The car is filled up with petrol")
+# class ElectricCar:
+#     def charge(self):
+#         print("The car is charge with electricity")
+# class GasCar:
+#     def Gas(self):
+#         print("The car is filled up with gasoline")
+# class HybridCar(Car,ElectricCar,GasCar):
+#     def drive(self):
+#         print("The Hybrid Car is driving well")
+
+# my_car = HybridCar()
+# my_car.fuel()
+# my_car.charge()
+# my_car.drive()
+
+# # new example of Generator Expression 
+# speeds = [45,75,50,90,65]
+# speed_generator = (f"Speed Limit : {s}mph!" for s in speeds if s>60  )
+# for speed_limit in speed_generator:
+#     print(speed_limit)
