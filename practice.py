@@ -2896,3 +2896,130 @@
 # speed_generator = (f"Speed Limit : {s}mph!" for s in speeds if s>60  )
 # for speed_limit in speed_generator:
 #     print(speed_limit)
+
+
+# Error and  Exception :
+#There are (at least) two distinguishable kinds of errors: syntax errors and exceptions.
+#An exception in Python is an error that happens while your code is running, which stops the program unless you catch and handle it.
+#exmaple of sytax error 
+# print(hello)  
+# while True  
+#             print('Hello world')
+  
+# while True
+#           print('Hello world')
+#               
+# SyntaxError: invalid syntax
+#example of exception 
+# while True:
+#     try:
+#         x = int(input("Please enter a number:"))
+#         break
+#     except ValueError:
+#         print("Oops! That was no valid number. Try again...")
+#     finally:
+#         print("bye")
+#Exception Example
+# The code is written correctly, but mathematically impossible at runtime:
+# print(10 / 0)  # ❌ ZeroDivisionError: Python crashes while running
+#Handling Exceptions (try / except)
+# To stop your program from crashing when an error happens, you catch it using try and except.
+
+# try: Code you want to test.
+
+# except: Code that runs only if an error occurs.
+# try:
+#     number = int(input("Enter a number: "))
+#     print(10 / number)
+# except ZeroDivisionError:
+#     print("You cannot divide by zero!")
+# except ValueError:
+#     print("That was not a valid number!")
+
+#Adding else and finally
+# You can extend exception handling to cover all scenarios:
+
+# else: Runs only if no errors happened in the try block.
+
+# finally: Runs no matter what (great for cleanup, like closing files).
+
+# try:
+#     file = open("data.txt", "r")
+# except FileNotFoundError:
+#     print("File missing!")
+# else:
+#     print("File read successfully!")
+# finally:
+#     print("Done checking file.")  # Always runs
+
+#Raising Your Own Exception (raise)
+# You can force Python to trigger an error on purpose using raise.
+
+# age = -5
+
+# if age < 0:
+#     raise ValueError("Age cannot be negative!")  # Triggers an error manually
+
+
+# Exception Chaining (from)
+# Sometimes one error triggers another. Exception chaining connects them so you can trace what caused the problem. You use the from keyword to link them.
+
+# Example: Connecting Errors
+
+# try:
+#     # 1. File isn't found (FileNotFoundError)
+#     open("missing_file.txt")
+# except FileNotFoundError as err:
+#     # 2. Tell Python this new error happened BECAUSE of the file error
+#     raise RuntimeError("Database connection failed") from err
+
+
+# If this runs, Python shows both errors and explicitly tells you: "The above exception was the direct cause of the following exception."
+
+# Hiding the original error: If you don't want to show the first error, write raise RuntimeError(...) from None.
+
+
+# User-Defined Exceptions
+# You can create your own custom errors by making a class that inherits from Exception. This is useful when building your own programs or libraries.
+
+# Example: Creating a Custom Error
+
+# Define your custom error
+# class PasswordTooShortError(Exception):
+#     pass
+
+# # Use your custom error
+# password = "123"
+
+# if len(password) < 8:
+#     raise PasswordTooShortError("Password must be at least 8 characters!")
+
+# Defining Clean-up Actions (finally)
+# The finally block always runs, no matter what happens—whether the code succeeds, crashes, or hits a return statement.
+
+# Example: Always Running Code
+# def check_division(a, b):
+#     try:
+#         return a / b
+#     except ZeroDivisionError:
+#         return "Cannot divide by zero"
+#     finally:
+#         print("Cleaning up resources...") # ALWAYS prints before function returns
+
+# print(check_division(10, 0))
+
+# Predefined Clean-up (with statement)
+# Instead of manually writing try ... finally to close things (like files or network connections), Python has a shortcut called a Context Manager using the with keyword.
+
+# # Old Way (Risky)
+# f = open("myfile.txt")
+# data = f.read()
+# # If an error happens here, f.close() never runs!
+# f.close()
+
+# Modern Python Way (with)
+
+# with open("myfile.txt") as f:
+#     data = f.read()
+# File auto-closes here automatically, even if reading crashed!
+

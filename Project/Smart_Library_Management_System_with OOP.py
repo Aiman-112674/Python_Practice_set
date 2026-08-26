@@ -73,9 +73,3 @@ fines = [0,15,5,25,0,12]
 fine_generator = (f"Warning : Unpaid fine of ${n}"for n in fines if n>0)
 for fine in fine_generator:
     print(fine)
-
-
-
-
-
-
