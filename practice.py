@@ -3023,3 +3023,38 @@
 #     data = f.read()
 # File auto-closes here automatically, even if reading crashed!
 
+# @classmethod = "I need to touch shared class data, but not one specific object." 
+# @staticmethod = "I don't need any of that — I'm just a helper function that happens to live inside this class because it's related to what the class does."
+# Syntax errors = code won't even run because it's written wrong. Exceptions = code runs, but something goes wrong during execution — Python has many specific built-in exception types (ValueError, TypeError, ZeroDivisionError, etc.), all ultimately inheriting from Exception — which is exactly the same mechanism you used to build your own PharmacyError.
+
+
+#some practice 
+#value error or zero division error
+
+# try:
+#     num = int(input("Enter your number: "))
+#     print(num)
+#     x=int(input("Enter a number"))
+#     num_0=num/x
+#     print(num_0)
+# except ValueError:
+#     print("This was not a valid number")
+# except ZeroDivisionError:
+#     print("Number cannot be divide by 0.")
+
+# indexerror
+# try:
+#     list_0 = ["mia" , "fsqq","2"]
+#     print(list_0[4]) 
+# except IndexError:
+#     print("Index not listed")
+
+# #key error 
+# try:
+#     dict_0={
+#         "name" : "mia",
+#         "age" : 34
+#     }
+#     print(dict_0["city"])
+# except KeyError:
+#     print("Not define")
