@@ -21,7 +21,7 @@
 # print(a.size)
 # #checking the data  type
 # print(b.dtype)
-# #checking the tyoe
+# #checking the type
 # print(type(a))
 
 # d = np.arange(15)
@@ -345,10 +345,10 @@ arr_11 = np.array([[1,2,3],[10,11,12],[22,33,44]])
 result = np.nonzero(arr_11>10)
 print(result)
 
-coordinates = list(zip(result[0], result[1]))
-print(coordinates)
-for coord in coordinates:
-    print(coord)
+# coordinates = list(zip(result[0], result[1]))
+# print(coordinates)
+# for coord in coordinates:
+#     print(coord)
 
 # Random Number Generater 
 
