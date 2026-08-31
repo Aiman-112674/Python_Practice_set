@@ -61,54 +61,97 @@ import pandas as pd
 # #.loc
 # #.iloc
 # #dataframe 
-df_emp = pd.DataFrame(
-    {
-        "Department": ["HR","IT" , "Finance","Marketing"],
-        "Experience" : [3,5,3,5],
-    },
-    index = ["Emp_A", "Emp_B", "Emp_c","Emp_d"]
+# df_emp = pd.DataFrame(
+#     {
+#         "Department": ["HR","IT" , "Finance","Marketing"],
+#         "Experience" : [3,5,3,5],
+#     },
+#     index = ["Emp_A", "Emp_B", "Emp_c","Emp_d"]
 
-)
-# #1 .loc based selection - Label based 
-# #syntax
-# # df.loc[row_label(s),column_label(s)]
-# print(df_emp.loc["Emp_d", "Department"])
-# print(df_emp.loc["Emp_A":"Emp_d", ["Department"]])
+# )
+# # #1 .loc based selection - Label based 
+# # #syntax
+# # # df.loc[row_label(s),column_label(s)]
+# # print(df_emp.loc["Emp_d", "Department"])
+# # print(df_emp.loc["Emp_A":"Emp_d", ["Department"]])
 
-# #2 . Selection using .iloc (position_based)
-# # syntax 
-# #df.iloc[row_position(s), column_position(s)]
-# print(df_emp.iloc[0,0])
-# print(df_emp.iloc[0:5,0:2])
+# # #2 . Selection using .iloc (position_based)
+# # # syntax 
+# # #df.iloc[row_position(s), column_position(s)]
+# # print(df_emp.iloc[0,0])
+# # print(df_emp.iloc[0:5,0:2])
 
-# # select employee c using loc 
-# print(df_emp.loc["Emp_c" , "Department" \
-# ""])
-# # select 1st 3 rows and 1 column only
-# print(df_emp.iloc[0:3,0:1])
+# # # select employee c using loc 
+# # print(df_emp.loc["Emp_c" , "Department" \
+# # ""])
+# # # select 1st 3 rows and 1 column only
+# # print(df_emp.iloc[0:3,0:1])
 
-#select the experience value of Emp_D using .loc
-# print(df_emp.loc["Emp_d"])
-# #same with iloc 
-# print(df_emp.iloc[3,1])
+# #select the experience value of Emp_D using .loc
+# # print(df_emp.loc["Emp_d"])
+# # #same with iloc 
+# # print(df_emp.iloc[3,1])
 
-# Filtering and Boolean Indexing 
-#Boolean indexing allows you to filter data based on conditions.
-#1. Single Condtion : High earners(salary>55000)
-df = pd.DataFrame(
-    {
-        "Name": ["ALice","bob", "Walium","John"],
-        "Salary": [60000,58900,70000,34500],
-        "Age" : [38,34,37,29]
-    }
-)
-high_earners = df[df["Salary"]>55000]
-print(high_earners)
-#2. Multiple Condtions using bitwise operators : & (AND) , | (OR)
-# Always Wrap each Condition in paraenthese!
-complex_filter = df[(df["Age"]>=30) & (df["Salary"]>60000)]
-print(complex_filter)
+# # Filtering and Boolean Indexing 
+# #Boolean indexing allows you to filter data based on conditions.
+# #1. Single Condtion : High earners(salary>55000)
+# df = pd.DataFrame(
+#     {
+#         "Name": ["ALice","bob", "Walium","John"],
+#         "Salary": [60000,58900,70000,34500],
+#         "Age" : [38,34,37,29]
+#     }
+# )
+# high_earners = df[df["Salary"]>55000]
+# print(high_earners)
+# #2. Multiple Condtions using bitwise operators : & (AND) , | (OR)
+# # Always Wrap each Condition in paraenthese!
+# complex_filter = df[(df["Age"]>=30) & (df["Salary"]>60000)]
+# print(complex_filter)
 
-#3. Using .isin() for list matching 
-target_names = df[df["Name"].isin(["ALice", "David"])]
-print(target_names)
+# #3. Using .isin() for list matching 
+# target_names = df[df["Name"].isin(["ALice", "David"])]
+# print(target_names)
+
+# Practice for boolean Filtering 
+# store = pd.DataFrame(
+#     {
+#         "Item": ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphones"],
+#         "Category": [
+#             "Electronics",
+#             "Accessories",
+#             "Accessories",
+#             "Electronics",
+#             "Accessories",
+#         ],
+#         "Price": [1200, 25, 45, 300, 80],
+#         "Stock": [5, 50, 30, 12, 0],
+#     }
+# )
+
+
+# available_stock = store[store["Stock"]>0]
+# print(available_stock)
+# filtered_store = store[(store["Category"]=="Accessories") & (store["Price"]<50) ]
+# print(filtered_store)
+# items_filtering = store[store["Item"].isin(["Laptop","Monitor"])]
+# print(items_filtering)
+import numpy as np
+# Handling Missing Data 
+# df_missing = pd.DataFrame(
+    # {
+        # "A": [1,2,np.nan,4],
+        # "B" : [5,np.nan, np.nan,8],
+        # "C": ["x","y","z", None],
+    # }
+# )
+#Detecting missing Values 
+# print(df_missing.isna())
+#Count missing values per column 
+# print(df_missing.isna().sum())
+#drop rows with missing values 
+# df_dropped = df_missing.dropna()
+#fill missing values with a specific constant
+# df_filled = df_missing.fillna({"A":df_missing["A"].mean(),"B":0, "C": "Unknown"})
+# print(df_filled)
+# print(df_missing)
