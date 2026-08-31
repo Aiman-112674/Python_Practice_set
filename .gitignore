@@ -1,6 +1,8 @@
+#ignore all the virtual environments regardless of their foldername 
 myvenv/
+venv/
+env/
+*/venv/
+*/.venv/
 __pycache__/
-*.pyc
-.venv/
-__pycache__
 *.pyc
