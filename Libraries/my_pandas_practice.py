@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # # The two core building blocks
 # # 1. Series — a single column of data
@@ -136,7 +137,6 @@ import pandas as pd
 # print(filtered_store)
 # items_filtering = store[store["Item"].isin(["Laptop","Monitor"])]
 # print(items_filtering)
-import numpy as np
 # Handling Missing Data 
 # df_missing = pd.DataFrame(
     # {
@@ -154,4 +154,88 @@ import numpy as np
 #fill missing values with a specific constant
 # df_filled = df_missing.fillna({"A":df_missing["A"].mean(),"B":0, "C": "Unknown"})
 # print(df_filled)
-# print(df_missing)
+# print(df_missing
+
+# practice
+# series
+s = pd.Series([10,20,30,40] , index = ["l" , "bc" , "s" , "wq"])
+print(s)
+
+# from a list of numbers 
+s = pd.Series([10,20,30,40,50])
+print(s)
+
+#from a dictionary
+series=pd.Series(
+    {
+        "a": 2,
+        "d": 5,
+        "c": 56,
+        "f": 45,
+    }
+)
+print(series)
+#from one repeated value 
+serie = pd.Series(5, index=["a","b","c","d","f"])
+print(serie)
+# series acts like a numpy array 
+s = pd.Series([10,20,30,40,50])
+print(s)
+print(s.iloc[0])
+print(s[s>20])
+print(s*2)
+
+#series acts like a dictionary 
+#from a dictionary
+series=pd.Series(
+    {
+        "a": 2,
+        "d": 5,
+        "c": 56,
+        "f": 45,
+    }
+)
+print(series)
+print(series["a"])
+print("a" in series)
+print(series.get("f",0))
+print(series.get("g",0))
+
+# Math between two  series auto matches by label 
+# This is called alignment. Pandas lines up values by their label name, not their position.
+s1 = pd.Series([1,2,3], index = ["a","b","c"])
+s2 = pd.Series([10,20,30],index= ["b","c","d"] )
+# print(s1+s2)
+print(s1.add(s2, fill_value=0))
+# A series can have a name 
+s = pd.Series([1,2,3] , name = "marks")
+print(s.name)
+print(s)
+# dataframe practice
+data = {
+    "name": ["Aiman","Sara"],
+    "Age": [25,30],
+}
+
+df = pd.DataFrame(data)
+print(df)
+# df from a list of dictoinaries 
+df_1 = pd.DataFrame([
+    {
+        "a":1,
+        "n":2,
+    },
+    {
+        "a":4,
+        "n":6,
+    }
+
+])
+
+print(df_1)
+#from a dict of series 
+df_2 = pd.DataFrame({
+    "one": pd.Series([1,2,3] , index = ["x", "y","z"]),
+    "two": pd.Series([4,5,6], index = ["x", "y","z"])
+})
+print(df_2)
