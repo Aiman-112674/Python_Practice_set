@@ -294,3 +294,58 @@ print(removed_col)
 df2= df.assign(marks_doubled = df["marks"] * 2)
 print(df2)
 print(df)
+# Handling Missing Data(Nan)
+import pandas as pd
+import numpy as np
+
+data = {
+    "name": ["Ali", "Sara", "Zain", "Nida"],
+    "marks": [80, np.nan, 70, np.nan],
+    "city": ["Lahore", "Karachi", np.nan, "Lahore"]
+}
+df_0 = pd.DataFrame(data)
+print(df_0)
+#chekcing which cells are missing 
+print(df_0.isna())
+#count how many missing values per column 
+print(df_0.isna().sum())
+#drop rows that have any missing values 
+print(df_0.dropna())
+#fill missing values with a fixed value 
+print(df_0.fillna(0))
+#fill missing values differently per column 
+df_0["marks"] = df_0["marks"].fillna(df["marks"].mean())
+df_0["city"] = df_0["city"].fillna("unknown")
+print(df_0)
+
+# Reading Files in pandas 
+import pandas as pd 
+data = {
+    "name": ["Ali", "Sara", "Zain", "Nida","zarish","asma"],
+    "marks": [80, 90, 70, 85,78,56],
+    "city": ["Lahore", "Karachi", "Multan", "Lahore","Islamabad", "Rawalpindi"]
+   
+}
+df = pd.DataFrame(data)
+df.to_csv("practice.csv", index = False)
+#now read it back 
+df2 = pd.read_csv("practice.csv")
+print(df2)
+# peek at just the first few rows
+print(df2.head(3))
+print(df2.tail())
+#Quick summary of the file 
+print(df2.info())
+print(df2.describe())
+print(df2.shape)
+print(df2.columns)
+
+#Reading onlu certain columns 
+df = pd.read_csv("practice.csv" , usecols = ["name", "marks"])
+print(df)
+#Reading only a certain numbers of rows
+df = pd.read_csv("practice.csv" , nrows=2)
+print(df)
+#saving a Dataframe back to a file 
+df.to_csv("output.csv", index= False)
+print(df)
