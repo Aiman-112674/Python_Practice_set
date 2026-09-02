@@ -215,137 +215,306 @@ import numpy as np
 #from a dict
 import pandas as pd
 import numpy as np
-data = {
-    "name": ["Ali", "Sara" , "Zain"],
-    "marks": [80,90,70],
-}
-df = pd.DataFrame(data, index = [1,2,3])
-print(df)
-# Each key becomes a column, each list becomes that column's values.
-#from a list of lists
+# data = {
+#     "name": ["Ali", "Sara" , "Zain"],
+#     "marks": [80,90,70],
+# }
+# df = pd.DataFrame(data, index = [1,2,3])
+# print(df)
+# # Each key becomes a column, each list becomes that column's values.
+# #from a list of lists
 
-data = [["Ali",80],["Sara",70],["Zain",69]]
-df = pd.DataFrame(data , columns=["name" , "marks"])
-print(df)
+# data = [["Ali",80],["Sara",70],["Zain",69]]
+# df = pd.DataFrame(data , columns=["name" , "marks"])
+# print(df)
 
-#from a list of tuples 
-data = [("Ali",80), ("Sara",78), ("Zain",87)]
-df = pd.DataFrame(data,columns=["name","marks"],index = ["a","b","c"])
-print(df)
+# #from a list of tuples 
+# data = [("Ali",80), ("Sara",78), ("Zain",87)]
+# df = pd.DataFrame(data,columns=["name","marks"],index = ["a","b","c"])
+# print(df)
 
-#from a list of dictionaries 
-data = [{"name": "Ali" , "marks": 80},{"name":"Sara","marks":78},{"name":"zuhbai", "marks":67}]
-df = pd.DataFrame(data,index=["w","y","Z"])
-print(df)
-# Each dictionary = one row.
-# from a series 
-s = pd.Series([80,70,90], index = ["ALi","Zain","Sara"], name = "marks")
-df = pd.DataFrame(s)
-print(df)
-# A single Series becomes a DataFrame with one column.
-# From a dict of series 
-s1 = pd.Series([80,90,40], index = ["ALi","Zain","Sara"] )
-s2 = pd.Series([1,2,3], index=["ALi", "Zain","Sara"])
-df = pd.DataFrame({"marks":s1 , "rank":s2})
-print(df)
+# #from a list of dictionaries 
+# data = [{"name": "Ali" , "marks": 80},{"name":"Sara","marks":78},{"name":"zuhbai", "marks":67}]
+# df = pd.DataFrame(data,index=["w","y","Z"])
+# print(df)
+# # Each dictionary = one row.
+# # from a series 
+# s = pd.Series([80,70,90], index = ["ALi","Zain","Sara"], name = "marks")
+# df = pd.DataFrame(s)
+# print(df)
+# # A single Series becomes a DataFrame with one column.
+# # From a dict of series 
+# s1 = pd.Series([80,90,40], index = ["ALi","Zain","Sara"] )
+# s2 = pd.Series([1,2,3], index=["ALi", "Zain","Sara"])
+# df = pd.DataFrame({"marks":s1 , "rank":s2})
+# print(df)
 
-# Selecting and Reading Data 
-data = {
-    "name": ["ALi","Zain","Sara","Nida"],
-    "marks": [90,80,70,60],
-    "city": ["Lahore","Faisalabad","Karachi","Multan"]
-}
+# # Selecting and Reading Data 
+# data = {
+#     "name": ["ALi","Zain","Sara","Nida"],
+#     "marks": [90,80,70,60],
+#     "city": ["Lahore","Faisalabad","Karachi","Multan"]
+# }
 
-df = pd.DataFrame(data, index=[1,2,3,4])
-print(df)
-#selecting one column 
-print(df["name"])
-#select multiple Columns 
-print(df[["name", "marks"]])
-#select a slice of rows
-print(df[1:3])
-#filter row wirh a condition 
-print(df[df["marks"]>70])
-#filter with multiple rows
-print(df[(df["marks"]>60) & (df["city"]=="Lahore")])
-print(df[(df["marks"]>60) | (df["city"]=="Islamabad")])
+# df = pd.DataFrame(data, index=[1,2,3,4])
+# print(df)
+# #selecting one column 
+# print(df["name"])
+# #select multiple Columns 
+# print(df[["name", "marks"]])
+# #select a slice of rows
+# print(df[1:3])
+# #filter row wirh a condition 
+# print(df[df["marks"]>70])
+# #filter with multiple rows
+# print(df[(df["marks"]>60) & (df["city"]=="Lahore")])
+# print(df[(df["marks"]>60) | (df["city"]=="Islamabad")])
 
-# Adding  , modifying ,and deleting columns 
-df["grade"] = "Pending"
-print(df)
-# Every row gets "Pending" in the new column.
-# Add a new column (calculated from another column)
-df["marks_plus_5"] = df["marks"] + 5
-print(df)
-# Add a column with a condition (Pass/Fail based on marks)
-df["result"] = df["marks"]>=60
-print(df)
-#modify an existing column 
-df["marks"] = df["marks"] +3
-print(df)
-# Delete a column --method 1 del
-del df["marks_plus_5"]
-print(df)
-# delete a column - method 2 pop
-removed_col = df.pop("result")
-print(df)
-print(removed_col)
-# Add a column without changing the original  .assign()
-df2= df.assign(marks_doubled = df["marks"] * 2)
-print(df2)
-print(df)
-# Handling Missing Data(Nan)
-import pandas as pd
-import numpy as np
+# # Adding  , modifying ,and deleting columns 
+# df["grade"] = "Pending"
+# print(df)
+# # Every row gets "Pending" in the new column.
+# # Add a new column (calculated from another column)
+# df["marks_plus_5"] = df["marks"] + 5
+# print(df)
+# # Add a column with a condition (Pass/Fail based on marks)
+# df["result"] = df["marks"]>=60
+# print(df)
+# #modify an existing column 
+# df["marks"] = df["marks"] +3
+# print(df)
+# # Delete a column --method 1 del
+# del df["marks_plus_5"]
+# print(df)
+# # delete a column - method 2 pop
+# removed_col = df.pop("result")
+# print(df)
+# print(removed_col)
+# # Add a column without changing the original  .assign()
+# df2= df.assign(marks_doubled = df["marks"] * 2)
+# print(df2)
+# print(df)
+# # Handling Missing Data(Nan)
+# import pandas as pd
+# import numpy as np
 
-data = {
-    "name": ["Ali", "Sara", "Zain", "Nida"],
-    "marks": [80, np.nan, 70, np.nan],
-    "city": ["Lahore", "Karachi", np.nan, "Lahore"]
-}
-df_0 = pd.DataFrame(data)
-print(df_0)
-#chekcing which cells are missing 
-print(df_0.isna())
-#count how many missing values per column 
-print(df_0.isna().sum())
-#drop rows that have any missing values 
-print(df_0.dropna())
-#fill missing values with a fixed value 
-print(df_0.fillna(0))
-#fill missing values differently per column 
-df_0["marks"] = df_0["marks"].fillna(df["marks"].mean())
-df_0["city"] = df_0["city"].fillna("unknown")
-print(df_0)
+# data = {
+#     "name": ["Ali", "Sara", "Zain", "Nida"],
+#     "marks": [80, np.nan, 70, np.nan],
+#     "city": ["Lahore", "Karachi", np.nan, "Lahore"]
+# }
+# df_0 = pd.DataFrame(data)
+# print(df_0)
+# #chekcing which cells are missing 
+# print(df_0.isna())
+# #count how many missing values per column 
+# print(df_0.isna().sum())
+# #drop rows that have any missing values 
+# print(df_0.dropna())
+# #fill missing values with a fixed value 
+# print(df_0.fillna(0))
+# #fill missing values differently per column 
+# df_0["marks"] = df_0["marks"].fillna(df["marks"].mean())
+# df_0["city"] = df_0["city"].fillna("unknown")
+# print(df_0)
 
-# Reading Files in pandas 
-import pandas as pd 
-data = {
-    "name": ["Ali", "Sara", "Zain", "Nida","zarish","asma"],
-    "marks": [80, 90, 70, 85,78,56],
-    "city": ["Lahore", "Karachi", "Multan", "Lahore","Islamabad", "Rawalpindi"]
+# # Reading Files in pandas 
+# import pandas as pd 
+# data = {
+#     "name": ["Ali", "Sara", "Zain", "Nida","zarish","asma"],
+#     "marks": [80, 90, 70, 85,78,56],
+#     "city": ["Lahore", "Karachi", "Multan", "Lahore","Islamabad", "Rawalpindi"]
    
-}
-df = pd.DataFrame(data)
-df.to_csv("practice.csv", index = False)
-#now read it back 
-df2 = pd.read_csv("practice.csv")
-print(df2)
-# peek at just the first few rows
-print(df2.head(3))
-print(df2.tail())
-#Quick summary of the file 
-print(df2.info())
-print(df2.describe())
-print(df2.shape)
-print(df2.columns)
+# }
+# df = pd.DataFrame(data)
+# df.to_csv("practice.csv", index = False)
+# #now read it back 
+# df2 = pd.read_csv("practice.csv")
+# print(df2)
+# # peek at just the first few rows
+# print(df2.head(3))
+# print(df2.tail())
+# #Quick summary of the file 
+# print(df2.info())
+# print(df2.describe())
+# print(df2.shape)
+# print(df2.columns)
 
-#Reading onlu certain columns 
-df = pd.read_csv("practice.csv" , usecols = ["name", "marks"])
+# #Reading onlu certain columns 
+# df = pd.read_csv("practice.csv" , usecols = ["name", "marks"])
+# print(df)
+# #Reading only a certain numbers of rows
+# df = pd.read_csv("practice.csv" , nrows=2)
+# print(df)
+# #saving a Dataframe back to a file 
+# df.to_csv("output.csv", index= False)
+# print(df)
+
+#Indexing or selecting
+# import pandas as pd
+# data = {
+#     "name": ["ALi" , "Sara","Zain" , "Nida", "Nisa"],
+#     "marks": [80,90,70,85,78],
+#     "city": ["Lahore","Karachi", "Multan","Lahore","Islamabad"]
+
+# }
+
+# df = pd.DataFrame(data, index = ["a","b","c","d","e"])
+# print(df)
+
+#.loc select by label(name)
+# print(df.loc["a"])
+# print(df.loc["a":"c"])
+# print(df.loc["a","name"])
+# print(df.loc[:,"name"])
+# print(df.loc["a":"c" , ["name" , "marks","city"]])
+# Key rule to remember  with .loc, if you slice like 0:2, the end point (2) IS included. This trips up a lot of people coming from normal Python lists.
+# print(df.loc["a":"b"])
+# loc(row,column) 
+# loc(row:row)
+
+# print(df.loc["e" , "city"])
+# print(df.loc["d","name"])
+# print(df.loc["e", "marks"])
+# print(df.loc["b":"e","name"])
+# print(df.loc["a":"c","marks"])
+# Quick recap
+# Index = the full row-label column (df.index)
+# Label = a single value from inside that index ("a", "b", etc.) -- loc
+# Position = the plain 0,1,2... count from top, unrelated to what labels you  chose -- iloc
+# Labels = you choose them (or pandas defaults to numbers). Position = pandas always tracks it automatically, no matter what.
+#.iloc- select by position(number)
+# print(df.iloc[0])
+# print(df.iloc[0:2,0:2])
+# print(df.iloc[4,0])
+# print(df.iloc[:,1])
+# print(df.iloc[:,:])
+# print(df.iloc[0:6,:])
+
+# The Difference in one line 
+# print(df.loc["a":"c"])  # includes row labeled 2 → gives you 3 rows
+# print(df.iloc[0:2])     # stops before position 2 → gives you 2 rows
+
+# Plain [] -- Quick Access 
+# print(df["name"])
+# print(df[["name","marks"]])
+# print(df[0:6])
+
+# Dot Access (attribute style)
+
+# print(df.city)
+# print(df.marks)
+
+#.at and .iat -- grabbing just one value fast 
+# print(df.at["e","name"])  #at -- by label 
+# print(df.iat[4,0])    #iat --- by position 
+
+# Boolean indexing -- filtering rows 
+# print(df[df["marks"]>89])
+#in simple way 
+# mask = df["marks"]>80
+# print(mask)
+# df[mask]
+
+
+# # combining conditions 
+# print(df[(df["marks"]>75) & (df["city"]=="Lahore")]) #And
+# print(df[(df["marks"]>75) | (df["city"]=="Multan")])  #OR
+# print(df[~(df["marks"]>75)])  #Not
+
+# .isin()  --- is this value one of these 
+# print(df[df["city"].isin(["Lahore" , "Karachi"])])
+
+# .where()--filter but keep the same shape or size 
+
+# print(df["marks"].where(df["marks"]>75))   # doesn't match, but row is KEPT (just emptied)
+# #compare that to normal filtering 
+# print(df["marks"] [df["marks"]>75])
+# Row for Zain (70 marks) is completely gone here — normal filtering shrinks your data. .where() keeps every row, just blanks out the ones that don't match
+
+
+#Query (): write conditions as a plain text string '
+#instead of
+# print(df[(df["marks"]>75) & (df["city"]=="Lahore")])
+# #can write
+# print(df.query("marks > 75 and city == 'Lahore'"))
+# Same result, just feels more like a sentence. Handy for long conditions.
+
+# Duplicate rows
+# print(df.duplicated())
+# print(df.drop_duplicates())
+#can check duplicates based on just one column too:
+# print(df.duplicated("name"))
+# print(df.duplicated("city"))
+# print(df.drop_duplicates("city"))
+# print(df)
+
+
+# Set_Index or Reset Index 
+#set_index -- turn one of your columns into the row labels:
+# print(df.set_index("name"))
+#reset_index() --undo that , go back to plain 0,1,2... numbering:
+# print(df.reset_index())
+
+#.sample() -- grab random rowss
+# print(df.sample(2))
+# print(df.sample(frac=0.5))
+
+# Series ALignment when assigning a column (important)
+# If you assign a Series to a DataFrame column, pandas matches by label, not position — same idea as the coins example earlier.
+# df = pd.DataFrame({"marks": [80,90,70]}, index = ["ALi", "Sara","Zain"])
+# s = pd.Series([1,2,3] , index = ["Zain" , "ALi" ,"Sara"])
+# df["rank"] = s 
+# print(df)
+# print(s)
+
+# Setting with enlargement 
+# "Enlargement" is a fancy word for: if you assign a value to a label that doesn't exist yet, pandas just creates it for you instead of giving an error.
+import pandas as pd 
+df = pd.DataFrame({"A":[1,2,3], "B":[4,5,6]})
 print(df)
-#Reading only a certain numbers of rows
-df = pd.read_csv("practice.csv" , nrows=2)
+
+#Adding a new column this way 
+df.loc[:,"C"] = df["A"]*10
 print(df)
-#saving a Dataframe back to a file 
-df.to_csv("output.csv", index= False)
+df.loc[:,"D"] = df["C"] + 5
+print(df)
+
+# Adding a new row this way (row label 3 does not exist yet):
+df.loc[3] = [100,200,300,400]
+print(df)
+#Adding a column using plain 
+df["E"] = df["B"] - 2
+print(df)
+
+# This works with .loc and plain [], but NOT with .iloc.
+
+# .mask() -- the opposite of where()
+# You already know .where(): keep values where condition is True, blank out where False.
+# mask() does the reverse: blank out where condition is True, keep where False.
+s = pd.Series([10,20,30,40])
+print(s.where(s>20))
+print(s.mask(s>20))
+# Simple way to remember: "where" keeps what matches. "mask" hides what matches.
+
+#Np.where () -- create a new column based on a condition (very common)
+import numpy as np
+df = pd.DataFrame(
+    {
+        "marks": [80,40,90,30]
+
+    }
+)
+# Read it like a sentence: np.where(condition, value_if_true, value_if_false).
+df["result"] = np.where(df["marks"]>=50, "Pass" , "Fail")
+print(df)
+
+# when multiple conditions , use np.select() instead:
+
+conditions = [
+    df["marks"]>= 90,
+    df["marks"]>=50,
+]
+choices = ["A Grade" , "Pass"]
+df["grade"] = np.select(conditions,choices,default = "Fail")
 print(df)
