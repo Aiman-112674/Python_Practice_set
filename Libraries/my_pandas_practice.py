@@ -510,6 +510,7 @@ df["result"] = np.where(df["marks"]>=50, "Pass" , "Fail")
 print(df)
 
 # when multiple conditions , use np.select() instead:
+#np.select checks conditions top to bottom, and uses the first one that's True. If none match, it uses default.
 
 conditions = [
     df["marks"]>= 90,
@@ -518,3 +519,44 @@ conditions = [
 choices = ["A Grade" , "Pass"]
 df["grade"] = np.select(conditions,choices,default = "Fail")
 print(df)
+
+# .reindex() -- reshape your data to match a new set of labels
+#This means: "Give me a new version of my Series/DataFrame, but arranged according to THIS list of labels I'm handing you."
+
+s = pd.Series([100,200,300] , index =["a" , "b" , "c"])
+print(s)
+#reindex 
+s2 = s.reindex(["b","c","d"])   #"d" didn't exist before, so it becomes NaN
+print(s2)
+
+#practice 
+sales = pd.Series([500,700], index=["jan","March"])
+all_months = ["Jan", "Feb","March","Apr"]
+full_sales = sales.reindex(all_months)
+print(full_sales)
+
+# .get()-- dictionary-style safe lookup
+
+# normally , if you ask for a column /label that does not exist , pandas gives an  error .
+# print(df["xyz"])  # ❌ KeyError if "xyz" doesn't exist
+# .get() instead just gives you None (or a default value you choose) instead of crashing 
+
+df = pd.DataFrame(
+    {
+        "name": ["Ali","Sara"] , 
+        "marks": [80,90]
+    }
+)
+
+print(df.get("marks"))  # column exists → works normally
+print(df.get("xyz"))    # doesn't exist → prints None, no crash
+print(df.get("xyz", "Not Found"))  # doesn't exist → prints "Not Found"
+
+# When is this useful? When you're not 100% sure a column/label exists (e.g., reading different files that might have different columns), and you don't want your code to crash.
+
+#Combining positional and label-based indexing --Sometimes you know a label for columns, but only positions for rows (or vice versa). Here's how to mix them:
+df = pd.DataFrame({"A":[1,2,3], "B":[4,5,6]}, index=["x","y","z"])
+
+# I want row positions 0 and 2, but column "A" (by label)
+print(df.iloc[[0,2], df.columns.get_loc("A")])
+
