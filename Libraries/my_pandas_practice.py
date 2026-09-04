@@ -470,70 +470,70 @@ import numpy as np
 
 # Setting with enlargement 
 # "Enlargement" is a fancy word for: if you assign a value to a label that doesn't exist yet, pandas just creates it for you instead of giving an error.
-import pandas as pd 
-df = pd.DataFrame({"A":[1,2,3], "B":[4,5,6]})
-print(df)
+# import pandas as pd 
+# df = pd.DataFrame({"A":[1,2,3], "B":[4,5,6]})
+# print(df)
 
-#Adding a new column this way 
-df.loc[:,"C"] = df["A"]*10
-print(df)
-df.loc[:,"D"] = df["C"] + 5
-print(df)
+# #Adding a new column this way 
+# df.loc[:,"C"] = df["A"]*10
+# print(df)
+# df.loc[:,"D"] = df["C"] + 5
+# print(df)
 
-# Adding a new row this way (row label 3 does not exist yet):
-df.loc[3] = [100,200,300,400]
-print(df)
-#Adding a column using plain 
-df["E"] = df["B"] - 2
-print(df)
+# # Adding a new row this way (row label 3 does not exist yet):
+# df.loc[3] = [100,200,300,400]
+# print(df)
+# #Adding a column using plain 
+# df["E"] = df["B"] - 2
+# print(df)
 
-# This works with .loc and plain [], but NOT with .iloc.
+# # This works with .loc and plain [], but NOT with .iloc.
 
-# .mask() -- the opposite of where()
-# You already know .where(): keep values where condition is True, blank out where False.
-# mask() does the reverse: blank out where condition is True, keep where False.
-s = pd.Series([10,20,30,40])
-print(s.where(s>20))
-print(s.mask(s>20))
-# Simple way to remember: "where" keeps what matches. "mask" hides what matches.
+# # .mask() -- the opposite of where()
+# # You already know .where(): keep values where condition is True, blank out where False.
+# # mask() does the reverse: blank out where condition is True, keep where False.
+# s = pd.Series([10,20,30,40])
+# print(s.where(s>20))
+# print(s.mask(s>20))
+# # Simple way to remember: "where" keeps what matches. "mask" hides what matches.
 
-#Np.where () -- create a new column based on a condition (very common)
-import numpy as np
-df = pd.DataFrame(
-    {
-        "marks": [80,40,90,30]
+# #Np.where () -- create a new column based on a condition (very common)
+# import numpy as np
+# df = pd.DataFrame(
+#     {
+#         "marks": [80,40,90,30]
 
-    }
-)
-# Read it like a sentence: np.where(condition, value_if_true, value_if_false).
-df["result"] = np.where(df["marks"]>=50, "Pass" , "Fail")
-print(df)
+#     }
+# )
+# # Read it like a sentence: np.where(condition, value_if_true, value_if_false).
+# df["result"] = np.where(df["marks"]>=50, "Pass" , "Fail")
+# print(df)
 
-# when multiple conditions , use np.select() instead:
-#np.select checks conditions top to bottom, and uses the first one that's True. If none match, it uses default.
+# # when multiple conditions , use np.select() instead:
+# #np.select checks conditions top to bottom, and uses the first one that's True. If none match, it uses default.
 
-conditions = [
-    df["marks"]>= 90,
-    df["marks"]>=50,
-]
-choices = ["A Grade" , "Pass"]
-df["grade"] = np.select(conditions,choices,default = "Fail")
-print(df)
+# conditions = [
+#     df["marks"]>= 90,
+#     df["marks"]>=50,
+# ]
+# choices = ["A Grade" , "Pass"]
+# df["grade"] = np.select(conditions,choices,default = "Fail")
+# print(df)
 
-# .reindex() -- reshape your data to match a new set of labels
-#This means: "Give me a new version of my Series/DataFrame, but arranged according to THIS list of labels I'm handing you."
+# # .reindex() -- reshape your data to match a new set of labels
+# #This means: "Give me a new version of my Series/DataFrame, but arranged according to THIS list of labels I'm handing you."
 
-s = pd.Series([100,200,300] , index =["a" , "b" , "c"])
-print(s)
-#reindex 
-s2 = s.reindex(["b","c","d"])   #"d" didn't exist before, so it becomes NaN
-print(s2)
+# s = pd.Series([100,200,300] , index =["a" , "b" , "c"])
+# print(s)
+# #reindex 
+# s2 = s.reindex(["b","c","d"])   #"d" didn't exist before, so it becomes NaN
+# print(s2)
 
-#practice 
-sales = pd.Series([500,700], index=["jan","March"])
-all_months = ["Jan", "Feb","March","Apr"]
-full_sales = sales.reindex(all_months)
-print(full_sales)
+# #practice 
+# sales = pd.Series([500,700], index=["jan","March"])
+# all_months = ["Jan", "Feb","March","Apr"]
+# full_sales = sales.reindex(all_months)
+# print(full_sales)
 
 # .get()-- dictionary-style safe lookup
 
@@ -541,22 +541,165 @@ print(full_sales)
 # print(df["xyz"])  # ❌ KeyError if "xyz" doesn't exist
 # .get() instead just gives you None (or a default value you choose) instead of crashing 
 
-df = pd.DataFrame(
-    {
-        "name": ["Ali","Sara"] , 
-        "marks": [80,90]
-    }
-)
+# df = pd.DataFrame(
+#     {
+#         "name": ["Ali","Sara"] , 
+#         "marks": [80,90]
+#     }
+# )
 
-print(df.get("marks"))  # column exists → works normally
-print(df.get("xyz"))    # doesn't exist → prints None, no crash
-print(df.get("xyz", "Not Found"))  # doesn't exist → prints "Not Found"
+# print(df.get("marks"))  # column exists → works normally
+# print(df.get("xyz"))    # doesn't exist → prints None, no crash
+# print(df.get("xyz", "Not Found"))  # doesn't exist → prints "Not Found"
 
 # When is this useful? When you're not 100% sure a column/label exists (e.g., reading different files that might have different columns), and you don't want your code to crash.
 
-#Combining positional and label-based indexing --Sometimes you know a label for columns, but only positions for rows (or vice versa). Here's how to mix them:
-df = pd.DataFrame({"A":[1,2,3], "B":[4,5,6]}, index=["x","y","z"])
+# Selection by callable 
+#It means: instead of writing your filter condition directly, you can hand .loc[] a small function, and pandas will run that function on your DataFrame for you
 
-# I want row positions 0 and 2, but column "A" (by label)
-print(df.iloc[[0,2], df.columns.get_loc("A")])
+# # the callable way:
+# print((lambda df: df["marks"] > 70))
 
+
+#Combining positional + label indexing — simplest version
+# Sometimes: you know the row by position (like "give me the first 2 rows") but you know the column by name (like "but only column A"). .iloc alone can't take a column name, and .loc alone can't take a row position. So there's a small trick to combine them.
+
+# df = pd.DataFrame({
+#     "A":[1,2,3],
+#     "B": [4,5,6],
+    
+# }, 
+# index = ["x","y","z"])
+#rows at position 0 and 2 (positions), but column "A" (name).
+#Step 1: find out what position "A" is at:
+# print(df.columns.get_loc("A"))
+# print(df.iloc[0:2,0])
+
+#Index objects — simplest version
+#df.index is just your list of row-names. But pandas treats it as a special object, so you can compare it to ANOTHER list of names, like comparing two guest lists.
+# guest_list_1 = pd.Index(["Ali", "Sara", "Zain"])
+# guest_list_2 = pd.Index(["Sara", "Zain", "Nida"])
+
+# print(guest_list_1.intersection(guest_list_2))
+# print(guest_list_1.union(guest_list_2))
+# print(guest_list_1.difference(guest_list_2))
+
+#Chained indexing warning — simplest version
+# This isn't a new tool, it's a trap to avoid. Let me explain with the coins story again.
+
+# Imagine you ask someone: "Go get me the red box, and put 5 coins in
+
+# print(df.loc[df["marks"] > 50, "marks"] == 100)
+
+# Concat()--Stack sheets on top of each other, or side by side
+
+import pandas as pd 
+df1 = pd.DataFrame(
+    {
+        "name": ["Ali","Sara","Zain"],
+        "marks": [70,80,78]
+    }
+)
+df2= pd.DataFrame(
+    {
+        "name": ["Nida","Asif","asli"],
+        "marks":[75,89,95]
+    }
+)
+# STcaking on each other (row wise)
+print(pd.concat([df1,df2]))
+print(pd.concat([df2,df1]))
+#Notice the index repeats (0,1,0,1) — because concat doesn't renumber anything by default. Fix it with:
+print(pd.concat([df1,df2], ignore_index=True))
+
+# axis=0 (default) = stack downward (more rows). axis=1 = stack sideways (more columns).
+
+#Stacking side-by-side instead (more columns):
+
+print(pd.concat([df1,df2],axis=1))
+#What if columns don't fully match?
+df3 = pd.DataFrame(
+    {
+        "name": ["Bilal"],
+        "city": ["Lahore"]
+    }
+)
+print(pd.concat([df1,df3]))
+
+#Any column missing in one sheet just becomes NaN for that sheet's rows. Pandas doesn't throw an error — it just fills gaps.
+
+# merge() -- Combine rows by MATCHING a common column (like SQL)
+# This is the big one. Analogy: imagine two friends each holding a list, and you want to combine info about the same people using their names as the matching point.
+
+students = pd.DataFrame({
+    "name": ["ALi", "Sara","Zain"],
+    "marks": [80,99,67]
+
+})
+
+cities = pd.DataFrame({
+    "name": ["ALi","Sara","Nida"],
+    "city": ["Lahore","Karachi","Multan"]
+})
+
+print(pd.merge(students,cities, on = "name"))
+# Pandas looked at the "name" column in BOTH tables, and only kept people who exist in both. Zain (only in students) and Nida (only in cities) both got dropped — because by default, merge only keeps matches.
+#The how argument — controls WHO gets kept
+
+# This is the most important idea in the whole page. Think of it like a Venn diagram of 2 circles (left table, right table):
+#on="name" literally means: "Look at the 'name' column in both tables. Whenever the same name appears in both, combine those rows together."
+# how — WHO gets kept in the final result, when there ISN'T a match?# This is a totally separate question from on. Once pandas knows WHERE to match (thanks to on), it still needs to know: what happens to rows that don't have a match on the other side?
+#  only people in BOTH (default)
+print(pd.merge(students,cities, on="name",how="inner")) 
+## everyone from students, cities info if available
+#how="left" example (keep everyone from the first table):
+print(pd.merge(students,cities,on="name",how="left"))
+## everyone from cities, students info if available
+print(pd.merge(students,cities,on="name",how="right"))
+# everyone from BOTH, blanks where missing
+print(pd.merge(students,cities,on="name",how="outer"))
+
+#Simple memory trick for how
+# inner = only the overlap (both must have it)
+# left = keep everything from the left table, no matter what
+# right = keep everything from the right table, no matter what
+# outer = keep everything from everywhere
+
+# 3.Join () -- same idea as merge , but matches using the Index (row labels)
+
+# merge() matches using a column you name. join() matches using the row labels instead (the index).
+
+left = pd.DataFrame(
+    {
+        "marks" : [80,90,67],
+
+    },
+    index = ["ALi","Sara", "Zain"])
+
+right = pd.DataFrame(
+    {
+        "city": ["Lahore","Multan","Karachi"],
+    },
+    index = ["Ali","Sara","Nida"])
+print(left.join(right))
+#When would you use join() instead of merge()? When your tables are already organized with a meaningful index (like names or IDs as the index) instead of a normal column.
+
+#compare() -- spot what changed between two versions
+#Analogy: imagine you have the SAME spreadsheet, before and after someone edited it, and you want pandas to highlight exactly what changed.
+
+df1 = pd.DataFrame(
+    {
+        "name": ["Ali" , "Sara","Zain"],
+        "marks":[80,90,70],
+    }
+)
+df2 = df1.copy()
+df2.loc[0,"marks"] = 85
+print(df1.compare(df2))
+# It only shows the cell that actually changed (row 0, "marks" column), and shows you the old value (self) next to the new value (other). Everything unchanged is completely skipped, so you only see the differences.
+
+# One-sentence summary of the whole page
+# concat() = stack tables (no matching logic, just glue)
+# merge() = combine tables by matching a shared COLUMN (like SQL joins) — controlled by how
+# join() = same as merge, but matches by the INDEX instead of a column
+# compare() = show only what's different between two versions of similar data
