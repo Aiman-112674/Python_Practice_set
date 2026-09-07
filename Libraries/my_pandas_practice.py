@@ -707,23 +707,22 @@ import numpy as np
 # Suffixes : 
 #Imagine two friends both keeping a column called "score" — like your quiz score vs your exam score. When you merge them, pandas can't have two columns both named "score", so it tags them to tell them apart.
 
-import pandas as pd 
-left = pd.DataFrame(
-    {
-    "name": [ "Ali" , "Sara"]   ,
-    "score": [80,90] 
-    })
-right = pd.DataFrame({
-    "name": [
-        "Ali" , "Sara"
-    ]
-    ,
-    "score": [78,65]
+# import pandas as pd 
+# left = pd.DataFrame(
+#     {
+#     "name": [ "Ali" , "Sara"]   ,
+#     "score": [80,90] 
+#     })
+# right = pd.DataFrame({
+#     "name": [
+#         "Ali" , "Sara"
+#     ]
+#     ,
+#     "score": [78,65]
 
-})
-result = pd.merge(left,right, on = "name", suffixes=("_quiz", "_exam"))
-print(result)
-
+# })
+# result = pd.merge(left,right, on = "name", suffixes=("_quiz", "_exam"))
+# print(result)
 
 # #Indicator : tells you WHERE each row actually came from
 # First, the everyday idea
@@ -731,42 +730,42 @@ print(result)
 
 # indicator is pandas adding a little note/tag next to every row saying exactly that — where it came from.
 
-students = pd.DataFrame(
-    {
-        "name":["Ali","Sara","Zain"],
-        "marks": [67,89,97]
-    }
-)
-cities = pd.DataFrame(
-    {
-        "name":["Ali","Sara","Nida"],
-        "city":["Lahore","Karachi","Multan"]
-    }
-)
-result = pd.merge(students,cities,on="name",how="outer",indicator=True)
-print(result)
-result = pd.merge(students,cities,on="name",how="outer",indicator="Found_in")
-print(result)
+# students = pd.DataFrame(
+#     {
+#         "name":["Ali","Sara","Zain"],
+#         "marks": [67,89,97]
+#     }
+# )
+# cities = pd.DataFrame(
+#     {
+#         "name":["Ali","Sara","Nida"],
+#         "city":["Lahore","Karachi","Multan"]
+#     }
+# )
+# result = pd.merge(students,cities,on="name",how="outer",indicator=True)
+# print(result)
+# result = pd.merge(students,cities,on="name",how="outer",indicator="Found_in")
+# print(result)
 #One-sentence summary: indicator=True adds a column that tells you, for every row, whether it came from the left table only, the right table only, or both — super handy for spotting mismatches.
 
 # Combine_first() -- Fill in the blanks using another table 
 #Imagine two students both took notes for the same lecture, but each of them missed writing down a few things. If you combine their notes, using YOUR notes as the main copy but borrowing from your friend's notes wherever YOUR notes have a blank — that's exactly what combine_first() does.
 
-import numpy as np
-df1 = pd.DataFrame(
-    {
-        "marks": [90,np.nan,60]
-    }
-)
-df2 = pd.DataFrame({
-    "marks": [np.nan,90,65]
-})
-print(df1)
-print(df2)
-result = df1.combine_first(df2)
-print(result)
-result_0=df2.combine_first(df1)
-print(result_0)
+# import numpy as np
+# df1 = pd.DataFrame(
+#     {
+#         "marks": [90,np.nan,60]
+#     }
+# )
+# df2 = pd.DataFrame({
+#     "marks": [np.nan,90,65]
+# })
+# print(df1)
+# print(df2)
+# result = df1.combine_first(df2)
+# print(result)
+# result_0=df2.combine_first(df1)
+# print(result_0)
 #df1.combine_first(df2) = "Use df1 as my main copy. Only where df1 is blank, fill that spot in using df2 instead."
 #df1 is always the priority. df2 is only used as a backup/patch for the gaps.
 
@@ -794,16 +793,16 @@ print(result_0)
 # result = pd.merge(left,right,on="name")
 # print(result)
 # Many-to-one --one side repeats , the other does not 
-orders = pd.DataFrame({
-    "city": ["Lahore","Lahore","Karachi"],
-    "item": ["Pen","Book","Pen"]
-})
-info = pd.DataFrame({
-    "city": ["Lahore","Karachi"],
-    "population": ["11M","16M"]
-})
-ans = pd.merge(orders,info,on="city")
-print(ans)
+# orders = pd.DataFrame({
+#     "city": ["Lahore","Lahore","Karachi"],
+#     "item": ["Pen","Book","Pen"]
+# })
+# info = pd.DataFrame({
+#     "city": ["Lahore","Karachi"],
+#     "population": ["11M","16M"]
+# })
+# ans = pd.merge(orders,info,on="city")
+# print(ans)
 
 # Many to Many : repeats on both sides 
 # left = pd.DataFrame({"key": ["A","A","B"], "val1":[1,2,3]})
@@ -828,13 +827,31 @@ print(ans)
 # result = pd.merge(left,right,on="name",validate = "one_to_one")
 # print(result)
 # Correct Assumptions
+# import pandas as pd
+# left = pd.DataFrame({"name":["Ali","Sara"], "marks":[63,89]})
+# right = pd.DataFrame({
+#     "name": ["Ali","Sara"],
+#     "city": ["Lahore","Multan"]
+# })
+# result = pd.merge(left,right,on="name",validate = "one_to_one")
+# print(result)
+
+
+# MultiIndex from real data 
 import pandas as pd
-left = pd.DataFrame({"name":["Ali","Sara"], "marks":[63,89]})
-right = pd.DataFrame({
-    "name": ["Ali","Sara"],
-    "city": ["Lahore","Multan"]
-})
-result = pd.merge(left,right,on="name",validate = "one_to_one")
-print(result)
+marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
+#setting 2 columns as the index together 
+multi = marks.set_index(["subject","student_id"])
+print(multi.head(10))
+# Notice: "subject" and "student_id" are now BOTH part of the row identity — this is a MultiIndex (2 layers).
+# Access data using multiindexing 
+print(multi.loc["Math"])
+print(multi.loc["Math",1])
+print(multi.loc["Chemistry",5])
 
-
+# check how many layers your index has 
+print(multi.index.names)
+print(multi.index.nlevels)
+# sort multiindexing 
+multi_sorted = multi.sort_index()
+print(multi_sorted.head(20))
