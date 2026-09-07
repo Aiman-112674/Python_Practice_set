@@ -839,19 +839,55 @@ import numpy as np
 
 # MultiIndex from real data 
 import pandas as pd
-marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
-#setting 2 columns as the index together 
-multi = marks.set_index(["subject","student_id"])
-print(multi.head(10))
-# Notice: "subject" and "student_id" are now BOTH part of the row identity — this is a MultiIndex (2 layers).
-# Access data using multiindexing 
-print(multi.loc["Math"])
-print(multi.loc["Math",1])
-print(multi.loc["Chemistry",5])
+# marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
+# #setting 2 columns as the index together 
+# multi = marks.set_index(["subject","student_id"])
+# print(multi.head(10))
+# # Notice: "subject" and "student_id" are now BOTH part of the row identity — this is a MultiIndex (2 layers).
+# # Access data using multiindexing 
+# print(multi.loc["Math"])
+# print(multi.loc["Math",1])
+# print(multi.loc["Chemistry",5])
 
-# check how many layers your index has 
-print(multi.index.names)
-print(multi.index.nlevels)
-# sort multiindexing 
-multi_sorted = multi.sort_index()
-print(multi_sorted.head(20))
+# # check how many layers your index has 
+# print(multi.index.names)
+# print(multi.index.nlevels)
+# # sort multiindexing 
+# multi_sorted = multi.sort_index()
+# print(multi_sorted.head(20))
+
+# Pivot --Pivot means: "take my long, repetitive table and spread it out into a grid — one column's values go DOWN the side, another column's values go ACROSS the top, and a third column fills in the numbers in the middle."
+# exams =pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_results.csv")
+# print(exams)
+# #pivot 
+# pivoted = exams.pivot(index="name", columns="subject",values="marks")
+# index="name" → put names DOWN the side (rows)
+# columns="subject" → put subjects ACROSS the top (columns)
+# values="marks" → fill the grid with the marks numbers
+# print(pivoted)
+# Pivot Table --Pivot table does the exact same spreading-out job as pivot(), EXCEPT it also knows how to handle DUPLICATES — if the same (name, subject) combo appears more than once, it automatically combines them (usually by averaging) instead of throwing an error.
+
+# exam2 = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_results_v2.csv")
+# error show bcz pivot cannot make  a grid of dublicates name and subjects so arise valueerror so use pivottable
+# pivoted_2 = exam2.pivot(index ="name", columns="subject", values="marks")
+# print(pivoted_2)
+#pivot table
+# pivot_table = exam2.pivot_table(index ="name", columns="subject", values="marks")
+# print(pivot_table)
+
+# different Aggregation function 
+# pivoted_sum = exam2.pivot_table(index ="name", columns="subject", values="marks",aggfunc="sum")
+# print(pivoted_sum)
+
+# # show how many attempts each subject had 
+# pivoted_count = exam2.pivot_table(index="name",columns="subject",values="marks", aggfunc="count")
+# print(pivoted_count)
+
+# Multi_Indexing + Pivot_table 
+exams= pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_terms.csv")
+#simple pivot_table
+simple_pivot_table = exams.pivot_table(index="name",columns="subject",values="marks")
+print(simple_pivot_table)
+# pivot+multiindexing
+simple_mp = exams.pivot_table(index=["name","term"],columns="subject",values="marks")
+print(simple_mp)
