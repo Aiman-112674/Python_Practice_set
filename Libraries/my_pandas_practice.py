@@ -593,109 +593,109 @@ import numpy as np
 
 # Concat()--Stack sheets on top of each other, or side by side
 
-import pandas as pd 
-df1 = pd.DataFrame(
-    {
-        "name": ["Ali","Sara","Zain"],
-        "marks": [70,80,78]
-    }
-)
-df2= pd.DataFrame(
-    {
-        "name": ["Nida","Asif","asli"],
-        "marks":[75,89,95]
-    }
-)
-# STcaking on each other (row wise)
-print(pd.concat([df1,df2]))
-print(pd.concat([df2,df1]))
-#Notice the index repeats (0,1,0,1) — because concat doesn't renumber anything by default. Fix it with:
-print(pd.concat([df1,df2], ignore_index=True))
+# import pandas as pd 
+# df1 = pd.DataFrame(
+#     {
+#         "name": ["Ali","Sara","Zain"],
+#         "marks": [70,80,78]
+#     }
+# )
+# df2= pd.DataFrame(
+#     {
+#         "name": ["Nida","Asif","asli"],
+#         "marks":[75,89,95]
+#     }
+# )
+# # STcaking on each other (row wise)
+# print(pd.concat([df1,df2]))
+# print(pd.concat([df2,df1]))
+# #Notice the index repeats (0,1,0,1) — because concat doesn't renumber anything by default. Fix it with:
+# print(pd.concat([df1,df2], ignore_index=True))
 
-# axis=0 (default) = stack downward (more rows). axis=1 = stack sideways (more columns).
+# # axis=0 (default) = stack downward (more rows). axis=1 = stack sideways (more columns).
 
-#Stacking side-by-side instead (more columns):
+# #Stacking side-by-side instead (more columns):
 
-print(pd.concat([df1,df2],axis=1))
-#What if columns don't fully match?
-df3 = pd.DataFrame(
-    {
-        "name": ["Bilal"],
-        "city": ["Lahore"]
-    }
-)
-print(pd.concat([df1,df3]))
+# print(pd.concat([df1,df2],axis=1))
+# #What if columns don't fully match?
+# df3 = pd.DataFrame(
+#     {
+#         "name": ["Bilal"],
+#         "city": ["Lahore"]
+#     }
+# )
+# print(pd.concat([df1,df3]))
 
-#Any column missing in one sheet just becomes NaN for that sheet's rows. Pandas doesn't throw an error — it just fills gaps.
+# #Any column missing in one sheet just becomes NaN for that sheet's rows. Pandas doesn't throw an error — it just fills gaps.
 
-# merge() -- Combine rows by MATCHING a common column (like SQL)
-# This is the big one. Analogy: imagine two friends each holding a list, and you want to combine info about the same people using their names as the matching point.
+# # merge() -- Combine rows by MATCHING a common column (like SQL)
+# # This is the big one. Analogy: imagine two friends each holding a list, and you want to combine info about the same people using their names as the matching point.
 
-students = pd.DataFrame({
-    "name": ["ALi", "Sara","Zain"],
-    "marks": [80,99,67]
+# students = pd.DataFrame({
+#     "name": ["ALi", "Sara","Zain"],
+#     "marks": [80,99,67]
 
-})
+# })
 
-cities = pd.DataFrame({
-    "name": ["ALi","Sara","Nida"],
-    "city": ["Lahore","Karachi","Multan"]
-})
+# cities = pd.DataFrame({
+#     "name": ["ALi","Sara","Nida"],
+#     "city": ["Lahore","Karachi","Multan"]
+# })
 
-print(pd.merge(students,cities, on = "name"))
-# Pandas looked at the "name" column in BOTH tables, and only kept people who exist in both. Zain (only in students) and Nida (only in cities) both got dropped — because by default, merge only keeps matches.
-#The how argument — controls WHO gets kept
+# print(pd.merge(students,cities, on = "name"))
+# # Pandas looked at the "name" column in BOTH tables, and only kept people who exist in both. Zain (only in students) and Nida (only in cities) both got dropped — because by default, merge only keeps matches.
+# #The how argument — controls WHO gets kept
 
-# This is the most important idea in the whole page. Think of it like a Venn diagram of 2 circles (left table, right table):
-#on="name" literally means: "Look at the 'name' column in both tables. Whenever the same name appears in both, combine those rows together."
-# how — WHO gets kept in the final result, when there ISN'T a match?# This is a totally separate question from on. Once pandas knows WHERE to match (thanks to on), it still needs to know: what happens to rows that don't have a match on the other side?
-#  only people in BOTH (default)
-print(pd.merge(students,cities, on="name",how="inner")) 
-## everyone from students, cities info if available
-#how="left" example (keep everyone from the first table):
-print(pd.merge(students,cities,on="name",how="left"))
-## everyone from cities, students info if available
-print(pd.merge(students,cities,on="name",how="right"))
-# everyone from BOTH, blanks where missing
-print(pd.merge(students,cities,on="name",how="outer"))
+# # This is the most important idea in the whole page. Think of it like a Venn diagram of 2 circles (left table, right table):
+# #on="name" literally means: "Look at the 'name' column in both tables. Whenever the same name appears in both, combine those rows together."
+# # how — WHO gets kept in the final result, when there ISN'T a match?# This is a totally separate question from on. Once pandas knows WHERE to match (thanks to on), it still needs to know: what happens to rows that don't have a match on the other side?
+# #  only people in BOTH (default)
+# print(pd.merge(students,cities, on="name",how="inner")) 
+# ## everyone from students, cities info if available
+# #how="left" example (keep everyone from the first table):
+# print(pd.merge(students,cities,on="name",how="left"))
+# ## everyone from cities, students info if available
+# print(pd.merge(students,cities,on="name",how="right"))
+# # everyone from BOTH, blanks where missing
+# print(pd.merge(students,cities,on="name",how="outer"))
 
-#Simple memory trick for how
-# inner = only the overlap (both must have it)
-# left = keep everything from the left table, no matter what
-# right = keep everything from the right table, no matter what
-# outer = keep everything from everywhere
+# #Simple memory trick for how
+# # inner = only the overlap (both must have it)
+# # left = keep everything from the left table, no matter what
+# # right = keep everything from the right table, no matter what
+# # outer = keep everything from everywhere
 
-# 3.Join () -- same idea as merge , but matches using the Index (row labels)
+# # 3.Join () -- same idea as merge , but matches using the Index (row labels)
 
-# merge() matches using a column you name. join() matches using the row labels instead (the index).
+# # merge() matches using a column you name. join() matches using the row labels instead (the index).
 
-left = pd.DataFrame(
-    {
-        "marks" : [80,90,67],
+# left = pd.DataFrame(
+#     {
+#         "marks" : [80,90,67],
 
-    },
-    index = ["ALi","Sara", "Zain"])
+#     },
+#     index = ["ALi","Sara", "Zain"])
 
-right = pd.DataFrame(
-    {
-        "city": ["Lahore","Multan","Karachi"],
-    },
-    index = ["Ali","Sara","Nida"])
-print(left.join(right))
+# right = pd.DataFrame(
+#     {
+#         "city": ["Lahore","Multan","Karachi"],
+#     },
+#     index = ["Ali","Sara","Nida"])
+# print(left.join(right))
 #When would you use join() instead of merge()? When your tables are already organized with a meaningful index (like names or IDs as the index) instead of a normal column.
 
 #compare() -- spot what changed between two versions
 #Analogy: imagine you have the SAME spreadsheet, before and after someone edited it, and you want pandas to highlight exactly what changed.
 
-df1 = pd.DataFrame(
-    {
-        "name": ["Ali" , "Sara","Zain"],
-        "marks":[80,90,70],
-    }
-)
-df2 = df1.copy()
-df2.loc[0,"marks"] = 85
-print(df1.compare(df2))
+# df1 = pd.DataFrame(
+#     {
+#         "name": ["Ali" , "Sara","Zain"],
+#         "marks":[80,90,70],
+#     }
+# )
+# df2 = df1.copy()
+# df2.loc[0,"marks"] = 85
+# print(df1.compare(df2))
 # It only shows the cell that actually changed (row 0, "marks" column), and shows you the old value (self) next to the new value (other). Everything unchanged is completely skipped, so you only see the differences.
 
 # One-sentence summary of the whole page
@@ -703,3 +703,138 @@ print(df1.compare(df2))
 # merge() = combine tables by matching a shared COLUMN (like SQL joins) — controlled by how
 # join() = same as merge, but matches by the INDEX instead of a column
 # compare() = show only what's different between two versions of similar data
+
+# Suffixes : 
+#Imagine two friends both keeping a column called "score" — like your quiz score vs your exam score. When you merge them, pandas can't have two columns both named "score", so it tags them to tell them apart.
+
+import pandas as pd 
+left = pd.DataFrame(
+    {
+    "name": [ "Ali" , "Sara"]   ,
+    "score": [80,90] 
+    })
+right = pd.DataFrame({
+    "name": [
+        "Ali" , "Sara"
+    ]
+    ,
+    "score": [78,65]
+
+})
+result = pd.merge(left,right, on = "name", suffixes=("_quiz", "_exam"))
+print(result)
+
+
+# #Indicator : tells you WHERE each row actually came from
+# First, the everyday idea
+# Imagine you merge two guest lists — one from you, one from your friend — into a single combined list. Later, you look at the final list and wonder: "Wait, was 'Zain' actually on BOTH our lists? Or did he only come from my friend's list?"
+
+# indicator is pandas adding a little note/tag next to every row saying exactly that — where it came from.
+
+students = pd.DataFrame(
+    {
+        "name":["Ali","Sara","Zain"],
+        "marks": [67,89,97]
+    }
+)
+cities = pd.DataFrame(
+    {
+        "name":["Ali","Sara","Nida"],
+        "city":["Lahore","Karachi","Multan"]
+    }
+)
+result = pd.merge(students,cities,on="name",how="outer",indicator=True)
+print(result)
+result = pd.merge(students,cities,on="name",how="outer",indicator="Found_in")
+print(result)
+#One-sentence summary: indicator=True adds a column that tells you, for every row, whether it came from the left table only, the right table only, or both — super handy for spotting mismatches.
+
+# Combine_first() -- Fill in the blanks using another table 
+#Imagine two students both took notes for the same lecture, but each of them missed writing down a few things. If you combine their notes, using YOUR notes as the main copy but borrowing from your friend's notes wherever YOUR notes have a blank — that's exactly what combine_first() does.
+
+import numpy as np
+df1 = pd.DataFrame(
+    {
+        "marks": [90,np.nan,60]
+    }
+)
+df2 = pd.DataFrame({
+    "marks": [np.nan,90,65]
+})
+print(df1)
+print(df2)
+result = df1.combine_first(df2)
+print(result)
+result_0=df2.combine_first(df1)
+print(result_0)
+#df1.combine_first(df2) = "Use df1 as my main copy. Only where df1 is blank, fill that spot in using df2 instead."
+#df1 is always the priority. df2 is only used as a backup/patch for the gaps.
+
+# Merge Type -- one-to-one , many-to-one , many-to-many :This whole topic is really just about ONE question: "does a name/value repeat in my table or not?" Depending on the answer, merging behaves very differently.
+
+#Think of it like a name tag at a party:
+
+# If everyone has a UNIQUE name tag → matching is simple, 1-for-1
+# If some people share the SAME name tag → matching gets messy, because pandas doesn't know which "Ali" goes with which "Ali"
+
+# Type one to one - no repeats on either side :
+# import pandas as pd 
+# left = pd.DataFrame(
+#     {
+#         "name": ["ALi" , "Sara"],
+#         "marks": [80,90,56]
+#     }
+# )
+# right = pd.DataFrame(
+#     {
+#         "name": ["ALi" , "Sara"],
+#         "city": ["Lahore", "Karachi"]
+#     }
+# )
+# result = pd.merge(left,right,on="name")
+# print(result)
+# Many-to-one --one side repeats , the other does not 
+orders = pd.DataFrame({
+    "city": ["Lahore","Lahore","Karachi"],
+    "item": ["Pen","Book","Pen"]
+})
+info = pd.DataFrame({
+    "city": ["Lahore","Karachi"],
+    "population": ["11M","16M"]
+})
+ans = pd.merge(orders,info,on="city")
+print(ans)
+
+# Many to Many : repeats on both sides 
+# left = pd.DataFrame({"key": ["A","A","B"], "val1":[1,2,3]})
+# right = pd.DataFrame({"key": ["A","A","B"], "val2":[10,20,30]})
+# result = pd.merge(left, right, on="key")
+# print(result)
+
+#validate--a safety check for merge keys
+#Remember the many-to-many danger from Topic 4 — where repeated keys on both sides silently create way more rows than you expected (the Cartesian product)?
+
+# validate is like telling pandas: "Before you merge, please double-check my assumption about repeats — and if I'm wrong, STOP and warn me instead of silently giving me a messed-up result."
+
+# It's like a safety inspector checking your work before letting it through.
+
+#error message
+# import pandas as pd
+# left = pd.DataFrame({"name":["Ali","Sara"], "marks":[63,89]})
+# right = pd.DataFrame({
+#     "name": ["Ali","Ali"],
+#     "city": ["Lahore","Multan"]
+# })
+# result = pd.merge(left,right,on="name",validate = "one_to_one")
+# print(result)
+# Correct Assumptions
+import pandas as pd
+left = pd.DataFrame({"name":["Ali","Sara"], "marks":[63,89]})
+right = pd.DataFrame({
+    "name": ["Ali","Sara"],
+    "city": ["Lahore","Multan"]
+})
+result = pd.merge(left,right,on="name",validate = "one_to_one")
+print(result)
+
+
