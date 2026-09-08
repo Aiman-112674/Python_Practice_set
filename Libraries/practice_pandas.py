@@ -1,7 +1,7 @@
 
 import pandas as pd
 import numpy as np
-df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\student_dataset_v2.csv")
+# df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\student_dataset_v2.csv")
 # print(df.head())
 # print(df.info())
 # print(df.shape)
@@ -36,8 +36,8 @@ df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\student_
 # merge , concat , join , compare
 
 import pandas as pd
-marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
-info = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_info.csv")
+# marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
+# info = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_info.csv")
 # print(marks.head())
 # print(marks.shape)
 # print(info.head())
@@ -70,23 +70,57 @@ info = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\studen
 # print(combined7)
 
 # Query 4: join
-marks_indx = marks.set_index("student_id")
-info_indx = info.set_index("student_id")
-print(marks_indx.head())
-print(info_indx.head())
-#by default left joined 
-joined = marks_indx.join(info_indx,lsuffix="_marks", rsuffix="_info")
-print(joined)
-print(joined.shape)
+# marks_indx = marks.set_index("student_id")
+# info_indx = info.set_index("student_id")
+# print(marks_indx.head())
+# print(info_indx.head())
+# #by default left joined 
+# joined = marks_indx.join(info_indx,lsuffix="_marks", rsuffix="_info")
+# print(joined)
+# print(joined.shape)
 
-joined_inner = marks_indx.join(info_indx,how="inner", lsuffix="_marks",rsuffix="_info")
-print(joined_inner)
-print(joined_inner.shape)
+# joined_inner = marks_indx.join(info_indx,how="inner", lsuffix="_marks",rsuffix="_info")
+# print(joined_inner)
+# print(joined_inner.shape)
 
-joined_outer = marks_indx.join(info_indx,how="outer",lsuffix="_marks",rsuffix="_info")
-print(joined_outer)
-print(joined_outer.shape)
+# joined_outer = marks_indx.join(info_indx,how="outer",lsuffix="_marks",rsuffix="_info")
+# print(joined_outer)
+# print(joined_outer.shape)
 
-joined_right = marks_indx.join(info_indx,how="right",lsuffix="_marks",rsuffix="_info")
-print(joined_right)
-print(joined_right.shape)
+# joined_right = marks_indx.join(info_indx,how="right",lsuffix="_marks",rsuffix="_info")
+# print(joined_right)
+# print(joined_right.shape)
+
+# practice on a messy dataset 
+
+df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\messy_students.csv")
+print(df)
+print(df.dtypes)
+#clean the name column first :
+df["name"] = df["name"].str.title()
+print(df["name"])
+df["name"]= df["name"].str.strip()
+print(df)
+
+#marks column 
+
+df["marks"] = df["marks"].str.replace("kg","" , regex = False)
+df["marks"] = df["marks"].str.replace("marks","" , regex = False)
+print(df["marks"])
+
+df["marks"] = df["marks"].replace(["N/A" , "N.A","-"], pd.NA)
+print(df["marks"])
+
+#convert to int 
+# "coerce" = "just force it, and if it's truly impossible, mark it as missing instead of stopping everything."
+df["marks"]= pd.to_numeric(df["marks"],errors = "coerce")
+print(df["marks"])
+print(df.dtypes)
+
+print(df)
+
+# city 
+df["city"] = df["city"].str.strip()
+df["city"] = df["city"].str.lower()
+print(df)
+print(df.dtypes)

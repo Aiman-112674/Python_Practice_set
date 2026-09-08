@@ -856,38 +856,236 @@ import pandas as pd
 # multi_sorted = multi.sort_index()
 # print(multi_sorted.head(20))
 
-# Pivot --Pivot means: "take my long, repetitive table and spread it out into a grid — one column's values go DOWN the side, another column's values go ACROSS the top, and a third column fills in the numbers in the middle."
+# # Pivot --Pivot means: "take my long, repetitive table and spread it out into a grid — one column's values go DOWN the side, another column's values go ACROSS the top, and a third column fills in the numbers in the middle."
 # exams =pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_results.csv")
-# print(exams)
-# #pivot 
+# # print(exams)
+# # #pivot 
 # pivoted = exams.pivot(index="name", columns="subject",values="marks")
-# index="name" → put names DOWN the side (rows)
-# columns="subject" → put subjects ACROSS the top (columns)
-# values="marks" → fill the grid with the marks numbers
+# # index="name" → put names DOWN the side (rows)
+# # columns="subject" → put subjects ACROSS the top (columns)
+# # values="marks" → fill the grid with the marks numbers
 # print(pivoted)
-# Pivot Table --Pivot table does the exact same spreading-out job as pivot(), EXCEPT it also knows how to handle DUPLICATES — if the same (name, subject) combo appears more than once, it automatically combines them (usually by averaging) instead of throwing an error.
+# # Pivot Table --Pivot table does the exact same spreading-out job as pivot(), EXCEPT it also knows how to handle DUPLICATES — if the same (name, subject) combo appears more than once, it automatically combines them (usually by averaging) instead of throwing an error.
 
 # exam2 = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_results_v2.csv")
-# error show bcz pivot cannot make  a grid of dublicates name and subjects so arise valueerror so use pivottable
-# pivoted_2 = exam2.pivot(index ="name", columns="subject", values="marks")
-# print(pivoted_2)
-#pivot table
+# # error show bcz pivot cannot make  a grid of dublicates name and subjects so arise valueerror so use pivottable
+# # pivoted_2 = exam2.pivot(index ="name", columns="subject", values="marks")
+# # print(pivoted_2)
+# # pivot table  #by default the aggfunc is mean 
 # pivot_table = exam2.pivot_table(index ="name", columns="subject", values="marks")
 # print(pivot_table)
 
-# different Aggregation function 
+# # different Aggregation function 
 # pivoted_sum = exam2.pivot_table(index ="name", columns="subject", values="marks",aggfunc="sum")
 # print(pivoted_sum)
 
 # # show how many attempts each subject had 
 # pivoted_count = exam2.pivot_table(index="name",columns="subject",values="marks", aggfunc="count")
 # print(pivoted_count)
+# # show the maximum of each subject 
+# pivoted_max = exam2.pivot_table(index="name", columns="subject", values="marks",aggfunc="max")
+# print(pivoted_max)
+# # show the mininum of each subject 
+# pivoted_min = exam2.pivot_table(index="name", columns="subject", values ="marks",aggfunc="min")
+# print(pivoted_min)
+# # Multi_Indexing + Pivot_table 
+# exams= pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_terms.csv")
+# # #simple pivot_table
+# simple_pivot_table = exams.pivot_table(index="name",columns="subject",values="marks")
+# print(simple_pivot_table)
+# # # pivot+multiindexing
+# simple_mp = exams.pivot_table(index=["name","term"],columns="subject",values="marks")
+# print(simple_mp)
 
-# Multi_Indexing + Pivot_table 
-exams= pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_terms.csv")
-#simple pivot_table
-simple_pivot_table = exams.pivot_table(index="name",columns="subject",values="marks")
-print(simple_pivot_table)
-# pivot+multiindexing
-simple_mp = exams.pivot_table(index=["name","term"],columns="subject",values="marks")
-print(simple_mp)
+
+# # Finding Null Values :
+
+import pandas as pd
+import numpy as np
+
+# data = {
+#     "name": ["Ali","Sara","Zain" , "Nida","Bilal"],
+#     "marks": [80,np.nan,70,np.nan,90],
+#     "city": ["Lahore","Karachi",np.nan,"Multan", np.nan]
+
+# }
+
+# df = pd.DataFrame(data)
+# print(df)
+
+# #lets identify null 
+# # 1. .isna()
+# print(df.isna())
+# print(df.isnull())
+
+# # step 2 .notna() -- the opposite check
+
+# print(df.notna())
+
+# # step 3 count how many null per column
+
+# print(df.isna().sum())
+
+# # step 5 count how many null values per row
+# print(df.isna().sum(axis = 1))
+
+# # check if there's any null at all , anywhere 
+
+# print(df.isna().any())
+# print(df.isna().any().any())
+
+# # step 6 check if every value in a column is null 
+# print(df.isna().all())
+
+# # step 7 Actually see the rows that have a null(filter them out)
+# #row where marks is null
+# print(df[df["marks"].isna()])
+
+# #rows where any column is null
+# print(df[df.isna().any(axis=1)])
+
+# # step 8 Quick overall summary using .info()
+
+# print(df.info())
+
+# # WhiteSpaces
+
+# data = {
+#     "name": ["Ali","Sara","Zain"],
+#     "city": ["Lahore"," ",""]
+
+# }
+# df = pd.DataFrame(data)
+# print(df)
+# print(df.isna())
+# #How to actually catch these "fake blanks"
+# #Step 1: Strip whitespace, then convert empty strings to real NaN
+# df["city"] = df["city"].str.strip()
+# df["city"] = df["city"].replace("", np.nan)
+
+# print(df)
+# print(df.isna())
+# #step2  Or do it directly without changing the column permanently — just to CHECK
+# whitespace_mask = df["city"].str.strip()==""
+# print(whitespace_mask)
+
+# # handling those placeholder words too
+
+# df["city"] = df["city"].replace(["N/A", "none","null","-",""],np.nan)
+# print(df.isna())
+
+# # catching this automatically WHILE reading a CSV
+
+# df = pd.read_csv("file.csv",na_values=["N/A","none","null","-"," "])
+
+
+# Duplicates --A duplicate just means: this row (or value) appears more than once — it's a repeat of something already seen.
+
+# data = {
+#     "name": ["Ali","Sara","Ali","Zain","Sara","Ali"],
+#     "marks": [80,90,80,70,95,80],
+#     "city": ["Lahore","Karachi","Lahore","Multan","Karachi","Lahore"]
+# }
+# df = pd.DataFrame(data)
+# print(df)
+
+# #Notice: row 0, 2, 5 are ALL exactly identical (Ali, 80, Lahore). Row 1 and 4 have the same name "Sara" but DIFFERENT marks (90 vs 95) — so they're not FULLY identical, just partially.
+
+# #step 1 -- .duplicated()  -- check every row , True/False 
+
+# print(df.duplicated())
+# #Reading this: False means "this row is being seen for the FIRST time." True means "this exact row already appeared earlier
+
+# #step 2 : Count how many duplicate rows exist
+# print(df.duplicated().sum())
+# # step 3 Actually see the duplicate rows 
+# print(df[df.duplicated()])
+
+# #step 4 : change which occurrence gets marked as the duplicate
+
+# # print(df.duplicated(keep="first"))
+# # print(df.duplicated(keep="last"))
+# print(df.duplicated(keep=False))
+# print(df[df.duplicated(keep=False)])
+
+# # step 5 : check the duplicates based on only some columns (not the whole row)
+# print(df.duplicated(subset=["name","city"]))
+
+# # step 6 : Removing duplicates — .drop_duplicates()
+# # print(df.drop_duplicates())
+
+
+# # subset and keep 
+# # print(df.drop_duplicates(subset="name"))
+# # print(df.drop_duplicates(subset="name", keep = "last"))
+# # print(df.drop_duplicates(subset="name", keep = False))
+
+# # step 7 : Checking for duplicates in a single COLUMN (Series), not the whole DataFrame
+# print(df["name"].duplicated())
+# print(df["city"].duplicated())
+
+# # step 8:count how many times EACH value appears
+# print(df["name"].value_counts())
+
+# exam_terms.csv 
+
+# df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\exam_terms.csv")
+# print(df.shape)
+# print(df.duplicated())
+# print(df.duplicated().sum())
+# print(df.duplicated(subset="name").sum())
+# print(df.duplicated(subset="subject").sum())
+# print(df["name"].value_counts())
+#The one-sentence answer
+# Use .duplicated() to flag repeated rows as True/False (.sum() to count them, df[df.duplicated()] to see them), use subset= to check specific columns instead of the whole row, use keep= to control which copy counts as "the original," and use .value_counts() for a fast overview of how often each value repeats.
+
+
+# Wrong Formated Values _It means the data is technically present (not null, not missing) — but it's messy, inconsistent, or in the wrong type/shape.
+
+
+# data = {
+#     "name": ["Ali","sara","ZAIN"," Nida" , "Bilal "],
+#     "marks": ["80","90", "70kg","85","N\A"],
+#     "city": ["Lahore", "lahore","LAHORE","Karachi " , "karachi"]
+# }
+# df = pd.DataFrame(data)
+# print(df)
+
+# # Check the actual data type of each column 
+# print(df.dtypes)
+
+# # fix inconsistent text case 
+# df["city"] = df["city"].str.lower()
+# print(df["city"])
+
+# # Remove extra whitespace
+
+# df["name"] = df["name"].str.strip()
+# df["city"] = df["city"].str.strip()
+# print(df)
+
+# # Fix capitalization in "name" too, consistently
+# df["name"] = df["name"].str.title()
+# print(df["name"])
+
+# # Now check df.unique() after cleaning — confirm no more duplicates from inconsistency
+
+# print(df["city"].unique())
+# print(df["name"].unique())
+
+# # Fix the "marks" column — remove junk text, convert to real numbers
+
+# df["marks"] = df["marks"].str.replace("kg", "" , regex=False)
+# print(df["marks"])
+
+# #Then convert the column to actual numbers — anything that FAILS becomes NaN automatically:
+# df["marks"] = pd.to_numeric(df["marks"], errors="coerce")
+# print(df["marks"])
+# print(df.dtypes)
+# # The Final Cleaned Table :
+# print(df)
+
+# One-sentence summary
+
+# Wrong-formatted values are messy but "present" data — spot them using .dtypes (wrong type) and .unique() (inconsistent spelling/case), then fix them using .str.strip(), .str.lower()/.title(), .str.replace(), and pd.to_numeric()/pd.to_datetime() with errors="coerce" to convert bad values into proper, detectable NaN.
+
