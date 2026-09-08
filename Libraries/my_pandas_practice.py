@@ -1089,3 +1089,115 @@ import numpy as np
 
 # Wrong-formatted values are messy but "present" data — spot them using .dtypes (wrong type) and .unique() (inconsistent spelling/case), then fix them using .str.strip(), .str.lower()/.title(), .str.replace(), and pd.to_numeric()/pd.to_datetime() with errors="coerce" to convert bad values into proper, detectable NaN.
 
+# Datatime 
+
+
+# data ={
+#     "name": ["ALi","Sara","Zain","Bilal","Nida"],
+#     "join_date" : ["2024-01-05","05/03/2024","March 10, 2024","2024/01/20" , "not available"]
+# }
+# df = pd.DataFrame(data)
+# # print(df)
+# # print(df.dtypes)
+# # Step 1 : Convert to real dates with pd.to_datetime()
+# df["join_date"] = pd.to_datetime(df["join_date"], format= "mixed",errors="coerce")
+# print(df)
+# print(df.dtypes)
+
+# #sanity check - do the parsed years make sense?
+# print(df["join_date"].dt.year)
+
+#Outlier : An outlier is a value that is way different from most of the other values in your data — so different that it looks unusual, suspicious, or maybe even wrong.
+
+# Two types of outliers (this matters!)
+# Type 1 : Genunie mistakes (data entry errors )
+# age = 200
+# marks = -50
+# salary = 5
+# Type 2 : Real but rare / extreme values 
+
+# salary of a ceo = $ 2,000,000 (while everyone else earns $40,000-$80,000)
+
+# How to Identify Outliers 
+
+data ={
+    "name": ["Ali","Sara","Zain","Nida","Bilal","Ayesha","Usman","Hina","Faisal","Mahnoor"],
+    "marks" : [78, 82, 75, 80, 79, 76, 81, 77, 5, 200]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# Method 1 :Visual check — just LOOK at the numbers
+# Simple sorting
+
+print(df["marks"].sort_values())
+
+# Basic Statistics Summary 
+print(df["marks"].describe())
+
+#Method 2: The IQR method (most common, most practical)
+
+Q1 = df["marks"].quantile(0.25)
+Q3 = df["marks"].quantile(0.75)
+IQR = Q3-Q1
+print("Q1:" , Q1)
+print("Q3:" , Q3)
+print("IQR:" , IQR)
+
+lower_bound = Q1-1.5*IQR
+upper_bound = Q3+1.5*IQR
+
+print("lower_bound:" , lower_bound)
+print("Upper_bound:" , upper_bound)
+
+#Any mark below 69.5 or above 87.5 counts as an outlier.
+
+# Now actually FIND them
+outliers = df[(df["marks"]<lower_bound)| (df["marks"]> upper_bound)]
+print(outliers)
+
+# Method 3: The Z-score method (alternative approach)
+#A Z-score tells you: "how many standard deviations away from the average is this value?"
+#Z-score = 0 → exactly average
+# Z-score = 1 → one "typical step" above average
+# Z-score = 3 or more (or -3 or less) → VERY far from average, likely an outlier
+
+# The formula 
+#z = (value - mean) / standard_deviation
+
+mean = df["marks"].mean()
+std = df["marks"].std()
+df["z_score"] = (df["marks"]-mean) / std 
+
+print(df)
+
+outliers_z = df[(df["z_score"] > 3) | (df["z_score"] < -3)]
+print(outliers_z)
+
+# Part 3 : What do you actually DO once you find outliers?
+
+#step1 . Investigate first (always do this before anything else!)
+print(df[df["marks"]>100])
+#step 2 .Remove the outlier rows entirely
+
+df_clean = df[(df["marks"] >= lower_bound) & (df["marks"] <= upper_bound)]
+print(df_clean)
+
+# method: Cap/clip the value instead of removing it (keeps the row, just limits the extremity)
+
+
+df["marks_capped"] = df["marks"].clip(lower=lower_bound, upper=upper_bound)
+print(df)
+
+# method: Replace with NaN, then handle like any other missing value
+
+df.loc[(df["marks"] < lower_bound) | (df["marks"] > upper_bound), "marks"] = pd.NA
+print(df)
+
+#Just leave it (sometimes the right choice!)
+
+
+#One-sentence summary of the whole topic
+
+#Outliers are valid-but-unusual values that stick out far from the rest of your data — found visually (sorting, .describe()) or mathematically (IQR: outside Q1-1.5×IQR to Q3+1.5×IQR, or Z-score: beyond ±3 standard deviations) — and once found, you investigate WHY before deciding to remove, cap, replace with NaN, or sometimes just leave them, depending on whether they're genuine errors or real extreme value
