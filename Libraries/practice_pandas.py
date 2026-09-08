@@ -122,5 +122,5 @@ print(df)
 # city 
 df["city"] = df["city"].str.strip()
 df["city"] = df["city"].str.lower()
-print(df)
+print(df)  
 print(df.dtypes)
