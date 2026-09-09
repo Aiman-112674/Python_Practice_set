@@ -981,30 +981,32 @@ import numpy as np
 
 # Duplicates --A duplicate just means: this row (or value) appears more than once — it's a repeat of something already seen.
 
-# data = {
-#     "name": ["Ali","Sara","Ali","Zain","Sara","Ali"],
-#     "marks": [80,90,80,70,95,80],
-#     "city": ["Lahore","Karachi","Lahore","Multan","Karachi","Lahore"]
-# }
-# df = pd.DataFrame(data)
-# print(df)
+data = {
+    "name": ["Ali","Sara","Ali","Zain","Sara","Ali"],
+    "marks": [80,90,80,70,95,80],
+    "city": ["Lahore","Karachi","Lahore","Multan","Karachi","Lahore"]
+}
+df = pd.DataFrame(data)
+print(df)
 
 # #Notice: row 0, 2, 5 are ALL exactly identical (Ali, 80, Lahore). Row 1 and 4 have the same name "Sara" but DIFFERENT marks (90 vs 95) — so they're not FULLY identical, just partially.
 
 # #step 1 -- .duplicated()  -- check every row , True/False 
 
-# print(df.duplicated())
+print(df.duplicated())
 # #Reading this: False means "this row is being seen for the FIRST time." True means "this exact row already appeared earlier
 
 # #step 2 : Count how many duplicate rows exist
-# print(df.duplicated().sum())
+print(df.duplicated().sum())
 # # step 3 Actually see the duplicate rows 
-# print(df[df.duplicated()])
+print(df[df.duplicated()])
 
 # #step 4 : change which occurrence gets marked as the duplicate
 
 # # print(df.duplicated(keep="first"))
 # # print(df.duplicated(keep="last"))
+# print(df.duplicated(keep="first"))
+
 # print(df.duplicated(keep=False))
 # print(df[df.duplicated(keep=False)])
 
@@ -1120,79 +1122,79 @@ import numpy as np
 
 # How to Identify Outliers 
 
-data ={
-    "name": ["Ali","Sara","Zain","Nida","Bilal","Ayesha","Usman","Hina","Faisal","Mahnoor"],
-    "marks" : [78, 82, 75, 80, 79, 76, 81, 77, 5, 200]
-}
+# data ={
+#     "name": ["Ali","Sara","Zain","Nida","Bilal","Ayesha","Usman","Hina","Faisal","Mahnoor"],
+#     "marks" : [78, 82, 75, 80, 79, 76, 81, 77, 5, 200]
+# }
 
-df = pd.DataFrame(data)
-print(df)
+# df = pd.DataFrame(data)
+# print(df)
 
-# Method 1 :Visual check — just LOOK at the numbers
-# Simple sorting
+# # Method 1 :Visual check — just LOOK at the numbers
+# # Simple sorting
 
-print(df["marks"].sort_values())
+# print(df["marks"].sort_values())
 
-# Basic Statistics Summary 
-print(df["marks"].describe())
+# # Basic Statistics Summary 
+# print(df["marks"].describe())
 
-#Method 2: The IQR method (most common, most practical)
+# #Method 2: The IQR method (most common, most practical)
 
-Q1 = df["marks"].quantile(0.25)
-Q3 = df["marks"].quantile(0.75)
-IQR = Q3-Q1
-print("Q1:" , Q1)
-print("Q3:" , Q3)
-print("IQR:" , IQR)
+# Q1 = df["marks"].quantile(0.25)
+# Q3 = df["marks"].quantile(0.75)
+# IQR = Q3-Q1
+# print("Q1:" , Q1)
+# print("Q3:" , Q3)
+# print("IQR:" , IQR)
 
-lower_bound = Q1-1.5*IQR
-upper_bound = Q3+1.5*IQR
+# lower_bound = Q1-1.5*IQR
+# upper_bound = Q3+1.5*IQR
 
-print("lower_bound:" , lower_bound)
-print("Upper_bound:" , upper_bound)
+# print("lower_bound:" , lower_bound)
+# print("Upper_bound:" , upper_bound)
 
-#Any mark below 69.5 or above 87.5 counts as an outlier.
+# #Any mark below 69.5 or above 87.5 counts as an outlier.
 
-# Now actually FIND them
-outliers = df[(df["marks"]<lower_bound)| (df["marks"]> upper_bound)]
-print(outliers)
+# # Now actually FIND them
+# outliers = df[(df["marks"]<lower_bound)| (df["marks"]> upper_bound)]
+# print(outliers)
 
-# Method 3: The Z-score method (alternative approach)
-#A Z-score tells you: "how many standard deviations away from the average is this value?"
-#Z-score = 0 → exactly average
-# Z-score = 1 → one "typical step" above average
-# Z-score = 3 or more (or -3 or less) → VERY far from average, likely an outlier
+# # Method 3: The Z-score method (alternative approach)
+# #A Z-score tells you: "how many standard deviations away from the average is this value?"
+# #Z-score = 0 → exactly average
+# # Z-score = 1 → one "typical step" above average
+# # Z-score = 3 or more (or -3 or less) → VERY far from average, likely an outlier
 
-# The formula 
-#z = (value - mean) / standard_deviation
+# # The formula 
+# #z = (value - mean) / standard_deviation
 
-mean = df["marks"].mean()
-std = df["marks"].std()
-df["z_score"] = (df["marks"]-mean) / std 
+# mean = df["marks"].mean()
+# std = df["marks"].std()
+# df["z_score"] = (df["marks"]-mean) / std 
 
-print(df)
+# print(df)
 
-outliers_z = df[(df["z_score"] > 3) | (df["z_score"] < -3)]
-print(outliers_z)
+# outliers_z = df[(df["z_score"] > 3) | (df["z_score"] < -3)]
+# print(outliers_z)
 
-# Part 3 : What do you actually DO once you find outliers?
+# # Part 3 : What do you actually DO once you find outliers?
 
-#step1 . Investigate first (always do this before anything else!)
-print(df[df["marks"]>100])
-#step 2 .Remove the outlier rows entirely
+# #step1 . Investigate first (always do this before anything else!)
+# print(df[df["marks"]>100])
+# #step 2 .Remove the outlier rows entirely
 
-df_clean = df[(df["marks"] >= lower_bound) & (df["marks"] <= upper_bound)]
-print(df_clean)
+# df_clean = df[(df["marks"] >= lower_bound) & (df["marks"] <= upper_bound)]
+# print(df_clean)
 
-# method: Cap/clip the value instead of removing it (keeps the row, just limits the extremity)
+# # method: Cap/clip the value instead of removing it (keeps the row, just limits the extremity)
 
 
-df["marks_capped"] = df["marks"].clip(lower=lower_bound, upper=upper_bound)
-print(df)
+# df["marks_capped"] = df["marks"].clip(lower=lower_bound, upper=upper_bound)
+# print(df)
 
-# method: Replace with NaN, then handle like any other missing value
+# # method: Replace with NaN, then handle like any other missing value
 
-df.loc[(df["marks"] < lower_bound) | (df["marks"] > upper_bound), "marks"] = pd.NA
+# df.loc[(df["marks"] < lower_bound) | (df["marks"] > upper_bound), "marks"] = pd.NA
 print(df)
 
 #Just leave it (sometimes the right choice!)
@@ -1201,3 +1203,137 @@ print(df)
 #One-sentence summary of the whole topic
 
 #Outliers are valid-but-unusual values that stick out far from the rest of your data — found visually (sorting, .describe()) or mathematically (IQR: outside Q1-1.5×IQR to Q3+1.5×IQR, or Z-score: beyond ±3 standard deviations) — and once found, you investigate WHY before deciding to remove, cap, replace with NaN, or sometimes just leave them, depending on whether they're genuine errors or real extreme value
+
+
+
+# +++++++++++++++++++
+
+import pandas as pd
+import numpy as np
+# df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\student_dataset_v2.csv")
+# print(df.head())
+# print(df.info())
+# print(df.shape)
+# print(df.describe())
+# print(df[df["Age"]>20])
+
+# print(df.head)
+
+
+
+
+# pivot = pd.pivot_table(df,index="Student ID" , columns = "Gender" , values="Age",aggfunc="mean" )
+# print(pivot)
+
+
+# females = df[df["Gender"]=="Female"].copy()
+# females.to_csv('females.csv', index=False)
+
+# total_females = len(females)
+# print("Total:", total_females)
+
+
+
+# pivot = pd.pivot_table(df,index=["Gender"],values = ["GPA","Attendance Rate (%)",], aggfunc ="mean")
+# print(pivot)
+
+
+# pivot1=pd.pivot_table(df,index=["Attendance Rate (%)"], values=["Age","GPA"], aggfunc="median")
+# print(pivot1)
+
+
+# merge , concat , join , compare
+
+import pandas as pd
+# marks = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_marks.csv")
+# info = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\students_info.csv")
+# print(marks.head())
+# print(marks.shape)
+# print(info.head())
+# print(info.shape)
+
+# #Query 1: Stack them on top of each other (rows)
+# combined = pd.concat([marks,info])
+# print(combined)
+# print(combined.shape)
+# combined2 = pd.concat([marks,info], ignore_index=True)
+# print(combined2)
+# print(combined2.loc[4,"name"])
+# print(combined2.loc[4,"subject"])
+# print(combined2.loc[44,"name"])
+# #Query 2: Stack them side by side (columns)
+# combined3 = pd.concat([marks,info],axis=1,ignore_index=True)
+# print(combined3)
+# print(combined3.columns)
+# print(combined2.columns)
+# #Query 3: merge 
+# combined4= pd.merge(marks,info, on = "student_id",how = "inner",suffixes=["_marks","_info"])
+# print(combined4)
+# # print(combined4.loc[29,"name_marks"])
+
+# combined5 = pd.merge(marks,info,on="student_id",how="left",suffixes=["_marks","_info"])
+# print(combined5)
+# combined6 = pd.merge(marks,info,on="student_id",how="right",suffixes=["_marks","_info"])
+# print(combined6)
+# combined7= pd.merge(marks,info,on="student_id",how="outer", suffixes=["_marks","_info"])
+# print(combined7)
+
+# Query 4: join
+# marks_indx = marks.set_index("student_id")
+# info_indx = info.set_index("student_id")
+# print(marks_indx.head())
+# print(info_indx.head())
+# #by default left joined 
+# joined = marks_indx.join(info_indx,lsuffix="_marks", rsuffix="_info")
+# print(joined)
+# print(joined.shape)
+
+# joined_inner = marks_indx.join(info_indx,how="inner", lsuffix="_marks",rsuffix="_info")
+# print(joined_inner)
+# print(joined_inner.shape)
+
+# joined_outer = marks_indx.join(info_indx,how="outer",lsuffix="_marks",rsuffix="_info")
+# print(joined_outer)
+# print(joined_outer.shape)
+
+# joined_right = marks_indx.join(info_indx,how="right",lsuffix="_marks",rsuffix="_info")
+# print(joined_right)
+# print(joined_right.shape)
+
+# practice on a messy dataset 
+
+# df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\messy_students.csv")
+# print(df)
+# print(df.dtypes)
+# #clean the name column first :
+# df["name"] = df["name"].str.title()
+# print(df["name"])
+# df["name"]= df["name"].str.strip()
+# print(df)
+
+#marks column 
+
+# df["marks"] = df["marks"].str.replace("kg","" , regex = False)
+# df["marks"] = df["marks"].str.replace("marks","" , regex = False)
+# print(df["marks"])
+
+# df["marks"] = df["marks"].replace(["N/A" , "N.A","-"], pd.NA)
+# print(df["marks"])
+
+# #convert to int 
+# # "coerce" = "just force it, and if it's truly impossible, mark it as missing instead of stopping everything."
+# df["marks"]= pd.to_numeric(df["marks"],errors = "coerce")
+# print(df["marks"])
+# print(df.dtypes)
+
+# print(df)
+
+# # city 
+# df["city"] = df["city"].str.strip()
+# df["city"] = df["city"].str.lower()
+# print(df)  
+# print(df.dtypes)
+
+
+
+

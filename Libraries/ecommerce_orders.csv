@@ -1,0 +1,32 @@
+order_id,product,price,quantity,status,customer_city
+1000,Phone,4945.47,2,Pending,lahore 
+1001,Phone,3862.12,3,Delivered,Islamabad
+1002,Charger,2932.62,4,Shipped,KARACHI
+1003,Tablet,,1,Cancelled,Lahore
+1004,Keyboard,2808.32,1,Shipped,Karachi
+1005,Laptop,2203.91,1,Shipped,Karachi
+1006,Keyboard,999999,4,Pending,Islamabad
+1007,Monitor,4232.54,1,,Islamabad
+1008,Monitor,2130.32,2,Pending,Multan
+1009,Headphones,4290.24,2, pending,Karachi
+1010,Charger,1442.12,2,Shipped,Multan
+1011,Webcam,3212.05,-2,Shipped,Lahore
+1012,Mouse,752.29,N/A,Cancelled,Islamabad
+1013,Mouse,1064.74,5,Shipped,Multan
+1014,Charger,2690.77,4,Cancelled,Islamabad
+1015,Phone,1765.4,4,DELIVERED,Multan
+1016,Webcam,1284.74,3,Delivered,Karachi
+1017,Monitor,4250.2,3,Cancelled,Lahore
+1018,Laptop,2097.58,2,Shipped,Islamabad
+1019,Charger,2888.69,5,Shipped,
+1020,Charger,1500rs,2,Pending,Karachi
+1021,Monitor,2504.5,4,Delivered,Lahore
+1022,Speaker,943.14,3 units,Cancelled,Karachi
+1023,Charger,1450.65,4,Delivered,Multan
+1024,Keyboard,1768.38,2,Delivered,Karachi
+1025,Charger,4134.91,4,Pending,Multan
+1026,Laptop,2131.51,3,Delivered,Multan
+1027,Monitor,2421.89,4,Cancelled,Lahore
+1028,Laptop,4270.96,2,Shipped,Karachi
+1029,Laptop,907.7,5,Delivered,Islamabad
+1005,Laptop,2203.91,1,Shipped,Karachi

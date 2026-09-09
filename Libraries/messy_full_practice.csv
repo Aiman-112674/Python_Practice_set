@@ -1,0 +1,28 @@
+student_id,name,age,marks,city,join_date
+1, ali ,19,74,Karachi,2024-10-06
+2,SARA,17,65,Karachi,2024-02-09
+3,Zain,21,,Faisalabad,2024-11-23
+4,Nida,150,55,Faisalabad,2024-08-07
+5,Bilal,19,96,lahore ,2024-10-07
+6,Ayesha,22,73,,2024-11-07
+7,Usman,17,79,KARACHI,2024-10-11
+8,Hina,-3,95,Faisalabad,2024-11-25
+9,Faisal,,80,Islamabad,2024-07-02
+10,Mahnoor,18,88kg,Lahore,2024-07-07
+11,Hamza,18,999,Lahore,2024-08-17
+12,Iqra,17,N/A,Multan,2024-01-12
+13,Kashif,17,95 marks,Karachi,2024-12-26
+14,Sana,45,88,Karachi,2024-09-22
+15,Adeel,17,52,,2024-01-06
+16,Rabia,19,93,Multan,2024-02-14
+17,Noman,21,55,Karachi,10/03/2024
+18,Sadia,16,74,Islamabad,unknown
+19,Waqas,19,62,Lahore,2024-11-07
+20,Amna,19,66,Faisalabad,"March 5, 2024"
+21,Tariq,22,58,Islamabad,2024-12-16
+22,Fatima,16,58,Faisalabad,2024-12-05
+23,Junaid,20,76,Lahore,2024-02-04
+24,Zainab,17,68,Karachi,2024-03-14
+25,Asad,17,63,Faisalabad,2024-06-25
+4,Nida,20,55,Faisalabad,2024-08-07
+8,Hina,16,95,Faisalabad,2024-11-25
