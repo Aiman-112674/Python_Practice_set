@@ -1203,7 +1203,3 @@ print(df)
 #One-sentence summary of the whole topic
 
 #Outliers are valid-but-unusual values that stick out far from the rest of your data — found visually (sorting, .describe()) or mathematically (IQR: outside Q1-1.5×IQR to Q3+1.5×IQR, or Z-score: beyond ±3 standard deviations) — and once found, you investigate WHY before deciding to remove, cap, replace with NaN, or sometimes just leave them, depending on whether they're genuine errors or real extreme value
-
-
-
-
