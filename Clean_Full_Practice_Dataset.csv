@@ -1,0 +1,190 @@
+student_id,name,age,marks,subject,city,join_date,phone,attendance_pct,fee_status,guardian_name,email
+1,Nida,19,45.0,Biology,Islamabad,2023-02-27,03127360650,81.4,Unpaid,Fatima Khan,nida0@example.com
+2,Hamza,17,61.0,English,Islamabad,2023-12-08,03201028027,96.2,Paid,Arslan Butt,hamza1@example.com
+3,Bilal,15,60.0,Computer Science,Karachi,2023-02-02,03153385301,65.0,Paid,Waqas Butt,bilal2@example.com
+4,Rizwan,22,68.44021739130434,Biology,Quetta,2023-01-25,03296762338,80.9,Unpaid,Sana Chaudhry,rizwan3@example.com
+5,Warda,20,40.0,Biology,Quetta,2023-11-17,03379156016,80.8,Unpaid,Zainab Chaudhry,warda4@example.com
+6,Zain,17,86.0,Math,Multan,2023-11-09,03206618698,73.5,Unpaid,Bilal Butt,zain5@example.com
+7,Asad,20,41.0,Physics,Faisalabad,2023-02-27,03331215236,95.8,Paid,Mariam Chaudhry,asad6@example.com
+8,Faizan,15,80.0,Chemistry,Multan,2023-11-24,03249117009,,Paid,Danish Butt,faizan7@example.com
+9,Asad,22,42.0,Math,Karachi,2023-08-07,03115301046,92.0,pending,Sadia Butt,asad8@example.com
+10,Shahid,15,46.0,English,Lahore,2023-09-12,03152390923,77.3,Paid,Danish Butt,shahid9@example.com
+11,Bilal,21,41.0,Chemistry,Islamabad,2023-08-02,03456617524,76.6,Paid,Hamza Butt,bilal10@example.com
+12,Bilal,17,63.0,Computer Science,Karachi,2023-12-03,03139702276,75.5,Unpaid,Mahnoor Sheikh,bilal11@example.com
+13,Asad,20,48.0,English,Islamabad,2023-02-27,03207480135,77.3,pending,Faisal Butt,asad12@example.com
+15,Tariq,17,61.0,English,Lahore,2023-09-24,03334773267,95.7,Unpaid,Ayesha Sheikh,tariq14@example.com
+16,Faizan,18,53.0,Chemistry,Islamabad,2023-07-02,03422348247,98.2,Pending,Kashif Khan,faizan15@example.com
+17,Kashif,19,76.0,Physics,Karachi,2023-10-11,03156723450,82.2,Paid,Danish Malik,kashif16@example.com
+18,Salman,22,86.0,Biology,Quetta,2023-01-09,03469155739,73.6,Paid,Faizan Malik,salman17@example.com
+19,Komal,15,97.0,English,Faisalabad,2023-08-11,03473052127,87.7,Unpaid,Rida Sheikh,komal18@example.com
+20,Shahid,20,62.0,Physics,Quetta,2023-05-15,03224031241,75.3,Paid,Shahid Butt,shahid19@example.com
+21,Faizan,19,93.0,Physics,Quetta,2023-09-13,03332160299,96.9,Paid,Noman Chaudhry,faizan20@example.com
+22,Arslan,20,43.0,Biology,Lahore,2023-10-13,03292802978,78.6,Pending,Tariq Malik,arslan21@example.com
+23,Imran,19,93.0,Biology,Faisalabad,2023-10-12,03258641790,80.0,Unpaid,Fatima Khan,imran22@example.com
+24,Iqra,16,41.0,Biology,Peshawar,2023-08-24,03189008130,81.4,Unpaid,Danish Malik,iqra23@example.com
+25,Tariq,20,97.0,Physics,Faisalabad,2023-01-15,03425843754,,Paid,Tariq Butt,tariq24@example.com
+26,Adeel,16,95.0,Chemistry,Islamabad,2023-03-14,03328129922,61.7,Paid,Nimra Malik,adeel25@example.com
+27,Kashif,15,57.0,English,Karachi,2023-12-17,03226079349,80.0,Unpaid,Adeel Sheikh,kashif26@example.com
+28,Warda,16,46.0,Biology,Faisalabad,2023-09-18,03274276570,80.8,Paid,Mariam Butt,warda27@example.com
+29,Imran,16,43.0,English,Multan,2023-11-14,03436980511,66.2,Paid,Kashif Malik,imran28@example.com
+30,Rabia,15,55.0,Physics,Lahore,2023-07-01,03107915956,86.2,Pending,Sara Khan,rabia29@example.com
+31,Rabia,21,84.0,Chemistry,Karachi,2023-12-07,03286449475,68.5,Paid,Zainab Malik,rabia30@example.com
+32,Rida,18,66.0,Physics,Faisalabad,2023-11-14,03354170191,75.6,Unpaid,Zain Sheikh,rida31@example.com
+33,Faisal,22,86.0,Computer Science,Lahore,2023-03-04,03396920405,82.1,Paid,Imran Chaudhry,faisal32@example.com
+34,Junaid,19,63.0,Physics,Karachi,2023-01-04,03381991375,83.7,Unpaid,Ayesha Malik,junaid33@example.com
+35,Asad,17,66.0,Physics,Multan,2023-03-28,03103727404,91.6,Paid,Fatima Khan,asad34@example.com
+36,Usman,17,54.0,Biology,Multan,2023-04-22,03352000349,,Paid,Rida Khan,usman35@example.com
+37,Faisal,15,62.0,Biology,Quetta,2023-04-27,03455453181,91.4,Unpaid,Mahnoor Khan,faisal36@example.com
+38,Ali,19,60.0,Computer Science,Multan,2023-06-26,03242021313,62.3,Paid,Hina Malik,ali37@example.com
+39,Waqas,18,48.0,English,Quetta,2023-01-26,03485416813,96.6,Pending,Zainab Sheikh,waqas38@example.com
+40,Faisal,21,96.0,Math,Faisalabad,2023-05-12,03301055138,92.0,Pending,Ali Sheikh,faisal39@example.com
+41,Ayesha,21,86.0,Physics,Faisalabad,2023-06-15,03169959833,67.9,Pending,Bilal Malik,ayesha40@example.com
+42,Sana,20,67.0,Biology,Islamabad,2023-11-18,03443740653,75.5,Unpaid,Sara Malik,sana41@example.com
+44,Noman,20,70.0,Chemistry,Multan,2023-02-20,03269714413,91.7,Paid,Danish Khan,noman43@example.com
+45,Fatima,19,91.0,Computer Science,Quetta,2023-11-10,03384942260,60.2,Paid,Komal Khan,fatima44@example.com
+46,Imran,21,92.0,Chemistry,Peshawar,2023-03-27,03187499772,60.0,Paid,Rabia Khan,imran45@example.com
+47,Shahid,17,91.0,Math,Karachi,2023-09-09,03363821055,91.1,Unpaid,Amna Khan,shahid46@example.com
+48,Sara,16,90.0,English,Multan,2023-05-19,03134154039,95.0,Unpaid,Arslan Chaudhry,sara47@example.com
+49,Fatima,15,82.0,Physics,Islamabad,2023-05-07,03374556220,79.9,Unpaid,Bilal Malik,fatima48@example.com
+50,Hamza,15,75.0,Physics,Quetta,2023-02-15,03474184643,76.0,Pending,Farah Chaudhry,hamza49@example.com
+51,Zainab,16,93.0,Physics,Lahore,2023-08-02,03446225412,88.1,Paid,Zain Malik,zainab50@example.com
+52,Warda,16,85.0,Math,Quetta,2023-07-26,03407448100,73.4,Paid,Mariam Butt,warda51@example.com
+53,Usman,16,42.0,Physics,Karachi,2023-11-26,03186066093,,Unpaid,Noman Sheikh,usman52@example.com
+54,Shahid,17,74.0,English,Quetta,2023-11-18,03151039828,95.6,Pending,Mahnoor Chaudhry,shahid53@example.com
+55,Arslan,16,69.0,Computer Science,Karachi,2023-11-26,03459043008,,Unpaid,Rida Sheikh,arslan54@example.com
+56,Waqas,20,52.0,Physics,Lahore,2023-06-02,03472624517,79.6,unpaid,Shahid Malik,waqas55@example.com
+57,Usman,16,68.44021739130434,English,Multan,2023-03-17,03169189145,97.3,Paid,Warda Butt,usman56@example.com
+59,Nida,17,63.0,Math,Karachi,2023-03-26,03207701010,89.8,Paid,Anum Malik,nida58@example.com
+60,Faizan,17,89.0,Biology,Faisalabad,2023-11-01,03403613328,71.1,Pending,Faizan Butt,faizan59@example.com
+62,Imran,22,40.0,Math,Lahore,2023-12-12,03336374006,91.1,Pending,Anum Chaudhry,imran61@example.com
+63,Salman,20,82.0,Physics,Lahore,2023-03-05,03384394583,92.6,Unpaid,Farah Khan,salman62@example.com
+64,Junaid,17,57.0,Chemistry,Faisalabad,2023-05-22,03146804800,68.2,Paid,Hina Chaudhry,junaid63@example.com
+65,Faisal,15,78.0,Biology,Faisalabad,2023-07-13,03412075663,91.9,Paid,Junaid Malik,faisal64@example.com
+66,Fatima,21,87.0,Biology,Lahore,2023-07-03,03329550812,97.5,Paid,Kashif Sheikh,fatima65@example.com
+67,Ayesha,16,63.0,Physics,Karachi,2023-02-28,03148084198,92.7,Pending,Imran Butt,ayesha66@example.com
+68,Imran,15,66.0,Math,Lahore,2023-05-17,03357315343,93.3,Pending,Fatima Sheikh,imran67@example.com
+69,Junaid,16,61.0,English,Karachi,2023-02-01,03387573917,80.0,Paid,Sana Sheikh,junaid68@example.com
+70,Tariq,19,49.0,Chemistry,Faisalabad,2023-08-12,03249965628,90.2,Paid,Komal Butt,tariq69@example.com
+71,Mahnoor,18,61.0,Physics,Peshawar,2023-08-18,03246237095,96.4,Paid,Kashif Butt,mahnoor70@example.com
+72,Salman,20,70.0,Computer Science,Multan,2023-08-26,03278320867,88.8,Unpaid,Ayesha Butt,salman71@example.com
+73,Rida,16,98.0,English,Quetta,2023-06-13,03469898507,65.2,Paid,Hamza Butt,rida72@example.com
+74,Faizan,22,83.0,English,Islamabad,2023-10-08,03283935480,96.3,Paid,Shahid Khan,faizan73@example.com
+75,Sobia,21,68.44021739130434,Math,Islamabad,2023-08-23,03183822528,73.8,pending,Faisal Malik,sobia74@example.com
+76,Amna,21,49.0,Physics,Multan,2023-02-26,03244291440,71.9,Pending,Arslan Khan,amna75@example.com
+78,Junaid,18,45.0,Physics,Multan,2023-07-06,03169794336,62.0,Pending,Rabia Khan,junaid77@example.com
+79,Shahid,17,55.0,Computer Science,Islamabad,2023-03-15,03187187311,89.5,Paid,Komal Butt,shahid78@example.com
+80,Amna,21,67.0,Computer Science,Faisalabad,2023-03-19,03194228622,69.2,Pending,Imran Chaudhry,amna79@example.com
+81,Mahnoor,18,50.0,English,Karachi,2023-04-16,03172584533,72.1,Paid,Sara Butt,mahnoor80@example.com
+82,Mariam,18,75.0,Computer Science,Quetta,2023-04-26,03498244435,96.8,Paid,Sadia Sheikh,mariam81@example.com
+84,Amna,22,44.0,Physics,Multan,2023-06-17,03148315932,81.8,Paid,Imran Khan,amna83@example.com
+85,Mahnoor,19,61.0,Physics,Multan,2023-12-24,03396073486,64.7,Unpaid,Salman Sheikh,mahnoor84@example.com
+86,Zainab,16,54.0,Chemistry,Peshawar,2023-05-09,03469842446,63.7,Paid,Junaid Sheikh,zainab85@example.com
+87,Imran,22,64.0,Physics,Karachi,2023-01-03,03314472666,88.8,Paid,Anum Malik,imran86@example.com
+88,Farah,20,64.0,Physics,Islamabad,2023-10-12,03359968734,88.1,Pending,Ali Malik,farah87@example.com
+89,Salman,18,83.0,English,Karachi,2023-10-22,03328462628,92.2,Pending,Tariq Khan,salman88@example.com
+90,Rida,20,69.0,Computer Science,Lahore,2023-04-01,03263236003,92.1,Paid,Nimra Malik,rida89@example.com
+91,Hamza,18,73.0,Physics,Karachi,2023-11-09,03358959321,62.3,Pending,Shahid Sheikh,hamza90@example.com
+92,Tariq,17,44.0,Physics,Peshawar,2023-08-21,03292548207,96.3,Paid,Shahid Sheikh,tariq91@example.com
+93,Rida,22,79.0,Math,Lahore,2023-04-05,03398181018,69.2,Pending,Nimra Khan,rida92@example.com
+94,Komal,20,94.0,Physics,Karachi,2023-04-01,03142214715,80.4,Pending,Salman Chaudhry,komal93@example.com
+95,Nimra,19,80.0,Physics,Islamabad,2023-07-26,03229663416,84.9,Paid,Zain Chaudhry,nimra94@example.com
+96,Kashif,19,68.44021739130434,Biology,Islamabad,2023-03-18,03356381255,65.1,Paid,Bilal Sheikh,kashif95@example.com
+97,Adeel,20,68.44021739130434,English,Multan,2023-01-23,03117206608,84.6,Pending,Zain Chaudhry,adeel96@example.com
+98,Mariam,20,81.0,Math,Karachi,2023-11-07,03297911272,69.8,Pending,Amna Malik,mariam97@example.com
+99,Sobia,20,58.0,Biology,Karachi,2023-12-25,03269146424,74.8,Pending,Zainab Malik,sobia98@example.com
+100,Rida,22,73.0,Math,Peshawar,2023-03-05,03371830167,86.7,Unpaid,Nimra Malik,rida99@example.com
+101,Sana,20,41.0,Physics,Peshawar,2023-04-06,03493130177,70.5,Unpaid,Faisal Chaudhry,sana100@example.com
+102,Faizan,21,64.0,Computer Science,Karachi,2023-01-03,03198940685,98.2,Pending,Hamza Malik,faizan101@example.com
+103,Nida,22,61.0,Chemistry,Karachi,2023-11-13,03352082282,81.5,Unpaid,Asad Malik,nida102@example.com
+104,Rizwan,21,51.0,Chemistry,Karachi,2023-06-18,03471627600,67.4,Unpaid,Fatima Butt,rizwan103@example.com
+105,Hina,15,71.0,Math,Faisalabad,2023-12-02,03352051675,66.5,Paid,Faisal Sheikh,hina104@example.com
+107,Anum,17,84.0,Physics,Peshawar,2023-08-24,03404990722,64.6,Paid,Rida Khan,anum106@example.com
+108,Junaid,16,56.0,Biology,Faisalabad,2023-09-08,03453347106,70.0,Paid,Hamza Khan,junaid107@example.com
+109,Sadia,19,46.0,Physics,Karachi,2023-01-22,03267252179,96.7,Paid,Rabia Chaudhry,sadia108@example.com
+110,Amna,15,68.44021739130434,Math,Peshawar,2023-12-23,03272323095,90.9,Pending,Warda Chaudhry,amna109@example.com
+111,Mariam,18,63.0,Chemistry,Multan,2023-10-07,03458329380,79.4,Paid,Nida Khan,mariam110@example.com
+112,Usman,22,65.0,Physics,Faisalabad,2023-12-17,03104416901,98.5,Pending,Mahnoor Malik,usman111@example.com
+113,Rizwan,17,79.0,English,Peshawar,2023-12-10,03262056441,97.3,Unpaid,Sara Khan,rizwan112@example.com
+114,Sadia,16,56.0,Biology,Peshawar,2023-12-26,03148775570,64.9,Unpaid,Faisal Chaudhry,sadia113@example.com
+115,Danish,19,46.0,Computer Science,Faisalabad,2023-06-16,03465846007,66.8,Paid,Rida Sheikh,danish114@example.com
+116,Bilal,16,70.0,Physics,Multan,2023-07-08,03346192150,72.9,Pending,Sadia Chaudhry,bilal115@example.com
+117,Sobia,15,86.0,English,Lahore,2023-08-22,03183328649,79.2,Unpaid,Faisal Butt,sobia116@example.com
+118,Hina,19,48.0,Physics,Lahore,2023-02-20,03475723615,73.5,Unpaid,Farah Sheikh,hina117@example.com
+119,Ayesha,18,98.0,English,Peshawar,2023-01-17,03357223556,77.0,Pending,Zain Sheikh,ayesha118@example.com
+121,Amna,17,60.0,Physics,Islamabad,2023-02-13,03324949229,76.7,Pending,Imran Malik,amna120@example.com
+122,Ali,19,68.44021739130434,English,Lahore,2023-12-08,03388312098,66.8,Unpaid,Amna Sheikh,ali121@example.com
+123,Nida,18,96.0,Biology,Karachi,2023-01-28,03127111578,71.7,paid,Farah Chaudhry,nida122@example.com
+124,Bilal,18,97.0,Biology,Quetta,2023-03-01,03469724662,64.9,Paid,Anum Chaudhry,bilal123@example.com
+125,Danish,15,43.0,Math,Karachi,2023-08-16,03439586616,74.3,Pending,Shahid Butt,danish124@example.com
+126,Usman,15,94.0,Computer Science,Faisalabad,2023-05-07,03346756593,89.7,Pending,Sara Chaudhry,usman125@example.com
+127,Iqra,17,52.0,Chemistry,Quetta,2023-03-16,03117751647,93.9,Unpaid,Komal Butt,iqra126@example.com
+128,Danish,22,86.0,Chemistry,Quetta,2023-03-26,03174787121,92.1,Unpaid,Tariq Khan,danish127@example.com
+129,Sana,20,82.0,Computer Science,Lahore,2023-04-10,03417855547,61.4,Pending,Arslan Butt,sana128@example.com
+130,Rida,18,53.0,Biology,Lahore,2023-10-18,03487317913,73.8,Pending,Kashif Malik,rida129@example.com
+132,Usman,15,59.0,English,Islamabad,2023-07-22,03151238610,73.1,Unpaid,Shahid Chaudhry,usman131@example.com
+133,Junaid,19,69.0,Biology,Multan,2023-03-24,03212552523,96.7,Pending,Ayesha Sheikh,junaid132@example.com
+134,Sana,15,84.0,Math,Multan,2023-03-20,03164720100,72.4,Unpaid,Sobia Sheikh,sana133@example.com
+136,Bilal,15,62.0,Computer Science,Lahore,2023-05-03,03444647244,61.7,Pending,Komal Butt,bilal135@example.com
+137,Warda,15,48.0,Chemistry,Islamabad,2023-06-18,03365570333,85.0,Pending,Kashif Malik,warda136@example.com
+138,Rizwan,22,68.44021739130434,Physics,Lahore,2023-03-09,03369378778,62.1,Unpaid,Waqas Chaudhry,rizwan137@example.com
+139,Zain,18,70.0,Physics,Peshawar,2023-06-23,03327225408,72.9,Pending,Zainab Chaudhry,zain138@example.com
+140,Zain,16,80.0,Computer Science,Peshawar,2023-10-06,03259481829,,Pending,Fatima Malik,zain139@example.com
+141,Salman,19,85.0,English,Quetta,2023-09-19,03246427571,87.5,Pending,Junaid Butt,salman140@example.com
+142,Junaid,22,71.0,Math,Faisalabad,2023-10-21,03167359194,82.2,Pending,Waqas Butt,junaid141@example.com
+143,Bilal,19,58.0,Math,Lahore,2023-03-16,03323423375,98.4,Pending,Zainab Khan,bilal142@example.com
+144,Sana,20,44.0,Biology,Lahore,2023-11-21,03371917474,88.3,Pending,Iqra Chaudhry,sana143@example.com
+145,Rabia,15,53.0,English,Karachi,2023-03-02,03103644281,91.1,Paid,Fatima Khan,rabia144@example.com
+146,Danish,18,70.0,Biology,Islamabad,2023-03-11,03133342324,77.2,Paid,Warda Khan,danish145@example.com
+148,Shahid,22,43.0,Math,Karachi,2023-02-21,03201300467,94.4,Paid,Sana Chaudhry,shahid147@example.com
+149,Ayesha,19,78.0,Math,Multan,2023-08-25,03448708247,79.4,Paid,Faisal Butt,ayesha148@example.com
+150,Nimra,18,47.0,English,Multan,2023-06-17,03227383047,73.1,Paid,Junaid Khan,nimra149@example.com
+152,Anum,20,97.0,Math,Karachi,2023-11-03,03348560374,,Unpaid,Zainab Chaudhry,anum151@example.com
+153,Salman,18,76.0,Biology,Islamabad,2023-11-13,03155631801,72.6,Paid,Bilal Malik,salman152@example.com
+154,Anum,20,76.0,Computer Science,Quetta,2023-07-24,03129011940,90.3,Unpaid,Fatima Khan,anum153@example.com
+155,Ali,22,42.0,Chemistry,Lahore,2023-07-17,03186473225,67.4,unknown,Faisal Khan,ali154@example.com
+156,Mahnoor,16,63.0,Chemistry,Faisalabad,2023-04-20,03497357233,93.9,Unpaid,Amna Malik,mahnoor155@example.com
+157,Danish,16,58.0,Chemistry,Karachi,2023-07-09,03471816249,63.9,Paid,Komal Butt,danish156@example.com
+158,Nida,18,48.0,Biology,Peshawar,2023-11-20,03146373553,77.1,Unpaid,Nida Khan,nida157@example.com
+159,Anum,18,51.0,Chemistry,Peshawar,2023-09-09,03336974396,83.1,Paid,Komal Butt,anum158@example.com
+160,Sadia,16,41.0,Biology,Islamabad,2023-01-07,03268064202,66.4,Unpaid,Asad Malik,sadia159@example.com
+161,Faisal,17,79.0,Chemistry,Islamabad,2023-04-27,03368544759,81.1,Pending,Danish Chaudhry,faisal160@example.com
+162,Junaid,19,95.0,Chemistry,Quetta,2023-12-17,03251884630,89.7,Unpaid,Sara Malik,junaid161@example.com
+163,Rida,15,49.0,Computer Science,Lahore,2023-02-27,03184453022,68.9,Unpaid,Hamza Khan,rida162@example.com
+164,Adeel,15,40.0,English,Faisalabad,2023-03-06,03177610825,87.3,Paid,Komal Malik,adeel163@example.com
+165,Nimra,17,93.0,Math,Lahore,2023-08-21,03335043346,88.2,Paid,Rizwan Butt,nimra164@example.com
+166,Shahid,20,61.0,English,Lahore,2023-01-23,03119518718,96.4,Pending,Danish Butt,shahid165@example.com
+167,Sadia,15,96.0,Biology,Karachi,2023-10-26,03446495586,87.5,pending,Sara Sheikh,sadia166@example.com
+168,Zainab,18,68.0,Chemistry,Faisalabad,2023-06-28,03181519034,76.4,Paid,Iqra Butt,zainab167@example.com
+170,Komal,22,74.0,Chemistry,Quetta,2023-06-12,03495933783,95.4,Unpaid,Danish Sheikh,komal169@example.com
+171,Warda,19,95.0,Computer Science,Multan,2023-04-25,03463666029,83.8,Paid,Iqra Sheikh,warda170@example.com
+173,Junaid,15,70.0,Chemistry,Lahore,2023-09-25,03323429103,94.7,Pending,Nida Khan,junaid172@example.com
+174,Komal,21,82.0,Math,Faisalabad,2023-10-09,03203255643,82.9,Unpaid,Salman Khan,komal173@example.com
+175,Junaid,15,95.0,Math,Multan,2023-10-11,03412858967,83.4,Pending,Sana Sheikh,junaid174@example.com
+176,Rabia,20,44.0,Computer Science,Islamabad,2023-10-24,03377873593,,Paid,Noman Malik,rabia175@example.com
+177,Usman,20,72.0,Chemistry,Islamabad,2023-10-23,03284791257,72.7,Paid,Salman Khan,usman176@example.com
+178,Amna,17,98.0,Math,Faisalabad,2023-07-03,03412636817,85.8,Pending,Rabia Butt,amna177@example.com
+179,Asad,16,44.0,Physics,Quetta,2023-10-10,03327761740,62.8,Paid,Asad Butt,asad178@example.com
+180,Nimra,22,54.0,Biology,Quetta,2023-12-12,03379022217,63.0,Unpaid,Salman Sheikh,nimra179@example.com
+181,Adeel,17,85.0,Biology,Peshawar,2023-09-15,03439319923,72.0,Paid,Rida Chaudhry,adeel180@example.com
+182,Arslan,19,71.0,English,Lahore,2023-05-10,03145379256,,paid,Hina Sheikh,arslan181@example.com
+183,Rabia,18,74.0,Math,Karachi,2023-10-17,03134410912,89.3,Pending,Ayesha Butt,rabia182@example.com
+184,Tariq,16,92.0,Math,Karachi,2023-08-06,03142268091,69.3,Pending,Zain Sheikh,tariq183@example.com
+185,Hamza,15,57.0,Math,Karachi,2023-06-03,03177775560,99.6,Paid,Usman Malik,hamza184@example.com
+186,Arslan,20,88.0,Computer Science,Multan,2023-08-20,03374340171,91.5,Unpaid,Hina Malik,arslan185@example.com
+187,Komal,18,58.0,Math,Karachi,2023-11-28,03128094527,75.0,Unpaid,Mahnoor Butt,komal186@example.com
+188,Waqas,20,65.0,English,Islamabad,2023-10-07,03414100582,78.4,Unpaid,Asad Sheikh,waqas187@example.com
+189,Fatima,15,65.0,Chemistry,Peshawar,2023-10-09,03267658244,91.5,Pending,Hamza Malik,fatima188@example.com
+190,Hina,21,95.0,Math,Karachi,2023-09-08,03209027309,73.6,Paid,Salman Sheikh,hina189@example.com
+191,Noman,22,57.0,Physics,Quetta,2023-08-28,03318938102,92.2,Pending,Usman Sheikh,noman190@example.com
+192,Komal,16,82.0,English,Quetta,2023-04-17,03484945143,62.0,Paid,Adeel Malik,komal191@example.com
+193,Shahid,16,86.0,Computer Science,Multan,2023-01-19,03448555691,88.8,Unpaid,Faisal Sheikh,shahid192@example.com
+194,Danish,15,85.0,Chemistry,Islamabad,2023-04-11,03107920391,70.3,Unpaid,Zainab Malik,danish193@example.com
+195,Nimra,15,76.0,Chemistry,Quetta,2023-10-23,03193391245,70.2,Paid,Farah Butt,nimra194@example.com
+196,Warda,20,50.0,Computer Science,Karachi,2023-10-27,03248958903,84.3,Pending,Ali Chaudhry,warda195@example.com
+197,Ali,18,93.0,English,Multan,2023-08-12,03113586806,77.7,Pending,Amna Malik,ali196@example.com
+198,Anum,20,66.0,Computer Science,Quetta,2023-04-14,03195126315,,Paid,Ali Sheikh,anum197@example.com
+199,Warda,16,68.44021739130434,Biology,Quetta,2023-05-20,03102059794,84.9,Pending,Iqra Butt,warda198@example.com
+185,Hamza,15,57.0,Math,Karachi,2023-06-03,03289342102,99.6,Paid,Usman Malik,hamza184@example.com
+6,Zain,17,86.0,Math,Multan,2023-02-15,03206618698,73.5,Unpaid,Bilal Butt,zain5@example.com
+167,Sadia,15,96.0,Biology,Karachi,2023-10-26,03446495586,87.5,Pending,Sara Sheikh,sadia166@example.com
+34,Junaid,19,63.0,Physics,Karachi,2023-01-04,03364520564,83.7,Unpaid,Ayesha Malik,junaid33@example.com
