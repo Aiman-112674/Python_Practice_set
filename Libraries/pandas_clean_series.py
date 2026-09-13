@@ -190,7 +190,7 @@ df["attendance_pct"] = pd.to_numeric(df["attendance_pct"],errors="coerce")
 df["age"] = pd.to_numeric(df["age"],errors="coerce")
 #fee_status 
 df["fee_status"] = df["fee_status"].str.strip().str.title()
-# df["fee_status"] = df["fee_status"].replace(["N/A","Null","-","","None","Unknown","Na","Nan"], np.nan)
+df["fee_status"] = df["fee_status"].replace(["N/A","Null","-","","None","Unknown","Na","Nan"], np.nan)
 df["fee_status"] = df["fee_status"].fillna(df["fee_status"].mode()[0])
 print(df["fee_status"].isna().sum())
 # datetime
@@ -206,6 +206,9 @@ df["city"] = df["city"].fillna(df["city"].mode()[0])
 
 print(df["city"].isna().sum())     # should now genuinely be 0
 print(df["city"].unique())      
+
+print(df.isna().sum())
+
 #checking the null values in these three numeric columns 
 print(df[["age","marks","attendance_pct"]].isna().sum())
 
@@ -353,9 +356,9 @@ print(df.shape)
 print(df.head())
 print(df.tail())
 print(df.isna().sum())
-df.to_csv("Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
+# df.to_csv("Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
 
-#checking
+# #checking
 
-df=pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
-print(df.isna().sum())
+# df=pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
+# print(df.isna().sum())
