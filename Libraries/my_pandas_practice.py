@@ -1320,3 +1320,114 @@ print(df.sort_values("marks"))                          # ascending (default)
 print(df.sort_values("marks", ascending=False))          # descending
 print(df.sort_values(["marks","name"]))                  # sort by multiple columns
 print(df.sort_index())                                  # sort by the row index instead
+
+
+# KNN Imputer — Full Theory
+# Definition
+
+# KNN (K-Nearest Neighbors) Imputer is a technique that fills missing values by finding the K most similar rows (neighbors) to the row with the missing value, based on the OTHER available columns, and using their values (typically averaged) to make an informed guess.
+
+# In one sentence: "Instead of using one flat number for everyone, find rows that are genuinely similar to this one, and base the missing value on THEM specifically."
+
+# Why we need it
+# Problem with mean/median/mode	How KNN solves it
+# Fills EVERY missing value with the exact SAME number, ignoring the specific row	Looks at OTHER columns for that row, finds similar rows, gives a personalized estimate
+# Ignores relationships between columns (e.g., attendance predicting marks)	Directly USES those relationships to make a smarter guess
+# Works fine for random, unrelated missingness	Works better when columns are correlated
+
+# When to actually use it: when your numeric columns are related to each other, your dataset is reasonably sized (enough rows to find meaningful neighbors), and you want more accurate imputation than a flat average — common in real ML preprocessing pipelines.
+
+# Limitations:
+
+# Only works on numeric columns (text/categorical must be encoded first, e.g., with get_dummies())
+# Needs enough data — too few rows means poor/meaningless "neighbors"
+# Slower than mean/median/mode on large datasets
+# Sensitive to column SCALE — needs StandardScaler first, or one large-range column will dominate the distance calculation
+# Syntax
+# python
+from sklearn.impute import KNNImputer
+from sklearn.preprocessing import StandardScaler
+import pandas as pd
+
+# Step 1: select numeric columns
+numeric_cols = ["age", "marks", "attendance_pct"]
+numeric_df = df[numeric_cols]
+
+# Step 2: scale (recommended, not optional if columns have different ranges)
+scaler = StandardScaler()
+scaled = scaler.fit_transform(numeric_df)
+
+# Step 3: impute
+imputer = KNNImputer(n_neighbors=5)
+imputed_scaled = imputer.fit_transform(scaled)
+
+# Step 4: convert back to original scale
+imputed_original = scaler.inverse_transform(imputed_scaled)
+imputed_df = pd.DataFrame(imputed_original, columns=numeric_cols, index=df.index)
+
+# Step 5: assign back
+df[numeric_cols] = imputed_df
+
+# Key parameter: n_neighbors — how many similar rows to average over. Common default: 5. Too small → risky (one odd neighbor skews it). Too large → basically becomes the overall mean again, defeating the purpose.
+
+# Complete List of Missing-Value Imputation Methods
+# 1. Mean (average)
+# python
+# df["col"] = df["col"].fillna(df["col"].mean())
+
+# Use when: numeric data, evenly spread, NO significant outliers.
+
+# 2. Median (middle value)
+# python
+# df["col"] = df["col"].fillna(df["col"].median())
+
+# Use when: numeric data WITH outliers or skew (median isn't dragged by extreme values).
+
+# 3. Mode (most frequent value)
+# python
+# df["col"] = df["col"].fillna(df["col"].mode()[0])
+
+# Use when: categorical/text data (city, gender, fee_status) — mean/median don't apply to categories.
+
+# 4. Forward Fill (ffill)
+# python
+# df["col"] = df["col"].ffill()
+
+# Use when: ordered/sequential data (time series, sensor logs, stock prices) — copies the value from the row ABOVE.
+
+# 5. Backward Fill (bfill)
+# python
+# df["col"] = df["col"].bfill()
+
+# Use when: same as ffill, but copies the value from the row BELOW instead — useful when there's no earlier value to look back on (e.g., a missing FIRST entry).
+
+# 6. Interpolation (interpolate()) — a method we hadn't covered yet!
+# python
+# df["col"] = df["col"].interpolate()
+
+# What it does: estimates the missing value by "drawing a line" between the value BEFORE and the value AFTER, and picking a point in between (linear by default).
+
+# Day1: 10
+# Day2: NaN     → becomes 15 (halfway between 10 and 20)
+# Day3: 20
+
+# Use when: numeric, ordered data where values change gradually/smoothly (temperature, stock price, growth trends) — often better than ffill/bfill for continuous trends.
+
+# 7. Constant/custom value fill
+# python
+# df["col"] = df["col"].fillna("Unknown")     # for text
+# df["col"] = df["col"].fillna(0)                 # for numbers
+
+# Use when: you deliberately want to mark missingness as its own category (e.g., "Unknown" city) rather than guessing a real value — sometimes safer than guessing wrong.
+
+# 8. KNN Imputer
+# python
+# from sklearn.impute import KNNImputer
+
+# Use when: numeric columns are related to each other, and you want a smarter, personalized estimate (covered in detail above).
+
+# 9. Dropping instead of imputing (dropna()) — technically an alternative to imputing
+# python
+# df = df.dropna(subset=["col"])
+
+# Use when: the missing data is a small fraction of your dataset, and you'd rather lose a few rows than guess wrong — a valid, sometimes safer choice than imputing.

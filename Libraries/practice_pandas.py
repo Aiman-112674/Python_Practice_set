@@ -9,9 +9,6 @@ print(df[df["Age"]>20])
 
 print(df.head)
 
-
-
-
 pivot = pd.pivot_table(df,index="Student ID" , columns = "Gender" , values="Age",aggfunc="mean" )
 print(pivot)
 
