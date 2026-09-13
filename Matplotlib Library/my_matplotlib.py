@@ -483,3 +483,174 @@ plt.show()
 # 5. Pie Chart	Categories that form one whole	When showing proportions/percentages	Part of a whole	⭐⭐	ax.pie(values)
 # 6. Box Plot	Numerical data	When checking spread and outliers	Median / spread / outliers	⭐⭐⭐⭐⭐	ax.boxplot(data)
 # 7. Heatmap	Matrix/table of values	When you want patterns through colors	Value intensity / relationships	⭐⭐⭐⭐⭐	ax.imshow(data)
+
+# The easiest way to choose
+
+# When you have data, ask yourself:
+
+# 1️⃣ "I want to see a trend."
+
+# Use Line Plot.
+
+# Example:
+
+# Month → Sales
+# Jan → 100
+# Feb → 120
+# Mar → 150
+# Apr → 140
+
+# ➡️ ax.plot()
+
+# 2️⃣ "I want to compare categories."
+
+# Use Bar Plot.
+
+# Example:
+
+# Pakistan → 80
+# India    → 90
+# China    → 100
+
+# ➡️ ax.bar()
+
+# 3️⃣ "I want to see how my numerical data is distributed."
+
+# Use Histogram.
+
+# Example:
+
+# Student marks:
+# 45, 50, 52, 60, 62, 65, 70, 72, 90...
+
+# ➡️ ax.hist()
+
+# 4️⃣ "I want to know whether two variables are related."
+
+# Use Scatter Plot.
+
+# Example:
+
+# Hours studied → Marks
+# 1 → 40
+# 2 → 50
+# 3 → 60
+# 4 → 70
+
+# ➡️ ax.scatter()
+
+# This is extremely important for ML.
+
+# 5️⃣ "I want to show percentages of a whole."
+
+# Use Pie Chart.
+
+# Example:
+
+# Food     → 40%
+# Rent     → 30%
+# Transport → 20%
+# Other    → 10%
+
+# ➡️ ax.pie()
+
+# Useful, but not a major ML plot.
+
+# 6️⃣ "I want to find outliers and understand spread."
+
+# Use Box Plot.
+
+# Example:
+
+# Salary:
+# 30k, 35k, 40k, 42k, 45k, 48k, 200k
+
+# ➡️ ax.boxplot()
+
+# The 200k might stand out as an outlier.
+
+# Very useful in ML during data exploration and cleaning.
+
+# 7️⃣ "I have a table/matrix and want to see patterns using colors."
+
+# Use Heatmap.
+
+# Example:
+
+#           Age  Salary  Experience
+# Age        1     .7       .6
+# Salary    .7      1       .9
+# Experience .6    .9        1
+
+# ➡️ ax.imshow()
+
+# Very useful for correlation matrices.
+
+# 🏆 Which ones are most important for ML?
+
+# I'd rank them like this:
+
+# 🥇 Tier 1 — VERY IMPORTANT
+
+# 1. Scatter Plot ⭐⭐⭐⭐⭐
+# Relationships between features.
+
+# 2. Histogram ⭐⭐⭐⭐⭐
+# Understand distributions.
+
+# 3. Box Plot ⭐⭐⭐⭐⭐
+# Find outliers and understand spread.
+
+# 4. Heatmap ⭐⭐⭐⭐⭐
+# Correlation between features.
+
+# 🥈 Tier 2 — IMPORTANT
+
+# 5. Line Plot ⭐⭐⭐⭐
+# Especially important for time-series data.
+
+# 6. Bar Plot ⭐⭐⭐⭐
+# Useful for categorical comparisons.
+
+# 🥉 Tier 3 — LESS IMPORTANT FOR ML
+
+# 7. Pie Chart ⭐⭐
+
+# Good for presentations and simple proportions, but you'll use it much less in ML.
+
+# 🎨 How to design them?
+
+# Don't try to memorize 50 styling parameters for every plot.
+
+# For now, remember these common things:
+
+# fig, ax = plt.subplots()
+
+# # your plot
+# ax.scatter(x, y)
+
+# ax.set_title("My Plot")
+# ax.set_xlabel("X Label")
+# ax.set_ylabel("Y Label")
+
+# plt.show()
+
+# Then add customization when needed:
+
+# color
+# alpha
+# s
+# marker
+# edgecolor
+# linewidth
+
+# The design should make the data easier to understand, not just make the chart colorful.
+
+# 🧠 Your ultimate cheat sheet
+# TREND?             → Line Plot
+# COMPARISON?        → Bar Plot
+# DISTRIBUTION?      → Histogram
+# RELATIONSHIP?      → Scatter Plot
+# PART OF WHOLE?     → Pie Chart
+# OUTLIERS/SPREAD?   → Box Plot
+# CORRELATION/TABLE? → Heatmap
