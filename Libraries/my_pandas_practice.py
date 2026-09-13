@@ -1203,3 +1203,54 @@ print(df)
 #One-sentence summary of the whole topic
 
 #Outliers are valid-but-unusual values that stick out far from the rest of your data — found visually (sorting, .describe()) or mathematically (IQR: outside Q1-1.5×IQR to Q3+1.5×IQR, or Z-score: beyond ±3 standard deviations) — and once found, you investigate WHY before deciding to remove, cap, replace with NaN, or sometimes just leave them, depending on whether they're genuine errors or real extreme value
+
+
+# Groupby:groupby() means: "split my data into GROUPS based on some column, then do something (like sum, average, count) to each group separatel
+
+# The 3-step pattern behind every groupby
+
+# Every groupby() operation follows the same 3-step logic:
+
+# Split — divide data into groups (e.g., by subject)
+# Apply — do some calculation to each group (e.g., mean, sum, count)
+# Combine — put the results back together into one clean summary
+
+# This is often called "split-apply-combine" — the fundamental pattern behind groupby.
+
+
+import pandas as pd 
+data = {
+    "name": ["AIman","Ali","Zara","Sain","Nida","Ayesha"],
+    "subject":["Math","Math","Physics","Physics","Biology","Biology"],
+    "marks":[80,90,78,78,98,58]
+}
+df=pd.DataFrame(data)
+print(df)
+
+print(df.groupby("subject")["marks"].mean())
+print(df.groupby("subject")["marks"].sum())
+print(df.groupby("subject")["marks"].max())
+print(df.groupby("subject")["marks"].min())
+print(df.groupby("subject")["marks"].count())
+
+# 2nd example
+data = {
+    "name": ["Ali","Sara","Zain","Nida","Bilal","Ayesha"],
+    "subject": ["Math","Math","Physics","Physics","Biology","Biology"],
+    "city": ["Lahore","Karachi","Lahore","Karachi","Lahore","Karachi"],
+    "marks": [80, 90, 70, 85, 60, 95]
+}
+df = pd.DataFrame(data)
+# get griup by on multiple columns 
+result = df.groupby(["subject","city"])["marks"].mean()
+print(result)
+
+#Multiple statistics at a time using agg()
+
+result2 = df.groupby("subject")["marks"].agg(["mean","max","min","count"])
+print(result2)
+
+#reset index ()  -- turn the group by ressult back into a normal flat table 
+
+result3 = df.groupby("subject")["marks"].mean().reset_index()
+print(result3)
