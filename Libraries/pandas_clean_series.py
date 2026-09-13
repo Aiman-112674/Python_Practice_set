@@ -362,3 +362,12 @@ print(df.isna().sum())
 
 # df=pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Libraries\Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
 # print(df.isna().sum())
+
+
+# Performing Groupby on this Full Practice dataset
+
+print(df.groupby(["subject","city"])["marks"].mean())
+print(df.groupby("city")["marks"].mean())
+print(pd.crosstab(df["subject"], df["fee_status"]))  # actual breakdown: how many Paid/Unpaid/Pending per subject
+print(df.groupby("subject")["fee_status"].count())     # just counts non-null entries per subject
+print(df.groupby(["subject","fee_status"]).size())       # actual breakdown: how many Paid/Unpaid/Pending per subject

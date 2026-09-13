@@ -1254,3 +1254,69 @@ print(result2)
 
 result3 = df.groupby("subject")["marks"].mean().reset_index()
 print(result3)
+
+# .astype(str,int,float)
+# Remember the whole idea of .str: "apply this text operation to every value in the column." But this ONLY works if pandas actually believes the column contains TEXT (object dtype) in the first place.
+
+# Problem: sometimes a column that LOOKS like it should be text is actually stored as a different type — like numbers, or a mix of types that pandas isn't sure about. If you try to use .str.replace() on a column pandas thinks is NUMERIC, it will fail or behave weirdly, because numbers don't have .str.replace() — only strings do.
+
+import pandas as pd 
+s = pd.Series([12,33,44,55])
+print(s.dtype)
+# s.str.replace("12","X")  #fails because  the column is not textual 
+
+#the fix - force it to become text first 
+
+s = s.astype(str)
+print(s.dtype)
+
+s=s.str.replace("2","Y")
+print(s)
+
+#What .astype(str) actually means, in plain words
+
+# .astype(str) = "FORCE-convert this column into text, no matter what it currently is."
+
+# .astype(...) in general means: "convert this column's TYPE into whatever I specify" (could be str, int, float, etc.)
+# .astype(str) specifically means: "make everything in this column a plain STRING/text value"
+# One-sentence summary
+
+# .astype(str) forcibly converts a column into text type — you use it as a safety step BEFORE .str methods, to guarantee they'll work, especially when you're not 100% sure what type pandas actually stored the column as (which can happen with mixed data, numbers-that-look-like-text, or columns containing NaN).
+
+
+#.map() -- .map() works on a single column (Series) — it takes EVERY value in that column and runs it through a function OR looks it up in a dictionary, one value at a time
+# with one column -- series
+import pandas as pd 
+df=pd.DataFrame({"marks":[45,67,55,30,78,77]})
+def get_grade(mark):
+    if mark>90:
+        return "A"
+    elif mark>70:
+        return "B"
+    elif mark>60:
+        return "C"
+    elif mark>40:
+        return "D"
+    else:
+        return "Fail"
+df["grade"] = df["marks"].map(get_grade)
+print(df)
+# dictionary 
+
+df2 = pd.DataFrame({"city_code": ["LHR", "KHI", "ISB", "LHR"]})
+
+city_names = {"LHR": "Lahore", "KHI": "Karachi", "ISB": "Islamabad"}
+
+df2["city_name"] = df2["city_code"].map(city_names)
+print(df2)
+# Important gotcha: if a value ISN'T in your dictionary, .map() gives you NaN for it:
+
+
+#sort_values() / sort_index() — quick, essential basics
+
+df = pd.DataFrame({"name": ["Ali","Sara","Zain"], "marks": [80, 95, 60]})
+
+print(df.sort_values("marks"))                          # ascending (default)
+print(df.sort_values("marks", ascending=False))          # descending
+print(df.sort_values(["marks","name"]))                  # sort by multiple columns
+print(df.sort_index())                                  # sort by the row index instead
