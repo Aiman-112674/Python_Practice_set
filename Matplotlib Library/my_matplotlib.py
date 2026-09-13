@@ -234,3 +234,252 @@ plt.show()
 # Count how many values are in each range
 #    ↓
 # Draw histogram
+
+
+# Scatter Plot : A scatter plot is used to see the relationship between two numerical variables.
+#For example, suppose we have some students:
+
+# Hours studied	Exam marks
+# 1	40
+# 2	50
+# 3	60
+# 4	70
+# 5	80
+
+# We might ask:
+
+# Does studying more hours relate to getting higher marks?
+
+# A scatter plot lets us see this visually.
+
+# Each student becomes one dot.
+# You can see that as hours studied increase, marks also increase.
+# that's the basic idea of a scatter plot.
+
+#Think of a dot as (x, y)
+
+# This is important.
+# Every dot has two values:
+# (x, y)
+# For example:
+# (1, 40)
+# means:
+# x = 1 hour studied
+# y = 40 marks
+# Another student:
+# (4, 70)
+# means:
+# x = 4 hours studied
+# y = 70 marks
+# So a scatter plot is basically:
+# Put many (x, y) points on a graph and look at their relationship.
+
+hours = [1,2,3,4,5]
+marks = [40,50,60,70,80]
+
+fig , ax = plt.subplots()
+
+ax.scatter(hours , marks)
+
+ax.set_xlabel("Hour Studied")
+ax.set_ylabel("Marks")
+ax.set_title("Study Hours vs Marks")
+
+plt.show()
+
+# Why is Scatter Plot useful?
+
+# This is the main reason you'll use scatter plots in Machine Learning.
+
+# You often have two numerical features and want to ask:
+
+# Are these two variables related?
+
+# Height vs Weight : 
+
+height = [150,155,160,165,170,175]
+weight = [50,53,57,61,65,70]
+
+fig ,ax = plt.subplots()
+ax.scatter(height,weight,color = "orange",s=100)
+ax.set_xlabel("Height")
+ax.set_ylabel("Weight")
+ax.set_title("Height vs Weight")
+
+plt.show()
+# You can visually inspect whether taller people tend to weigh more.
+# Remember:
+
+# Histogram → distribution of one variable
+
+# Scatter → relationship between two variables
+
+
+#Pie Chart?
+
+# A Pie Chart is used to show how a whole is divided into different parts.
+# Think of a pizza 🍕:
+# The whole pizza = 100%
+# Each slice = one part of that 100%
+# For example, imagine a student's daily time:
+# Activity	Hours
+# Study	5
+# Sleep	8
+# Exercise	2
+# Other	9
+# The total is 24 hours.
+# A pie chart shows what portion of those 24 hours belongs to each activity.
+
+activities = ["Study","Sleep","Exercise","Other"]
+hours = [9,2,8,5]
+
+fig , ax = plt.subplots()
+ax.pie(hours,labels=activities,autopct="%1.1f")
+
+ax.set_title("Daily Time Distribution")
+
+plt.show()
+
+#One important thing
+
+# A pie chart is best when you're showing parts of one whole.
+# Good example:
+# How a company's budget is divided.
+# Not so good:
+# Comparing the salaries of 10 employees.
+# For comparisons like that, a Bar Plot is usually better.
+# What does autopct mean?
+# autopct = automatic percentage , "%1.1f%%" tells Matplotlib:1 → show at least one digit,.1f → show 1 decimal place,%% → display the % symbol
+
+#Box Plot?
+
+# A Box Plot is used to understand the distribution and spread of numerical data.
+
+# It is especially useful for finding:
+
+# Median → the middle value
+# Spread → how much the data varies
+# Outliers → unusual values
+
+# For example, suppose we have students' marks:
+
+# marks = [45, 50, 52, 55, 60, 62, 65, 68, 70, 95]
+
+# Most marks are around 45–70, but 95 is quite far away. A box plot can help us spot that unusual value.
+
+marks = [45,50,52,55,60,62,65,68,70,98]
+fig , ax = plt.subplots()
+ax.boxplot(marks,patch_artist=True,vert=False)
+ax.set_ylabel("Marks")
+ax.set_title("Distribution of Student Marks")
+
+plt.show()
+# This creates the box plot from our numerical data.
+#  What does the box mean?
+
+# Very roughly:
+
+#       |
+#       |    ← upper range
+#    ┌─────┐
+#    │     │
+#    │ ─── │  ← median
+#    │     │
+#    └─────┘
+#       |
+#       |
+#       •    ← possible outlier
+
+# The box represents the middle portion of the data.
+
+# The line inside the box represents the median.
+# The individual point far away can represent an outlier.
+#patch_artist=True
+# It allows the box itself to be filled instead of just being an outline.
+#vert=False → makes the box plot horizontal.
+
+
+# Heatmap--
+# A Heatmap is a visualization where colors represent values.
+# Imagine you have a table:
+#         Math  English  Science
+# Math     1.0    0.7      0.8
+# English  0.7    1.0      0.6
+# Science  0.8    0.6      1.0
+# Looking at the numbers is okay, but it's much easier to understand the relationships when we represent them with colors.
+# For example:
+#         Math   English  Science
+# Math     🔴      🟠       🟠
+# English  🟠      🔴       🟡
+# Science  🟠      🟡       🔴
+# That's the basic idea of a heatmap.
+# Why is it useful in ML?
+# One of the most common uses is viewing a correlation matrix.
+# For example, imagine a dataset with:
+# Age
+# Salary
+# Experience
+# Education
+# We can calculate how strongly these variables are related and then visualize those correlations with a heatmap.
+# This helps us quickly see things like:
+# "Salary and Experience seem strongly related."
+
+import numpy as np 
+data = np.array([
+    [1.0,0.7,0.8],
+    [0.7,1.0,0.6],
+    [0.8,0.6,1.0]
+])
+
+fig , ax = plt.subplots()
+ax.imshow(data)
+ax.set_title("Correlation Heatmap")
+
+plt.show()
+
+# ex
+data = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+fig, ax = plt.subplots()
+
+ax.imshow(data)
+
+ax.set_title("Simple Heatmap")
+
+plt.show()
+
+# example
+marks = np.array([
+    [80, 75, 90],
+    [60, 70, 65],
+    [90, 85, 95],
+    [50, 55, 60]
+])
+
+fig, ax = plt.subplots()
+
+ax.imshow(marks)
+
+ax.set_title("Student Marks Heatmap")
+ax.set_xticks([0, 1, 2])
+ax.set_xticklabels(["Math", "English", "Science"])
+
+ax.set_yticks([0, 1, 2, 3])
+ax.set_yticklabels(["Student 1", "Student 2", "Student 3", "Student 4"])
+
+plt.show()
+
+
+# 📊 Your 7 Matplotlib Plots — When to Use Which?
+# Plot	Where to use	When to use	What it shows	Importance for ML	Basic OO syntax
+# 1. Line Plot	Time/ordered data	When values change over time/order	Trend / change	⭐⭐⭐⭐	ax.plot(x, y)
+# 2. Bar Plot	Categories	When comparing different categories	Comparison	⭐⭐⭐⭐	ax.bar(x, y)
+# 3. Histogram	One numerical variable	When you want to understand its distribution	Distribution / frequency	⭐⭐⭐⭐⭐	ax.hist(data)
+# 4. Scatter Plot	Two numerical variables	When checking relationship between variables	Relationship / correlation	⭐⭐⭐⭐⭐	ax.scatter(x, y)
+# 5. Pie Chart	Categories that form one whole	When showing proportions/percentages	Part of a whole	⭐⭐	ax.pie(values)
+# 6. Box Plot	Numerical data	When checking spread and outliers	Median / spread / outliers	⭐⭐⭐⭐⭐	ax.boxplot(data)
+# 7. Heatmap	Matrix/table of values	When you want patterns through colors	Value intensity / relationships	⭐⭐⭐⭐⭐	ax.imshow(data)
