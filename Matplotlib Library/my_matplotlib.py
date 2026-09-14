@@ -36,14 +36,14 @@ fig, ax = plt.subplots(1, 2)   # 1 row, 2 columns of plots — TWO axes inside O
 
 # # simple example
 
-# fig , ax = plt.subplots()   ## Step 1: create the frame (fig) and the plot area (ax)
-# marks = [80,90,70,85,95]    
-# ax.plot(marks)           # Step 2: draw data ONTO that plot area
-# ax.set_title("Student Marks")    # Step 3: label things — all through 'ax'
-# ax.set_xlabel("Student Number")
-# ax.set_ylabel("Marks")
+fig , ax = plt.subplots()   ## Step 1: create the frame (fig) and the plot area (ax)
+marks = [80,90,70,85,95]    
+ax.plot(marks)           # Step 2: draw data ONTO that plot area
+ax.set_title("Student Marks")    # Step 3: label things — all through 'ax'
+ax.set_xlabel("Student Number")
+ax.set_ylabel("Marks")
 
-# plt.show()     # Step 4: actually display the whole figure
+plt.show()     # Step 4: actually display the whole figure
 
 # # ex 
 # fig , ax = plt.subplots(figsize=(10,8))
@@ -79,14 +79,15 @@ fig, ax = plt.subplots(1, 2)   # 1 row, 2 columns of plots — TWO axes inside O
 exam_number = [1,2,3,4,5]
 marks =[65,70,68,80,85]
 
-# fig,ax = plt.subplots()
-# # Add markers (dots) at each actual data point:
-# ax.plot(exam_number,marks,marker="*" , color="red",linestyle="--")
-# ax.set_title("Marks over 5 Exams")
-# ax.set_xlabel("Exam Number")
-# ax.set_ylabel("Marks")
+fig,ax = plt.subplots()
+# Add markers (dots) at each actual data point:
+ax.plot(exam_number,marks,label = "Student Marks",marker="*" , color="red",linestyle="--")
+ax.set_title("Marks over 5 Exams")
+ax.set_xlabel("Exam Number")
+ax.set_ylabel("Marks")
+ax.legend()
 
-# plt.show()
+plt.show()
 
 # math_marks = [65,70,68,80,85]
 # physics_marks =[60,65,72,75,78]
@@ -120,47 +121,47 @@ marks =[65,70,68,80,85]
 #Bad use case: something naturally ordered/continuous, like marks over TIME — that's better as a line chart, since a line shows the TREND, while bars just show individual comparisons without emphasizing "flow."
 
 import matplotlib.pyplot as plt 
-# students = ["ALi","Sara","Zain","Nisa"]
-# marks =[60,70,44,77]
+students = ["ALi","Sara","Zain","Nisa"]
+marks =[60,70,44,77]
 
-# fig , ax = plt.subplots()
-# # extra visuals
-# # ax.bar(students,marks,color="green")
-# # ax.bar(students,marks,color=["red","blue","yellow","black"])
-# # Horizontal bars instead of vertical (useful when category names are long):
-# ax.barh(students,marks,color="green")
-# ax.set_title("Marks by Students")
-# ax.set_xlabel("Student")
-# ax.set_ylabel("Marks")
+fig , ax = plt.subplots()
+# extra visuals
+# ax.bar(students,marks,color="green")
+# ax.bar(students,marks,color=["red","blue","yellow","black"])
+# Horizontal bars instead of vertical (useful when category names are long):
+ax.bar(students,marks,color="green")
+ax.set_title("Marks by Students")
+ax.set_xlabel("Student")
+ax.set_ylabel("Marks")
 
-# plt.show()
+plt.show()
 
 #Comparing TWO groups side-by-side (grouped bar chart)
 #This is a common real need — like comparing Math vs Physics marks for the SAME students:
 
-# import numpy as np
+import numpy as np
 
 
-# students = ["Ali", "Sara", "Zain", "Nida"]
-# math_marks = [80, 90, 70, 85]
-# physics_marks = [75, 85, 65, 90]
+students = ["Ali", "Sara", "Zain", "Nida"]
+math_marks = [80, 90, 70, 85]
+physics_marks = [75, 85, 65, 90]
 
-# x = np.arange(len(students))   # gives you [0, 1, 2, 3] - a position for each student
-# width = 0.35    # width of each bar
+x = np.arange(len(students))   # gives you [0, 1, 2, 3] - a position for each student
+width = 0.35    # width of each bar
 
-# fig , ax =plt.subplots()
-# ax.bar(x - width/2 , math_marks,width,label="Math")
-# ax.bar(x + width/2 , physics_marks,width , label="Physics")
+fig , ax =plt.subplots()
+ax.bar(x - width/2 , math_marks,width,label="Math")
+ax.bar(x + width/2 , physics_marks,width , label="Physics")
 
-# ax.set_xticks(x)
-# ax.set_xticklabels(students)
+ax.set_xticks(x)
+ax.set_xticklabels(students)
 
-# ax.set_title("Math vs Physics Marks")
-# ax.set_xlabel("Student")
-# ax.set_ylabel("Marks")
-# ax.legend()
+ax.set_title("Math vs Physics Marks")
+ax.set_xlabel("Student")
+ax.set_ylabel("Marks")
+ax.legend()
 
-# plt.show()
+plt.show()
 
 # Histogram — 
 
@@ -218,7 +219,7 @@ import matplotlib.pyplot as plt
 marks = [45, 55, 60, 62, 65, 67, 70, 72, 72, 75,78, 80, 81, 82, 85, 88, 90, 92, 95, 98]
 fig , ax = plt.subplots()
 # plt.hist(ages)
-ax.hist(marks,bins=5,color = "orange",edgecolor="yellow")
+ax.hist(marks,bins=5,color = "orange",edgecolor="black")
 ax.set_xlabel("Marks")
 ax.set_ylabel("Number of Students")
 ax.set_title("Distribution of Studnet Marks")
@@ -369,7 +370,7 @@ plt.show()
 
 marks = [45,50,52,55,60,62,65,68,70,98]
 fig , ax = plt.subplots()
-ax.boxplot(marks,patch_artist=True,vert=False)
+ax.boxplot(marks,patch_artist=True,vert=True)
 ax.set_ylabel("Marks")
 ax.set_title("Distribution of Student Marks")
 

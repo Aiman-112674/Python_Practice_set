@@ -1,0 +1,69 @@
+import matplotlib.pyplot as plt
+
+student_name = ["Ali","Zain","Sara","Nisa","Nida","Usman","Hinsa"]
+student_age = [19,18,17,19,16,21,20]
+
+fig , ax = plt.subplots()
+ax.plot(student_name,student_age,color="green",marker="^",markersize=10,markerfacecolor="orange",markeredgecolor="black",linestyle="-",linewidth=3)
+# Grid Lines 
+ax.grid(True,linestyle=":",alpha=0.6)
+#Font Sizes and styling for title/ Labels 
+
+ax.set_xlabel("Names of Student",fontsize=13)
+ax.set_ylabel("Ages of Student",fontsize=12)
+ax.set_title("Student Detail",fontsize = 16 ,fontweight="bold",color = "darkgreen")
+# setting axis range 
+ax.set_ylim(0,22)
+
+# label individual data points (show the actual value near each point)
+for i , age in enumerate(student_age):
+    ax.annotate(str(age),(student_name[i],age), textcoords="offset points",xytext=(0,10),ha="center")
+#annotate() writes a text label at a chosen position; textcoords="offset points" + xytext=(0,10) nudges that text slightly away from the exact data point (10 points upward here) so it doesn't overlap the dot; ha="center" keeps the text horizontally centered on that point.
+
+#Background color of the plot area 
+ax.set_facecolor("#ecedec")
+fig.patch.set_facecolor("white")
+
+
+# addding a horizontal reference line 
+import numpy as np 
+avg_age = np.mean(student_age)
+median_age = np.median(student_age)
+ax.axhline(avg_age,color ="red",linestyle="-.",linewidth=1,label =f"Average Age: {avg_age:.1f}")
+ax.axhline(median_age,color ="blue",linestyle="--",linewidth=1.5,label =f"Median Age: {median_age:.1f}")
+ax.legend()
+# ax.scatter(student_name,student_age,marker="o",s=200,zorder=10)
+#setting figure size
+fig.set_size_inches(8,5)
+# remove unnecessary borders 
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+plt.show()
+#One-sentence summary
+
+# ax is your entire toolbox (the plot area) — .plot(), .axhline(), .grid(), .bar() etc. are all DIFFERENT tools inside that same toolbox, each doing a different specific job. You used .plot() to draw your actual data, and .axhline() separately to draw an extra horizontal reference line at the average — both can exist together on the same chart, layered on top of each other.
+
+# multiple axes side by side inside one figure 
+
+student_name = ["Ali","Zain","Sara","Nisa","Nida","Usman","Hinsa"]
+student_age = [19,18,17,19,16,21,20]
+student_marks = [80,65,90,72,88,55,95]
+
+fig , ax = plt.subplots(1,2,figsize = (12,5))
+
+#first subplot
+ax[0].plot(student_name,student_age,marker="*",color="green")
+
+ax[0].set_title("Student Ages")
+ax[0].set_xlabel("Name")
+ax[0].set_ylabel("Age")
+
+# second plot 
+
+ax[1].bar(student_name,student_marks)
+ax[1].set_title("Student Marks")
+ax[1].set_xlabel("Name")
+ax[1].set_ylabel("Marks")
+
+plt.show()
