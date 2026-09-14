@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np 
 
 student_name = ["Ali","Zain","Sara","Nisa","Nida","Usman","Hinsa"]
 student_age = [19,18,17,19,16,21,20]
@@ -50,7 +51,7 @@ student_name = ["Ali","Zain","Sara","Nisa","Nida","Usman","Hinsa"]
 student_age = [19,18,17,19,16,21,20]
 student_marks = [80,65,90,72,88,55,95]
 
-fig , ax = plt.subplots(1,2,figsize = (12,5))
+fig , ax = plt.subplots(1,2,figsize = (12,6))
 
 #first subplot
 ax[0].plot(student_name,student_age,marker="*",color="green")
@@ -61,9 +62,45 @@ ax[0].set_ylabel("Age")
 
 # second plot 
 
-ax[1].bar(student_name,student_marks)
+ax[1].bar(student_name,student_marks,color ="skyblue")
 ax[1].set_title("Student Marks")
 ax[1].set_xlabel("Name")
 ax[1].set_ylabel("Marks")
+# avoiding the overlapping 
+ax[1].tick_params(axis="x",rotation = 30)
 
+plt.show()
+
+
+# Multiple Axes inside one figure 
+
+fig , ax = plt.subplots(2,2,figsize=(17,7))
+# 1st plot
+ax[0,0].plot(student_name,student_age,marker="*", markerfacecolor="green")
+ax[0,0].set_title("line Plot")
+ax[0,0].set_xlabel("Name")
+ax[0,0].set_ylabel("Age")
+ax[0,0].grid(True,linestyle=":",alpha=0.6)
+#2nd plot
+ax[0,1].bar(student_name,student_marks,color="yellow",edgecolor="black")
+ax[0,1].set_title("Bar Plot")
+ax[0,1].set_xlabel("Name")
+ax[0,1].set_ylabel("Marks")
+ax[0,1].grid(True,linestyle=":",alpha=0.1)
+
+# 3rd plot 
+
+ax[1,0].hist(student_marks,bins=2,color="orange")
+ax[1,0].set_title("Histogram Plot")
+ax[1,0].set_xlabel("Marks")
+ax[1,0].grid(True,linestyle=":",alpha=0.9)
+
+# 4th plot
+
+ax[1,1].scatter(student_age , student_marks)
+ax[1,1].set_title("Scatter Plot")
+ax[1,1].set_xlabel("Age")
+ax[1,1].set_ylabel("Marks")
+ax[1,1].grid(True,linestyle=":",alpha=0.6)
+plt.tight_layout()
 plt.show()
