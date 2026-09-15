@@ -202,7 +202,7 @@ plt.show()
 # Bar Plot -- city & attendance pct 
 
 fig , ax = plt.subplots()
-ax.bar(df["city"],df["attendance_pct"],color="red",edgecolor="black",linewidth=1.5,width=0.55,hatch="//",alpha=0.9)
+ax.bar(df["city"],df["attendance_pct"],color="white",edgecolor="black",linewidth=1.5,width=0.55,hatch=".",alpha=0.9)
 # ax.bar_label(ba,padding=3,fontsize=10,fontweight="bold")
 ax.set_facecolor("red")
 ax.grid(True,linestyle=":",alpha=0.9)
@@ -227,4 +227,99 @@ ax.set_ylabel("Marks")
 ax.grid(True , linestyle=":" , alpha=0.9)
 
 plt.xticks(rotation=30)
+plt.show()
+
+
+# Scatter plot with full Styling :
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+
+fig , ax = plt.subplots(figsize=(9,6))
+scatter = ax.scatter(df["attendance_pct"],df["marks"], c=df["marks"],cmap="viridis",s=150,edgecolors="black",linewidth=1,alpha=0.85)
+
+
+# trendline 
+
+z = np.polyfit(df["attendance_pct"],df["marks"],1)
+p = np.poly1d(z)
+ax.plot(df["attendance_pct"],p(df["attendance_pct"]),color="red",linestyle="--",linewidth=2,label="Trend Line")
+
+# Average Reference Line 
+
+avg_marks = np.mean(df["marks"])
+ax.axhline(avg_marks,color="gray",linestyle=":",linewidth=1.2,label=f"Avg Marks: {avg_marks:.1f}")
+
+# Highlight the highest point
+
+max_idx = df["marks"].idxmax()
+ax.annotate(f"Highest: {df["marks"][max_idx]}",
+            (df["attendance_pct"][max_idx],df["marks"][max_idx]),
+            textcoords="offset points" , xytext = (10,10),
+            fontsize=10,fontweight="bold",color="green")
+
+fig.colorbar(scatter, ax = ax , label ="Marks")
+
+ax.set_title("Attendance vs Marks", fontsize=16 , fontweight="bold", color = "red")
+ax.set_xlabel("Attendance % ", fontsize=12)
+ax.set_ylabel("Marks", fontsize=12)
+ax.grid(True,linestyle=":",alpha=0.4)
+ax.set_facecolor("#f9f9f9")
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.legend()
+print(df["attendance_pct"].corr(df["marks"]))
+plt.tight_layout()
+plt.show()
+
+
+# Histogram with Styling 
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+fig , ax = plt.subplots(figsize=(9,6))
+
+# histogram
+
+n, bins_edges , patches = ax.hist(df["marks"] , bins =12,color="mediumseagreen" , edgecolor="black" , linewidth=1.2,alpha=0.85 ) 
+
+# mean and median reference line 
+
+mean_marks = np.mean(df["marks"])
+median_marks = np.median(df["marks"])
+
+ax.axvline(mean_marks , color ="red",linestyle="--",linewidth=2,label = f"Mean: {mean_marks:.1f}")
+
+ax.axvline(median_marks , color ="blue",linestyle="--",linewidth=2,label=f"Median: {median_marks:.1f}")
+
+# color : 
+
+tallest_idx = np.argmax(n)
+smallest_idx= np.argmin(n)
+patches[tallest_idx].set_facecolor("orange")
+patches[smallest_idx].set_facecolor("red")
+
+# Add count labels on top of each bar 
+
+for count , edge in zip(n , bins_edges):
+    if count>0:
+        ax.text(edge+ (bins_edges[1]-bins_edges[0])/2 , count+0.3 , int(count),
+        ha = "center",fontsize=9, fontweight="bold" )
+
+#titles and labels
+
+ax.set_title("Distribution of Marks",fontsize=16, fontweight="bold" , color="darkgreen")
+ax.set_xlabel("Marks", fontsize = 12)
+ax.set_ylabel("Number of Students",fontsize=12)
+
+# grid 
+ax.grid(True,linestyle=":",alpha=0.4)
+ax.set_facecolor("#f9f9f9")
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+ax.legend()
+plt.tight_layout()
 plt.show()
