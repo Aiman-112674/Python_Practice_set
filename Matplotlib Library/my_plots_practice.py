@@ -153,3 +153,78 @@ plt.show()
 # ax.set_title("Age and Marks Spread")
 
 # plt.show()
+
+# Line Plot 
+
+fig , ax = plt.subplots()
+ax.plot(df["subject"],df["marks"], color = "green", linestyle="-." ,linewidth=3 , label="Age",marker="^",markerfacecolor="orange")
+ax.set_title("Student Age")
+ax.set_xlabel("Name")
+ax.set_ylabel("Age")
+ax.legend()
+plt.xticks(rotation=30)
+plt.show()
+
+
+# Bar Plot 
+fig , ax = plt.subplots()
+ax.bar(df["subject"],df["marks"],color="red",width=0.8)
+ax.grid(True,alpha=0.6,linestyle=":")
+ax.set_facecolor("yellow")
+ax.set_title("Subject vs Marks", fontsize=13,fontstyle="italic")
+ax.set_xlabel("Subject")
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+# ax.set_xticks(rotation=30)
+ax.set_ylabel("Marks")
+plt.xticks(rotation=30)
+plt.show()
+
+# Scatter Plot 
+
+fig ,ax = plt.subplots()
+
+ax.scatter(df["marks"],df["attendance_pct"],marker ="*",s=100,label="Attendance_Pct")
+ax.set_facecolor("red")
+ax.set_title("Relationship Analyzing between Marks & Attendance_Pct",fontstyle="italic",fontsize=14)
+ax.set_xlabel("Marks")
+ax.set_ylabel("Attendance_Pct")
+ax.spines["top"].set_visible("False")
+ax.spines["right"].set_visible("False")
+ax.grid(True,linestyle=":",alpha=0.9)
+
+# import numpy as np 
+# avg_attendance= np.mean("attendance_pct")
+# ax.axhline(avg_attendance,color="black",linestyle="-.",linewidth=0.9,label=f"Average Attendance: {avg_attendance:.1f}")
+plt.xticks(rotation=30)
+plt.show()
+
+# Bar Plot -- city & attendance pct 
+
+fig , ax = plt.subplots()
+ax.bar(df["city"],df["attendance_pct"],color="red",edgecolor="black",linewidth=1.5,width=0.55,hatch="//",alpha=0.9)
+# ax.bar_label(ba,padding=3,fontsize=10,fontweight="bold")
+ax.set_facecolor("red")
+ax.grid(True,linestyle=":",alpha=0.9)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.set_title("City & Attendance_Pct")
+ax.set_xlabel("City")
+ax.set_ylabel("Attendance_Pct")
+
+plt.xticks(rotation=30)
+
+plt.show()
+
+
+#Scatter Plot 
+
+fig , ax = plt.subplots()
+ax.scatter(df["age"],df["marks"] , marker="D" , alpha=0.9,color="red",edgecolors="black",linestyle="-.",linewidth=0.8)
+ax.set_title("Age vs Marks")
+ax.set_xlabel("Age")
+ax.set_ylabel("Marks")
+ax.grid(True , linestyle=":" , alpha=0.9)
+
+plt.xticks(rotation=30)
+plt.show()
