@@ -323,3 +323,26 @@ ax.spines["right"].set_visible(False)
 ax.legend()
 plt.tight_layout()
 plt.show()
+
+
+#Box Plot 
+
+import matplotlib.pyplot as plt
+
+fig , ax = plt.subplots(figsize=(8,6))
+
+box = ax.boxplot(df["marks"].dropna(),patch_artist=True , boxprops=dict(facecolor="skyblue",edgecolor="black",linewidth=1.5))
+medianprops=dict(color="red",linewidth=1.2)
+whiskerpops = dict(color="black",linewidth=1.2)
+capprops = dict(color="black",linewidth=1.2)
+flierprops = dict(marker="o",markerfacecolor="orange",markersize=8,markeredgecolor="black")
+
+ax.set_title("Marks Distribution", fontsize=16,fontweight="bold",color="darkblue")
+ax.set_ylabel("Marks",fontsize=12)
+ax.grid(True,linestyle=":",alpha=0.4)
+ax.set_facecolor("#f9f9f9")
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+plt.tight_layout()
+plt.show()
