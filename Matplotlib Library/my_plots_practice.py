@@ -111,123 +111,123 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv(r"C:\Users\fast laptop\Desktop\python_intern\Pandas_Library\Clean_Full_Practice_dataset_By_using_KNN_Imputer.csv")
 
-# 1st Gender/Category Percentage --Pie Chart
+# # 1st Gender/Category Percentage --Pie Chart
 
-counts = df["fee_status"].value_counts()
+# counts = df["fee_status"].value_counts()
 
-fig , ax = plt.subplots()
-ax.pie(counts , labels=counts.index , autopct="%1.1f%%")
-ax.set_title("Fee Status Distribution")
-plt.show()
-
-# Histogram of Age 
 # fig , ax = plt.subplots()
-# ax.hist(["age"],bins=10,color="skyblue",edgecolor="black")
-# ax.set_title("Age Distribution")
-# ax.set_xlabel("Age")
-# ax.set_ylabel("Number of Students")
+# ax.pie(counts , labels=counts.index , autopct="%1.1f%%")
+# ax.set_title("Fee Status Distribution")
 # plt.show()
 
-avg_marks = df.groupby("subject")["marks"].mean()
-fig , ax = plt.subplots()
-ax.bar(avg_marks.index,avg_marks.values , color="orange")
+# # Histogram of Age 
+# # fig , ax = plt.subplots()
+# # ax.hist(["age"],bins=10,color="skyblue",edgecolor="black")
+# # ax.set_title("Age Distribution")
+# # ax.set_xlabel("Age")
+# # ax.set_ylabel("Number of Students")
+# # plt.show()
 
-ax.set_title("Average Marks per Subject")
-ax.set_xlabel("Subject")
-ax.set_ylabel("Average Marks")
-plt.xticks(rotation=30)
-plt.show()
+# avg_marks = df.groupby("subject")["marks"].mean()
+# fig , ax = plt.subplots()
+# ax.bar(avg_marks.index,avg_marks.values , color="orange")
+
+# ax.set_title("Average Marks per Subject")
+# ax.set_xlabel("Subject")
+# ax.set_ylabel("Average Marks")
+# plt.xticks(rotation=30)
+# plt.show()
 
 
-# Scatter plot 
-fig, ax = plt.subplots()
-ax.scatter(df["attendance_pct"], df["marks"], alpha=0.6, color="purple")
-ax.set_title("Marks vs Attendance")
-ax.set_xlabel("Attendance %")
-ax.set_ylabel("Marks")
-plt.show()
-
-# Box Plot
+# # Scatter plot 
 # fig, ax = plt.subplots()
-# ax.boxplot([df["age"].dropna(), df["marks"].dropna()])
-# ax.set_title("Age and Marks Spread")
+# ax.scatter(df["attendance_pct"], df["marks"], alpha=0.6, color="purple")
+# ax.set_title("Marks vs Attendance")
+# ax.set_xlabel("Attendance %")
+# ax.set_ylabel("Marks")
+# plt.show()
+
+# # Box Plot
+# # fig, ax = plt.subplots()
+# # ax.boxplot([df["age"].dropna(), df["marks"].dropna()])
+# # ax.set_title("Age and Marks Spread")
+
+# # plt.show()
+
+# # Line Plot 
+
+# fig , ax = plt.subplots()
+# ax.plot(df["subject"],df["marks"], color = "green", linestyle="-." ,linewidth=3 , label="Age",marker="^",markerfacecolor="orange")
+# ax.set_title("Student Age")
+# ax.set_xlabel("Name")
+# ax.set_ylabel("Age")
+# ax.legend()
+# plt.xticks(rotation=30)
+# plt.show()
+
+
+# # Bar Plot 
+# fig , ax = plt.subplots()
+# ax.bar(df["subject"],df["marks"],color="red",width=0.8)
+# ax.grid(True,alpha=0.6,linestyle=":")
+# ax.set_facecolor("yellow")
+# ax.set_title("Subject vs Marks", fontsize=13,fontstyle="italic")
+# ax.set_xlabel("Subject")
+# ax.spines["top"].set_visible(False)
+# ax.spines["right"].set_visible(False)
+# # ax.set_xticks(rotation=30)
+# ax.set_ylabel("Marks")
+# plt.xticks(rotation=30)
+# plt.show()
+
+# # Scatter Plot 
+
+# fig ,ax = plt.subplots()
+
+# ax.scatter(df["marks"],df["attendance_pct"],marker ="*",s=100,label="Attendance_Pct")
+# ax.set_facecolor("red")
+# ax.set_title("Relationship Analyzing between Marks & Attendance_Pct",fontstyle="italic",fontsize=14)
+# ax.set_xlabel("Marks")
+# ax.set_ylabel("Attendance_Pct")
+# ax.spines["top"].set_visible("False")
+# ax.spines["right"].set_visible("False")
+# ax.grid(True,linestyle=":",alpha=0.9)
+
+# # import numpy as np 
+# # avg_attendance= np.mean("attendance_pct")
+# # ax.axhline(avg_attendance,color="black",linestyle="-.",linewidth=0.9,label=f"Average Attendance: {avg_attendance:.1f}")
+# plt.xticks(rotation=30)
+# plt.show()
+
+# # Bar Plot -- city & attendance pct 
+
+# fig , ax = plt.subplots()
+# ax.bar(df["city"],df["attendance_pct"],color="white",edgecolor="black",linewidth=1.5,width=0.55,hatch=".",alpha=0.9)
+# # ax.bar_label(ba,padding=3,fontsize=10,fontweight="bold")
+# ax.set_facecolor("red")
+# ax.grid(True,linestyle=":",alpha=0.9)
+# ax.spines["top"].set_visible(False)
+# ax.spines["right"].set_visible(False)
+# ax.set_title("City & Attendance_Pct")
+# ax.set_xlabel("City")
+# ax.set_ylabel("Attendance_Pct")
+
+# plt.xticks(rotation=30)
 
 # plt.show()
 
-# Line Plot 
 
-fig , ax = plt.subplots()
-ax.plot(df["subject"],df["marks"], color = "green", linestyle="-." ,linewidth=3 , label="Age",marker="^",markerfacecolor="orange")
-ax.set_title("Student Age")
-ax.set_xlabel("Name")
-ax.set_ylabel("Age")
-ax.legend()
-plt.xticks(rotation=30)
-plt.show()
+# #Scatter Plot 
 
+# fig , ax = plt.subplots()
+# ax.scatter(df["age"],df["marks"] , marker="D" , alpha=0.9,color="red",edgecolors="black",linestyle="-.",linewidth=0.8)
+# ax.set_title("Age vs Marks")
+# ax.set_xlabel("Age")
+# ax.set_ylabel("Marks")
+# ax.grid(True , linestyle=":" , alpha=0.9)
 
-# Bar Plot 
-fig , ax = plt.subplots()
-ax.bar(df["subject"],df["marks"],color="red",width=0.8)
-ax.grid(True,alpha=0.6,linestyle=":")
-ax.set_facecolor("yellow")
-ax.set_title("Subject vs Marks", fontsize=13,fontstyle="italic")
-ax.set_xlabel("Subject")
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
-# ax.set_xticks(rotation=30)
-ax.set_ylabel("Marks")
-plt.xticks(rotation=30)
-plt.show()
-
-# Scatter Plot 
-
-fig ,ax = plt.subplots()
-
-ax.scatter(df["marks"],df["attendance_pct"],marker ="*",s=100,label="Attendance_Pct")
-ax.set_facecolor("red")
-ax.set_title("Relationship Analyzing between Marks & Attendance_Pct",fontstyle="italic",fontsize=14)
-ax.set_xlabel("Marks")
-ax.set_ylabel("Attendance_Pct")
-ax.spines["top"].set_visible("False")
-ax.spines["right"].set_visible("False")
-ax.grid(True,linestyle=":",alpha=0.9)
-
-# import numpy as np 
-# avg_attendance= np.mean("attendance_pct")
-# ax.axhline(avg_attendance,color="black",linestyle="-.",linewidth=0.9,label=f"Average Attendance: {avg_attendance:.1f}")
-plt.xticks(rotation=30)
-plt.show()
-
-# Bar Plot -- city & attendance pct 
-
-fig , ax = plt.subplots()
-ax.bar(df["city"],df["attendance_pct"],color="white",edgecolor="black",linewidth=1.5,width=0.55,hatch=".",alpha=0.9)
-# ax.bar_label(ba,padding=3,fontsize=10,fontweight="bold")
-ax.set_facecolor("red")
-ax.grid(True,linestyle=":",alpha=0.9)
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
-ax.set_title("City & Attendance_Pct")
-ax.set_xlabel("City")
-ax.set_ylabel("Attendance_Pct")
-
-plt.xticks(rotation=30)
-
-plt.show()
-
-
-#Scatter Plot 
-
-fig , ax = plt.subplots()
-ax.scatter(df["age"],df["marks"] , marker="D" , alpha=0.9,color="red",edgecolors="black",linestyle="-.",linewidth=0.8)
-ax.set_title("Age vs Marks")
-ax.set_xlabel("Age")
-ax.set_ylabel("Marks")
-ax.grid(True , linestyle=":" , alpha=0.9)
-
-plt.xticks(rotation=30)
-plt.show()
+# plt.xticks(rotation=30)
+# plt.show()
 
 
 # Scatter plot with full Styling :
@@ -274,75 +274,119 @@ plt.tight_layout()
 plt.show()
 
 
-# Histogram with Styling 
+# # Histogram with Styling 
 
-import matplotlib.pyplot as plt 
-import numpy as np 
+# import matplotlib.pyplot as plt 
+# import numpy as np 
 
-fig , ax = plt.subplots(figsize=(9,6))
+# fig , ax = plt.subplots(figsize=(9,6))
 
-# histogram
+# # histogram
 
-n, bins_edges , patches = ax.hist(df["marks"] , bins =12,color="mediumseagreen" , edgecolor="black" , linewidth=1.2,alpha=0.85 ) 
+# n, bins_edges , patches = ax.hist(df["marks"] , bins =12,color="mediumseagreen" , edgecolor="black" , linewidth=1.2,alpha=0.85 ) 
 
-# mean and median reference line 
+# # mean and median reference line 
 
-mean_marks = np.mean(df["marks"])
-median_marks = np.median(df["marks"])
+# mean_marks = np.mean(df["marks"])
+# median_marks = np.median(df["marks"])
 
-ax.axvline(mean_marks , color ="red",linestyle="--",linewidth=2,label = f"Mean: {mean_marks:.1f}")
+# ax.axvline(mean_marks , color ="red",linestyle="--",linewidth=2,label = f"Mean: {mean_marks:.1f}")
 
-ax.axvline(median_marks , color ="blue",linestyle="--",linewidth=2,label=f"Median: {median_marks:.1f}")
+# ax.axvline(median_marks , color ="blue",linestyle="--",linewidth=2,label=f"Median: {median_marks:.1f}")
 
-# color : 
+# # color : 
 
-tallest_idx = np.argmax(n)
-smallest_idx= np.argmin(n)
-patches[tallest_idx].set_facecolor("orange")
-patches[smallest_idx].set_facecolor("red")
+# tallest_idx = np.argmax(n)
+# smallest_idx= np.argmin(n)
+# patches[tallest_idx].set_facecolor("orange")
+# patches[smallest_idx].set_facecolor("red")
 
-# Add count labels on top of each bar 
+# # Add count labels on top of each bar 
 
-for count , edge in zip(n , bins_edges):
-    if count>0:
-        ax.text(edge+ (bins_edges[1]-bins_edges[0])/2 , count+0.3 , int(count),
-        ha = "center",fontsize=9, fontweight="bold" )
+# for count , edge in zip(n , bins_edges):
+#     if count>0:
+#         ax.text(edge+ (bins_edges[1]-bins_edges[0])/2 , count+0.3 , int(count),
+#         ha = "center",fontsize=9, fontweight="bold" )
 
-#titles and labels
+# #titles and labels
 
-ax.set_title("Distribution of Marks",fontsize=16, fontweight="bold" , color="darkgreen")
-ax.set_xlabel("Marks", fontsize = 12)
-ax.set_ylabel("Number of Students",fontsize=12)
+# ax.set_title("Distribution of Marks",fontsize=16, fontweight="bold" , color="darkgreen")
+# ax.set_xlabel("Marks", fontsize = 12)
+# ax.set_ylabel("Number of Students",fontsize=12)
 
-# grid 
-ax.grid(True,linestyle=":",alpha=0.4)
-ax.set_facecolor("#f9f9f9")
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
+# # grid 
+# ax.grid(True,linestyle=":",alpha=0.4)
+# ax.set_facecolor("#f9f9f9")
+# ax.spines["top"].set_visible(False)
+# ax.spines["right"].set_visible(False)
 
-ax.legend()
+# ax.legend()
+# plt.tight_layout()
+# plt.show()
+
+
+# #Box Plot 
+
+# import matplotlib.pyplot as plt
+
+# fig , ax = plt.subplots(figsize=(8,6))
+
+# box = ax.boxplot(df["marks"].dropna(),patch_artist=True , boxprops=dict(facecolor="skyblue",edgecolor="black",linewidth=1.5))
+# medianprops=dict(color="red",linewidth=1.2)
+# whiskerpops = dict(color="black",linewidth=1.2)
+# capprops = dict(color="black",linewidth=1.2)
+# flierprops = dict(marker="o",markerfacecolor="orange",markersize=8,markeredgecolor="black")
+
+# ax.set_title("Marks Distribution", fontsize=16,fontweight="bold",color="darkblue")
+# ax.set_ylabel("Marks",fontsize=12)
+# ax.grid(True,linestyle=":",alpha=0.4)
+# ax.set_facecolor("#f9f9f9")
+# ax.spines["top"].set_visible(False)
+# ax.spines["right"].set_visible(False)
+
+# plt.tight_layout()
+# plt.show()
+
+#pie chart
+
+counts = df["fee_status"].value_counts()
+fig,ax = plt.subplots(figsize=(7,7))
+
+colors = ["#66b3ff","#99ff99","#ffcc99"]
+ax.pie(counts,labels=counts.index,autopct="%1.1f%%",colors=colors)
+ax.set_title("Fee Status Distribution",fontsize=16,fontweight="bold",color="blue")
 plt.tight_layout()
 plt.show()
 
+#Area Chart 
 
-#Box Plot 
+months = ["jan","Feb","Mar","Apr","May"]
+sales=[100,150,130,200,180]
 
+fig,ax=plt.subplots()
+ax.fill_between(months,sales,color="skyblue")
+
+plt.show()
+
+
+# 
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
-fig , ax = plt.subplots(figsize=(8,6))
 
-box = ax.boxplot(df["marks"].dropna(),patch_artist=True , boxprops=dict(facecolor="skyblue",edgecolor="black",linewidth=1.5))
-medianprops=dict(color="red",linewidth=1.2)
-whiskerpops = dict(color="black",linewidth=1.2)
-capprops = dict(color="black",linewidth=1.2)
-flierprops = dict(marker="o",markerfacecolor="orange",markersize=8,markeredgecolor="black")
+fig , ax = plt.subplots(figsize=(9,6))
+scatter = ax.scatter(df["marks"],df["age"], c=df["age"],cmap="viridis",s=150,edgecolors="black",linewidth=1,alpha=0.85)
 
-ax.set_title("Marks Distribution", fontsize=16,fontweight="bold",color="darkblue")
-ax.set_ylabel("Marks",fontsize=12)
-ax.grid(True,linestyle=":",alpha=0.4)
-ax.set_facecolor("#f9f9f9")
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
 
-plt.tight_layout()
+# trendline 
+
+z = np.polyfit(df["marks"],df["age"],1)
+p = np.poly1d(z)
+ax.plot(df["marks"],p(df["age"]),color="red",linestyle="--",linewidth=2,label="Trend Line")
+
+ax.set_title("Scatter Plot")
+ax.set_xlabel("marks")
+ax.set_ylabel("age")
+plt.xticks(rotation=30)
 plt.show()

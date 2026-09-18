@@ -1,51 +1,48 @@
-# 🐍 Python Practice Set
+# Python Practice Set 🐍
 
-A running log of my Python learning journey — concepts, exercises, and small projects, all practiced and pushed straight from VS Code as I learn.
+A structured, hands-on collection of Python and data-analysis practice — built from scratch, debugged in real time, and continuously growing.
 
-> 📌 This repo is continuously updated. Every new concept I practice gets added here.
+This isn't copy-pasted tutorial code. Every script here was built, broken, and fixed through genuine trial and error — with a focus on understanding why something works (or doesn't), not just getting it to run.
 
----
+# 📁 Repo Structure
+## Project/
 
-## 📂 What's covered so far
+### Core Python fundamentals — Object-Oriented Programming (classes, objects, inheritance) and proper error & exception handling.
 
-### 🔹 Core Concepts
-- Variables, data types, and type conversion
-- Conditional statements (`if` / `elif` / `else`)
-- `while` loops
-- `for` loops (with lists, strings, tuples, sets, dictionaries)
-- `range()` and `enumerate()`
-- `break` and `continue`
-- Functions — with and without parameters
-- Return values (`return` vs `print()`)
-- Recursion (with base cases)
-- File handling — reading, writing, appending, searching, editing in place
-- Intro to OOP — classes, constructors (`__init__`), and `self`
+files/
 
-### 🔹 Data Structures
-- Tuples — methods (`count()`, `index()`), immutability
-- Dictionaries — mutability, `fromkeys()`, key-value operations
-- Lists, sets — iteration and common operations
+### NumPy fundamentals — array creation, filtering, broadcasting, and the numerical foundations that power pandas and ML libraries.
 
----
+### Pandas_Library/
 
-## 🛠️ Mini Projects
+The deep dive. Covers the full real-world data-cleaning workflow:
 
-| Project | Description |
-|---|---|
-| **Student Grading System** | Takes marks across subjects, calculates percentage, and assigns a grade using conditional logic |
-| **Leap Year Checker** | Determines leap years using nested conditionals, including the century-year exception rule (divisible by 100 but not 400) |
-| **Employee Salary System** | Calculates bonus (based on experience) and tax (based on salary brackets), then computes net salary — wrapped in a loop to process multiple employees in one run |
-| **Student Result Management (in progress)** | Menu-driven system to add, view, and search student records, and find highest/lowest percentage |
-| **File-based utilities** | Count lines/words/vowels in a file, find a word's line number, copy file content, replace text in place, print non-empty lines |
+Handling missing values (mean, median, mode, forward/backward fill, KNN imputation)
+Detecting and removing duplicates — including hidden ones caused by case mismatches and disguised nulls
+Cleaning wrong-formatted data (junk text in numbers, inconsistent casing, mixed date formats)
+Outlier detection using the IQR method
+Merging, joining, concatenating, and comparing datasets
+Reshaping with pivot(), pivot_table(), and MultiIndex
+Grouping and aggregating with groupby()
+Matplotlib Library/
 
----
+### Data visualization, built entirely in the Object-Oriented style (fig, ax = plt.subplots()) rather than the quick plt. shortcuts. Covers:
 
-## 📈 Learning Approach
+Line, scatter, bar, and stacked bar charts
+Histograms and box plots (connected directly to outlier detection)
+Pie charts and heatmaps (including correlation heatmaps)
+Area, step, and stem plots
+Full styling: custom colors, markers, annotations, trend lines, grids, and multi-subplot layouts
+# 🧠 Philosophy
 
-Each concept is practiced with small, focused code snippets before being applied to a slightly larger task. Bugs are debugged and fixed intentionally as part of the learning process — not just written correctly the first time.
+Real datasets are messy, and cleaning them isn't a one-shot checklist — it's iterative. You fix one thing, recheck, discover a new hidden issue, and fix that too. This repo reflects that process, bugs and all.
 
----
+# 🚧 Status
 
-## 🔗 Connect
+Actively maintained and growing — currently expanding into more advanced visualization and moving toward machine learning fundamentals next.
 
-Feedback, suggestions, and corrections are always welcome — I'm actively learning and improving!
+# 🛠️ Requirements
+
+See requirements.txt for the exact libraries used.
+
+Feedback, suggestions, and connections from fellow learners are always welcome!
