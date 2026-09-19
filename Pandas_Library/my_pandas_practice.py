@@ -1241,7 +1241,7 @@ data = {
     "marks": [80, 90, 70, 85, 60, 95]
 }
 df = pd.DataFrame(data)
-# get griup by on multiple columns 
+# get group by on multiple columns 
 result = df.groupby(["subject","city"])["marks"].mean()
 print(result)
 
