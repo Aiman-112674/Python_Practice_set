@@ -52,3 +52,90 @@ plt.tight_layout()
 # plt.savefig("Count_Plot2.png")
 plt.show()
 
+# KDE 
+
+sns.set_style("whitegrid")
+fig ,ax=plt.subplots(figsize=(9,5))
+sns.kdeplot(data=df,x='marks',ax=ax,fill=True,color="steelblue")
+
+ax.set_title("Distribution of Student Marks", fontsize=14,fontweight="bold")
+ax.set_xlabel("Marks")
+ax.set_ylabel("Density")
+
+
+plt.tight_layout()
+plt.show()
+
+# Comparing Groups - real power of KDE :
+fig,ax=plt.subplots(figsize=(8,5))
+sns.kdeplot(data=df,x="marks",hue="fee_status",fill=True,alpha=0.4,common_norm=False,palette="Set1",linewidth=2,linestyle="--",bw_adjust=1,cut=0,clip=(0,100),log_scale=False,cumulative=False,ax=ax)
+
+ax.set_title("Marks Distribution by Fee Status(KDE)",fontsize=16,fontweight="bold")
+ax.set_xlabel("Marks",fontsize=12)
+ax.set_ylabel("Density",fontsize=12)
+ax.legend(title="Fee Status",labels=df["fee_status"].unique())
+ax.axvline(df["marks"].mean(),color="red",linestyle="--",linewidth=1.5,label="Mean of Marks")
+sns.despine()
+plt.tight_layout()
+plt.savefig("KDE Plot.png")
+plt.show()
+
+# Histogram + KDE Together 
+
+fig,ax = plt.subplots(figsize=(8,5))
+sns.histplot(data=df,x="marks",kde=True,ax=ax,color="skyblue",edgecolor="black")
+
+ax.set_title("Marks Histogram With KDE Curve")
+plt.tight_layout()
+plt.show()
+
+# Strip Plot
+
+sns.set_style("dark")
+fig ,ax = plt.subplots(figsize=(9,6))
+
+sns.stripplot(data=df,x="subject",y="marks",ax=ax,color="steelblue",hue="fee_status",dodge=True,jitter=0.25,size=6,marker="o",alpha=0.6,palette="Set3",edgecolor="black",linewidth=0.5,order=df["subject"].value_counts().index)
+
+ax.set_title("Marks Distribution per Subject (Strip Plot)", fontsize=14, fontweight='bold')
+ax.set_xlabel("Subject",fontsize=12)
+ax.set_ylabel("Marks",fontsize=12)
+ax.legend(title="Fee Status")
+ax.axhline(df["marks"].mean(),color="red",linestyle="--",linewidth=2,label="Mean")
+plt.xticks(rotation=30)
+sns.despine()
+# plt.savefig("Strip Plot.png")
+plt.tight_layout()
+plt.show()
+
+# Swarm Plot
+
+sns.set_style("whitegrid")
+fig,ax=plt.subplots(figsize=(10,6))
+
+sns.swarmplot(
+    data=df,
+    x="subject",
+    y="marks",
+    hue="fee_status",
+    dodge=True,
+    size=6,
+    marker="D",
+    palette="Set3",
+    edgecolor="black",
+    linewidth=0.5,
+    order=df["subject"].value_counts().index,
+    ax=ax
+)
+
+ax.set_title("Marks Distribution per Subject (Swarm Plot, Split by Fee Status)", fontsize=14, fontweight='bold')
+ax.set_xlabel("Subject", fontsize=12)
+ax.set_ylabel("Marks", fontsize=12)
+ax.legend(title="Fee Status")
+
+ax.axhline(df["marks"].mean(),color="red",linestyle="--",linewidth=1.2,label="Mean")
+
+plt.xticks(rotation=30)
+sns.despine()
+plt.tight_layout()
+# plt.savefig("Swarm Plot.png")
+plt.show()
